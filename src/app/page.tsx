@@ -16,23 +16,40 @@ export default function Home() {
   return (
     <div>
       {posts.map((post) => (
-        <article key={post.slug} className="mb-10">
-          <h3 className="text-[28px] font-black leading-tight mb-1">
+        <article
+          key={post.slug}
+          className="mb-12 pb-12 border-b last:border-b-0"
+          style={{ borderColor: "color-mix(in srgb, var(--meta), transparent 70%)" }}
+        >
+          <h2 className="text-[24px] font-bold leading-snug mb-2">
             <Link
-              href={`/blog/${post.slug}`}
-              className="no-underline transition-transform inline-block hover:scale-[1.005]"
+              href={`/post/${post.slug}`}
+              className="no-underline hover:opacity-70 transition-opacity"
               style={{ color: "var(--title)" }}
             >
               {post.title}
             </Link>
-          </h3>
-          <small
-            className="block mb-2"
+          </h2>
+          <div
+            className="flex items-center gap-3 text-sm mb-3"
             style={{ color: "var(--meta)" }}
           >
-            {formatDate(post.date)}
-          </small>
-          <p style={{ color: "var(--text)" }}>{post.spoiler}</p>
+            <time>{formatDate(post.date)}</time>
+            <span>&middot;</span>
+            <span>{post.wordCount.toLocaleString()} words</span>
+            <span>&middot;</span>
+            <span>{post.readingTime} min read</span>
+          </div>
+          <p className="leading-relaxed" style={{ color: "var(--text)" }}>
+            {post.spoiler}
+          </p>
+          <Link
+            href={`/post/${post.slug}`}
+            className="inline-block mt-3 text-sm no-underline hover:opacity-70 transition-opacity"
+            style={{ color: "var(--link)" }}
+          >
+            Read Full &rarr;
+          </Link>
         </article>
       ))}
     </div>

@@ -5,8 +5,15 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Michael Zuo",
-  description: "Writing on software engineering, AI-driven development, and building things.",
+  description:
+    "Writing on software engineering, AI-driven development, and building things.",
 };
+
+const NAV_LINKS = [
+  { href: "/", label: "Home" },
+  { href: "/archives", label: "Archives" },
+  { href: "/about", label: "About" },
+];
 
 export default function RootLayout({
   children,
@@ -31,25 +38,38 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <div className="max-w-2xl mx-auto px-6 py-10">
-          <header className="flex items-center justify-between mb-12">
+        <div className="max-w-3xl mx-auto px-6 py-10">
+          <header className="text-center mb-14">
             <Link
               href="/"
-              className="text-[28px] font-black no-underline"
-              style={{ color: "var(--link)" }}
+              className="text-[32px] font-black no-underline tracking-tight"
+              style={{ color: "var(--title)" }}
             >
               Michael Zuo
             </Link>
-            <ThemeToggle />
+            <p className="mt-1 text-sm" style={{ color: "var(--meta)" }}>
+              Build things with AI. Ship fast. Think deep.
+            </p>
+            <nav className="mt-4 flex items-center justify-center gap-6">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="text-sm no-underline hover:opacity-70 transition-opacity"
+                  style={{ color: "var(--link)" }}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <ThemeToggle />
+            </nav>
           </header>
           <main>{children}</main>
           <footer
-            className="mt-16 pt-8 border-t text-sm"
+            className="mt-16 pt-8 border-t text-center text-sm"
             style={{ color: "var(--meta)", borderColor: "var(--meta)" }}
           >
-            <p>
-              Built with Next.js
-            </p>
+            <p>&copy; {new Date().getFullYear()} Michael Zuo</p>
           </footer>
         </div>
       </body>
