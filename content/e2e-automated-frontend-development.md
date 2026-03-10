@@ -4,57 +4,36 @@ date: "2026-03-10"
 spoiler: "A system that takes Figma designs and produces production-ready, tested, accessible frontend code."
 ---
 
-## System Overview
+## Problem: Why Is Frontend Still Manual?
 
-An end-to-end system where **Figma designs flow into production-ready frontend code** through a fully automated pipeline. Designers work in Figma. AI generates implementation. Humans review and accept.
+Backend development has largely embraced AI-generated code. Given a schema, an API spec, or a set of business rules, tools like Claude Code can produce working backend services — tests included — with minimal human intervention. This is already happening in production.
+
+Frontend, especially mobile, hasn't caught up. Why?
+
+- **Visual fidelity is hard to verify programmatically.** Backend correctness is binary (tests pass or fail). Frontend correctness is visual — "does it look right?" has traditionally required human eyes.
+- **Design-to-code translation is lossy.** Designers work in Figma. Engineers interpret screenshots and rebuild in code. Every handoff introduces drift.
+- **Responsive behavior multiplies the problem.** One component × 3 breakpoints × multiple states = dozens of visual variants to get right.
+- **No structured contract between design and code.** Backend has OpenAPI specs, database schemas, type systems. Frontend has... a Figma link and a Slack message saying "this looks off."
+
+The result: frontend remains the bottleneck. Engineers spend days on pixel-pushing work that could be automated — if the inputs were structured and the verification was automated.
+
+## Solution
+
+**Figma designs flow directly into production-ready frontend code.** Designers work in Figma. AI generates the implementation. Humans only review and accept.
 
 ![FE Automation System](/diagrams/fe-automation-system.svg)
 
----
+The system has three layers: structured input, AI generation, and automated verification.
 
-## System Components
+## How It Works
 
-### Component 1: Figma Input Layer
+### Layer 1: Structured Input
 
-The system requires structured Figma files. This is the contract between Design and the pipeline.
+Two inputs feed the generation layer: **Figma extractions** and **lightweight specs**.
 
-**Figma file requirements:**
+**From Figma**, three things are extracted automatically:
 
-| Requirement | What It Enables Downstream |
-|-------------|---------------------------|
-| Auto Layout on all frames | Direct translation to CSS Flexbox/Grid |
-| Figma Variables for colors, spacing, typography | Auto-extraction of design tokens |
-| Meaningful layer names (`header-nav`, not `Frame 47`) | Layer names → component/class names |
-| Components for reused elements | Maps to React components |
-| Breakpoint variants (375px, 768px, 1440px) | Responsive behavior is explicit, not guessed |
-| "Ready for dev" status on completed frames | Triggers pipeline |
-
-**Figma file structure:**
-
-```
-📁 Project
-├── 📁 Design System
-│   ├── Variables (colors, spacing, radius, shadows)
-│   ├── Text Styles (heading-xl, body-md, caption, ...)
-│   └── Components (Button, Input, Card, Modal, ...)
-├── 📁 Screens
-│   ├── [Screen] — Desktop (1440px)
-│   ├── [Screen] — Tablet (768px)
-│   └── [Screen] — Mobile (375px)
-└── 📁 Prototypes (user flows)
-```
-
-### Component 2: Extraction Layer
-
-Two extraction pipelines run from the Figma file:
-
-#### 2a. Design Token Sync (Automated)
-
-```
-Figma Variables ──▶ Figma REST API ──▶ tokens.ts
-```
-
-A script calls `GET /v1/files/:key/variables/local`, transforms Figma Variables into a TypeScript const object:
+1. **Design tokens** — Figma Variables → `tokens.ts` via REST API. Colors, spacing, typography become TypeScript constants. No hardcoded values anywhere in the codebase.
 
 ```typescript
 // Auto-generated from Figma — do not edit
@@ -63,39 +42,17 @@ export const tokens = {
     primary: '#2563EB',
     error: '#DC2626',
     text: { primary: '#111827', secondary: '#6B7280' },
-    bg: { page: '#FFFFFF', surface: '#F9FAFB' },
   },
   spacing: { xs: '4px', sm: '8px', md: '16px', lg: '24px', xl: '32px' },
   radius: { sm: '4px', md: '8px', lg: '16px', full: '9999px' },
-  fontSize: { sm: '14px', md: '16px', lg: '20px', xl: '24px' },
 } as const;
 ```
 
-This runs on-demand or via webhook when the Figma file is published. Tokens flow into Tailwind config and component code — no hardcoded values anywhere.
+2. **Markup skeleton** — Figma-to-Code plugin exports frames as raw Tailwind HTML. Structural starting point, not production code.
 
-#### 2b. Markup Export (Semi-automated)
+3. **Reference screenshots** — Figma REST API exports frame images. These become the visual regression baseline.
 
-```
-Figma frames ──▶ Figma-to-Code plugin ──▶ raw Tailwind HTML
-```
-
-The **Figma to Code** plugin exports selected frames as Tailwind HTML. This produces flat, unstyled markup — the structural skeleton, not production code.
-
-Alternative: **Figma Dev Mode** for manual inspection of individual elements (useful for complex interactions that plugins don't capture).
-
-#### 2c. Screenshot Export (Automated)
-
-```
-Figma frames ──▶ Figma REST API (image export) ──▶ reference screenshots
-```
-
-`GET /v1/files/:key/images?ids=:ids&format=png` exports frame screenshots. These become the **visual regression baseline** — the system compares rendered components against these Figma screenshots.
-
-### Component 3: Specification Layer
-
-Engineers write lightweight specs that tell Claude **what to build**, not **how to build it**.
-
-#### Component Spec (per component)
+**From engineers**, lightweight specs define behavior — not implementation:
 
 ```markdown
 ## SearchBar
@@ -104,162 +61,70 @@ States: idle → typing → loading → results | error | empty
 Accessibility: role=search, aria-label on input, aria-live on results
 ```
 
-#### Screen Spec (per page)
+An engineer writes a spec in ~30 minutes per screen. No code, just structured requirements.
 
-```markdown
-## /products
-States: loading → ready | error | empty
-Components: SearchBar (top), ProductGrid (main), FilterSidebar (left, hidden on mobile)
-URL state: ?q= (search), ?category= (filter), ?page= (pagination)
-Responsive: mobile=stack, tablet=2-col no sidebar, desktop=3-col with sidebar
-```
+This only works if Figma files follow a contract: Auto Layout on all frames, Variables for design tokens, meaningful layer names, breakpoint variants (375px, 768px, 1440px). Garbage in = garbage out.
 
-#### Spec input format
+### Layer 2: AI Generation
 
-Templates with fill-in-the-blank structure. An engineer writes a spec in ~30 minutes per screen — not code, just structured requirements.
-
-### Component 4: Generation Layer (Claude Code)
-
-Claude Code receives four inputs and produces production code:
+Claude Code receives tokens + markup + screenshots + specs and produces production components.
 
 ![Claude Code Input/Output](/diagrams/claude-code-io.svg)
 
-**Generation rules enforced via CLAUDE.md:**
-- All colors/spacing/typography must reference `tokens.ts` — no hardcoded values
-- Every component must have a test file and a Storybook story
+Rules enforced via `CLAUDE.md`:
+- All styling must reference `tokens.ts` — no hardcoded values
+- Every component gets a test file and a Storybook story
 - Tests are written before implementation (TDD)
 - Components must pass a11y checks (ARIA, keyboard nav, screen reader)
 - Responsive behavior must match spec breakpoints
 
-**Self-correction loop:** If tests fail after generation, Claude reads the error, fixes the code, and retries — up to 10 iterations before escalating to a human.
+**Self-correction loop:** If tests fail, Claude reads the error, fixes the code, and retries — up to 10 iterations before escalating to a human. If that fails, it decomposes the task into smaller pieces and retries each.
 
-### Component 5: Verification Layer
+### Layer 3: Automated Verification
 
-Seven automated gates run on every commit. All must pass before human review.
+Seven gates run on every commit. All must pass before human review.
 
 ![Verification Pipeline](/diagrams/verification-pipeline.svg)
 
-**Visual regression detail:** Playwright renders each component/page at 3 viewports (375px, 768px, 1440px), takes screenshots, and compares against Figma-exported reference images. Pixel diff > threshold = fail.
+The key gate is **visual regression**: Playwright renders each component at 3 viewports, takes screenshots, and compares against Figma reference images. This closes the loop — the system can now verify visual fidelity programmatically, which is exactly what made frontend automation hard in the first place.
 
-### Component 6: Review & Accept Layer
+Human review is scoped to two things only:
+1. **Storybook review** — Does it look right across all states?
+2. **Diff review** — Is the code clean?
 
-Human review is scoped to two things:
+No need to run the app locally, check responsive behavior manually, run tests, or audit accessibility. The pipeline already did all of that.
 
-1. **Storybook review** — Does it look right? Check all component states, responsive variants
-2. **Diff review** — Is the code clean? Check architecture, naming, patterns
-
-The engineer does NOT need to:
-- Run the app locally and click through it
-- Check responsive behavior manually
-- Run tests manually
-- Check accessibility manually
-
-All of that is already verified by the pipeline.
-
-### Component 7: Recovery Layer
-
-When verification fails and Claude can't self-fix:
-
-```
-Level 1: Self-heal ── Claude reads error, fixes code, retries (up to 10x)
-Level 2: Decompose ── Break the task into smaller pieces, retry each
-Level 3: Escalate ─── Log full context (error, attempted fixes, spec) for human
-Level 4: Learn ────── Human fix gets written back to CLAUDE.md to prevent recurrence
-```
-
----
-
-## End-to-End Flow (Single Feature)
+## End-to-End Flow
 
 ![End-to-End Flow](/diagrams/e2e-flow.svg)
 
----
+## Tech Stack
 
-## Technical Stack
-
-| Layer | Tool | Role in System |
-|-------|------|---------------|
+| Layer | Tool | Role |
+|-------|------|------|
 | Design | Figma | Single source of design truth |
-| Token extraction | Figma REST API | Variables → `tokens.ts` |
-| Markup extraction | Figma-to-Code plugin | Frames → raw Tailwind HTML |
-| Screenshot baseline | Figma REST API (image export) | Reference images for visual regression |
+| Extraction | Figma REST API + Figma-to-Code | Tokens, markup, screenshots |
 | Code generation | Claude Code | Specs + tokens + markup → production components |
 | Framework | Next.js (App Router) | File-based routing, minimal wiring |
 | Styling | Tailwind CSS | Utility classes, constrained by tokens |
-| UI primitives | Radix UI / shadcn/ui | Accessible components, composable |
-| Unit tests | Vitest | Fast, TypeScript-native |
-| E2E tests | Playwright | Cross-browser, visual screenshots |
-| Visual regression | Playwright screenshots | Compare rendered vs. Figma reference |
+| UI primitives | Radix UI / shadcn/ui | Accessible, composable components |
+| Testing | Vitest + Playwright | Unit tests + E2E + visual regression |
 | Accessibility | axe-core + eslint-plugin-jsx-a11y | Automated a11y audit |
-| Component review | Storybook | Isolated visual review for all states |
+| Review | Storybook | Isolated visual review for all states |
 | CI | GitHub Actions | Run 7 verification gates |
-| Project context | CLAUDE.md | Persistent project knowledge for AI |
 
----
+## What's Proven, What's Next
 
-## Feasibility Assessment
+**Already working in production:**
+- Claude Code generating React components from specs (MewtwoAI: 747 tests, FinancialAssistant: 51 tests)
+- TDD with Claude (tests first, then implementation)
+- Automated verification pipeline (typecheck + lint + test + build)
+- Figma REST API token extraction
 
-### What Works Today (Proven)
+**Needs building (~1-2 weeks):**
+- Visual regression with Figma screenshots as baseline (Playwright screenshot comparison, threshold tuning)
+- Figma token sync script (REST API call + JSON transform)
+- CI pipeline with all 7 gates
+- Designer workflow guide (structured Figma files are the contract)
 
-| Capability | Status | Evidence |
-|-----------|--------|---------|
-| Figma REST API token extraction | Production-ready | API is stable, Variables endpoint available |
-| Figma-to-Code Tailwind export | Usable | Open source plugin, clean output for Auto Layout files |
-| Claude Code generating React components from specs | Proven | Used in current projects (MewtwoAI: 747 tests, FinancialAssistant: 51 tests) |
-| TDD with Claude (tests first, then implementation) | Proven | Standard workflow in our projects |
-| Automated verification (typecheck + lint + test + build) | Proven | Already running in our projects |
-| Storybook for component review | Mature | Industry standard, well-supported |
-
-### What Needs Building (1-2 weeks)
-
-| Component | Effort | Complexity |
-|-----------|--------|-----------|
-| Figma token sync script | 1 day | Low — REST API call + JSON transform |
-| Visual regression with Figma screenshots as baseline | 2-3 days | Medium — Playwright screenshot comparison, threshold tuning |
-| CI pipeline with 7 gates | 2 days | Low — standard GitHub Actions |
-| Storybook + Chromatic integration | 1 day | Low — well-documented setup |
-| Spec templates + CLAUDE.md for pilot project | 0.5 day | Low — templates already drafted |
-| Figma discipline guide for designers | 0.5 day | Low — documentation + 1 training session |
-
-### Open Questions
-
-| Question | Impact | How to Resolve |
-|----------|--------|---------------|
-| How accurate is Figma-to-Code plugin output for our designs? | High | Test with 3 existing screens — measure cleanup effort |
-| What's the right pixel-diff threshold for visual regression? | Medium | Empirical — run on existing components, tune to avoid false positives |
-| Can Claude handle complex interactive patterns (drag-drop, animations)? | Medium | Test during pilot — scope pilot to avoid these initially |
-| Will designers adopt Figma discipline? | High | Design lead buy-in required — frame as "your designs get built accurately" |
-
----
-
-## Pilot Plan
-
-**Scope:** 1 feature, 3-5 screens, 1 engineer, 2 weeks.
-
-**Week 1:**
-- Set up infrastructure (token sync, CI gates, Storybook)
-- Designer structures Figma file per requirements
-- Engineer writes specs for all screens
-
-**Week 2:**
-- Run full pipeline: extract → generate → verify → review
-- Measure: time spent, intervention rate, code quality
-- Document: what worked, what broke, what to change
-
-**Pilot output:** Data on feasibility + refined system design for Phase 1.
-
----
-
-## System Boundaries
-
-What this system **does:**
-- Generate UI components from Figma designs + specs
-- Produce comprehensive tests (unit, E2E, visual, a11y)
-- Verify code quality through automated gates
-- Maintain design-code fidelity via token sync
-
-What this system **does not:**
-- Replace product/design decisions (humans define what to build)
-- Handle backend/API implementation (separate workflow)
-- Auto-deploy to production without human approval
-- Work with unstructured Figma files (garbage in = garbage out)
+**Open question:** Will designers adopt the structured Figma discipline? The pitch: "your designs get built accurately, every time." The risk: adoption friction. This is the single biggest non-technical dependency.
