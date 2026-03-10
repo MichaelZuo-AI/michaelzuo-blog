@@ -8,31 +8,7 @@ spoiler: "A system that takes Figma designs and produces production-ready, teste
 
 An end-to-end system where **Figma designs flow into production-ready frontend code** through a fully automated pipeline. Designers work in Figma. AI generates implementation. Humans review and accept.
 
-```
-┌─────────────────────────────────────────────────────────────────────────────────┐
-│                         FE AUTOMATION SYSTEM                                    │
-│                                                                                 │
-│  ┌─────────┐    ┌─────────────┐    ┌──────────────┐    ┌────────────────────┐  │
-│  │  FIGMA   │───▶│  EXTRACTION │───▶│  GENERATION  │───▶│   VERIFICATION    │  │
-│  │  (input) │    │  (tokens +  │    │  (Claude     │    │   (7 automated    │  │
-│  │          │    │   markup)   │    │   Code)      │    │    quality gates) │  │
-│  └─────────┘    └─────────────┘    └──────────────┘    └────────┬───────────┘  │
-│                                                                  │              │
-│                                                          pass ┌──┴──┐ fail     │
-│                                                               │     │          │
-│                                                               ▼     ▼          │
-│                                                           ┌──────┐ ┌────────┐  │
-│                                                           │REVIEW│ │AUTO-FIX│  │
-│                                                           │(human│ │(Claude │  │
-│                                                           │accept│ │retries)│  │
-│                                                           └──┬───┘ └────────┘  │
-│                                                              │                  │
-│                                                              ▼                  │
-│                                                         ┌─────────┐            │
-│                                                         │  SHIP   │            │
-│                                                         └─────────┘            │
-└─────────────────────────────────────────────────────────────────────────────────┘
-```
+![FE Automation System](/blogs/diagrams/fe-automation-system.svg)
 
 ---
 
@@ -146,35 +122,7 @@ Templates with fill-in-the-blank structure. An engineer writes a spec in ~30 min
 
 Claude Code receives four inputs and produces production code:
 
-```
-┌─────────────────────────────────────────────────────┐
-│                  CLAUDE CODE INPUT                    │
-│                                                       │
-│  1. tokens.ts ────────── design constraints           │
-│  2. Raw Tailwind HTML ── structural skeleton          │
-│  3. Component/Screen specs ── behavioral requirements │
-│  4. CLAUDE.md ─────────── project conventions         │
-│                                                       │
-└───────────────────────┬─────────────────────────────┘
-                        │
-                        ▼
-┌─────────────────────────────────────────────────────┐
-│                  CLAUDE CODE OUTPUT                   │
-│                                                       │
-│  components/                                          │
-│  ├── SearchBar.tsx ──────── component implementation   │
-│  ├── SearchBar.test.tsx ─── unit + interaction tests  │
-│  └── SearchBar.stories.tsx ─ all states in Storybook  │
-│                                                       │
-│  app/products/                                        │
-│  ├── page.tsx ───────────── page integration           │
-│  └── page.test.tsx ──────── page-level tests          │
-│                                                       │
-│  e2e/                                                 │
-│  └── products.spec.ts ───── E2E user flow tests       │
-│                                                       │
-└─────────────────────────────────────────────────────┘
-```
+![Claude Code Input/Output](/blogs/diagrams/claude-code-io.svg)
 
 **Generation rules enforced via CLAUDE.md:**
 - All colors/spacing/typography must reference `tokens.ts` — no hardcoded values
@@ -189,26 +137,7 @@ Claude Code receives four inputs and produces production code:
 
 Seven automated gates run on every commit. All must pass before human review.
 
-```
-┌──────────────────────────────────────────────────────────────────┐
-│                      VERIFICATION PIPELINE                        │
-│                                                                    │
-│  Gate 1: tsc --noEmit ────────────────── Type safety              │
-│  Gate 2: eslint --max-warnings 0 ─────── Code standards           │
-│  Gate 3: vitest run ──────────────────── Unit + integration tests │
-│  Gate 4: next build ──────────────────── Production build         │
-│  Gate 5: playwright test ─────────────── E2E user flows           │
-│  Gate 6: playwright screenshots ──────── Visual regression        │
-│          vs. Figma reference images      (pixel comparison)       │
-│  Gate 7: axe-core ────────────────────── Accessibility audit      │
-│                                                                    │
-│  Optional: lighthouse ────────────────── Performance (advisory)   │
-│                                                                    │
-│  ALL PASS ──▶ PR created ──▶ Human review in Storybook            │
-│  ANY FAIL ──▶ Claude auto-fix ──▶ retry ──▶ escalate if stuck     │
-│                                                                    │
-└──────────────────────────────────────────────────────────────────┘
-```
+![Verification Pipeline](/blogs/diagrams/verification-pipeline.svg)
 
 **Visual regression detail:** Playwright renders each component/page at 3 viewports (375px, 768px, 1440px), takes screenshots, and compares against Figma-exported reference images. Pixel diff > threshold = fail.
 
@@ -242,54 +171,7 @@ Level 4: Learn ────── Human fix gets written back to CLAUDE.md to pr
 
 ## End-to-End Flow (Single Feature)
 
-```
-                    DESIGNER                    ENGINEER                    SYSTEM
-                    ────────                    ────────                    ──────
-
-                    Design in Figma
-                    (Auto Layout +
-                     Variables +
-                     Named layers)
-                         │
-                         │ "Ready for dev"
-                         ▼
-                                                Write specs
-                                                (component +
-                                                 screen, ~30min)
-                                                     │
-                                                     │ commit specs
-                                                     ▼
-                                                                     Token sync
-                                                                     (Figma API → tokens.ts)
-                                                                            │
-                                                                     Markup export
-                                                                     (plugin → raw HTML)
-                                                                            │
-                                                                     Claude Code generates:
-                                                                     • Components (.tsx)
-                                                                     • Tests (.test.tsx)
-                                                                     • Stories (.stories.tsx)
-                                                                     • Page integration
-                                                                            │
-                                                                     Verification (7 gates)
-                                                                            │
-                                                                     ┌──────┴──────┐
-                                                                     │             │
-                                                                  PASS          FAIL
-                                                                     │          Auto-fix
-                                                                     │          retry
-                                                                     ▼             │
-                                                Review PR             │
-                                                (Storybook +          │
-                                                 diff only)◀──────────┘
-                                                     │
-                                            Accept ──┤── Request changes
-                                                     │   (Claude fixes)
-                                                     ▼
-                    Review in                   Merge + deploy
-                    Storybook
-                    "looks right" ✓
-```
+![End-to-End Flow](/blogs/diagrams/e2e-flow.svg)
 
 ---
 
