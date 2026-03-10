@@ -112,3 +112,9 @@ No need to run the app locally, check responsive behavior manually, run tests, o
 | Accessibility | axe-core + eslint-plugin-jsx-a11y | Automated a11y audit |
 | Review | Storybook | Isolated visual review for all states |
 | CI | GitHub Actions | Run 7 verification gates |
+
+## What's Next
+
+Each layer in this system — token extraction, markup export, AI generation, automated verification — already has production-ready tooling. The technical feasibility is there. What's missing is end-to-end integration: wiring these pieces into a single pipeline and validating it against real product screens.
+
+The next step is a focused POC: pick one feature, 3-5 screens, run the full pipeline from Figma to deployed code, and measure what works, what breaks, and where humans still need to intervene. That data will determine whether this scales.
