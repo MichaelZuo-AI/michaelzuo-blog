@@ -11,19 +11,10 @@ export interface PostMeta {
   title: string;
   date: string;
   spoiler: string;
-  wordCount: number;
-  readingTime: number;
 }
 
 export interface Post extends PostMeta {
   contentHtml: string;
-}
-
-function countWords(text: string): number {
-  return text
-    .replace(/[#*`>\-|_\[\](){}]/g, "")
-    .split(/\s+/)
-    .filter((w) => w.length > 0).length;
 }
 
 export function getAllPosts(): PostMeta[] {
@@ -34,16 +25,13 @@ export function getAllPosts(): PostMeta[] {
       const slug = fileName.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data, content } = matter(fileContents);
-      const wordCount = countWords(content);
+      const { data } = matter(fileContents);
 
       return {
         slug,
         title: data.title,
         date: data.date,
         spoiler: data.spoiler || "",
-        wordCount,
-        readingTime: Math.max(1, Math.round(wordCount / 200)),
       };
     });
 
@@ -66,15 +54,12 @@ export async function getPost(slug: string): Promise<Post> {
 
   const processedContent = await remark().use(html).process(content);
   const contentHtml = processedContent.toString();
-  const wordCount = countWords(content);
 
   return {
     slug,
     title: data.title,
     date: data.date,
     spoiler: data.spoiler || "",
-    wordCount,
-    readingTime: Math.max(1, Math.round(wordCount / 200)),
     contentHtml,
   };
 }

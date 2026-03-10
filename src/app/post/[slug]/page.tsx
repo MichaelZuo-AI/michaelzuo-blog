@@ -40,32 +40,25 @@ export default async function BlogPost({
 
   return (
     <article>
-      <header className="text-center mb-10">
+      <header className="mb-8">
         <h1
-          className="text-[36px] font-black leading-tight mb-3"
+          className="text-[40px] font-black leading-tight mb-2"
           style={{ color: "var(--title)" }}
         >
           {post.title}
         </h1>
-        <div
-          className="flex items-center justify-center gap-3 text-sm"
-          style={{ color: "var(--meta)" }}
-        >
-          <time>{formatDate(post.date)}</time>
-          <span>&middot;</span>
-          <span>{post.wordCount.toLocaleString()} words</span>
-          <span>&middot;</span>
-          <span>{post.readingTime} min read</span>
-        </div>
+        <small style={{ color: "var(--meta)" }}>
+          {formatDate(post.date)}
+        </small>
       </header>
       <div
         className="prose prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: post.contentHtml }}
       />
-      <div className="mt-12 text-center">
+      <div className="mt-12">
         <Link
           href="/"
-          className="no-underline text-sm hover:opacity-70 transition-opacity"
+          className="no-underline font-bold"
           style={{ color: "var(--link)" }}
         >
           &larr; Back to all posts
