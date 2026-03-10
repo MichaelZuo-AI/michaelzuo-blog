@@ -8,7 +8,7 @@ spoiler: "A system that takes Figma designs and produces production-ready, teste
 
 An end-to-end system where **Figma designs flow into production-ready frontend code** through a fully automated pipeline. Designers work in Figma. AI generates implementation. Humans review and accept.
 
-![FE Automation System](/blogs/diagrams/fe-automation-system.svg)
+![FE Automation System](/diagrams/fe-automation-system.svg)
 
 ---
 
@@ -122,7 +122,7 @@ Templates with fill-in-the-blank structure. An engineer writes a spec in ~30 min
 
 Claude Code receives four inputs and produces production code:
 
-![Claude Code Input/Output](/blogs/diagrams/claude-code-io.svg)
+![Claude Code Input/Output](/diagrams/claude-code-io.svg)
 
 **Generation rules enforced via CLAUDE.md:**
 - All colors/spacing/typography must reference `tokens.ts` — no hardcoded values
@@ -137,7 +137,7 @@ Claude Code receives four inputs and produces production code:
 
 Seven automated gates run on every commit. All must pass before human review.
 
-![Verification Pipeline](/blogs/diagrams/verification-pipeline.svg)
+![Verification Pipeline](/diagrams/verification-pipeline.svg)
 
 **Visual regression detail:** Playwright renders each component/page at 3 viewports (375px, 768px, 1440px), takes screenshots, and compares against Figma-exported reference images. Pixel diff > threshold = fail.
 
@@ -171,7 +171,7 @@ Level 4: Learn ────── Human fix gets written back to CLAUDE.md to pr
 
 ## End-to-End Flow (Single Feature)
 
-![End-to-End Flow](/blogs/diagrams/e2e-flow.svg)
+![End-to-End Flow](/diagrams/e2e-flow.svg)
 
 ---
 

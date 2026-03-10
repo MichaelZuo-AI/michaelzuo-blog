@@ -17,7 +17,7 @@ With Claude Code in the loop, we can collapse this entire gap.
 
 ## Pipeline Overview
 
-![Figma to Code Pipeline](/blogs/diagrams/figma-pipeline.svg)
+![Figma to Code Pipeline](/diagrams/figma-pipeline.svg)
 
 **Three stages:**
 1. **Designer structures Figma properly** (the biggest leverage point)
