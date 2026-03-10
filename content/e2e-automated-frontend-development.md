@@ -67,16 +67,22 @@ This only works if Figma files follow a contract: Auto Layout on all frames, Var
 
 ### Layer 2: AI Generation
 
-Claude Code receives tokens + markup + screenshots + specs and produces production components.
+Claude Code receives tokens + markup + screenshots + specs and produces production code — targeting the platform the project uses:
+
+- **Web:** React/Next.js components with Tailwind CSS
+- **Android:** Kotlin + Jetpack Compose layouts
+- **iOS:** Swift + SwiftUI views
+
+The inputs are the same regardless of platform — tokens, specs, and Figma references. Claude generates platform-native code: Compose `Modifier` chains instead of CSS classes, SwiftUI `VStack`/`HStack` instead of Flexbox. The spec describes *what* to build; the target platform determines *how*.
 
 ![Claude Code Input/Output](/diagrams/claude-code-io.svg)
 
 Rules enforced via `CLAUDE.md`:
-- All styling must reference `tokens.ts` — no hardcoded values
-- Every component gets a test file and a Storybook story
+- All styling must reference design tokens — no hardcoded colors, spacing, or typography
+- Every component gets a corresponding test file
 - Tests are written before implementation (TDD)
-- Components must pass a11y checks (ARIA, keyboard nav, screen reader)
-- Responsive behavior must match spec breakpoints
+- Components must pass accessibility checks (platform-specific: ARIA for web, content descriptions for Android, accessibility labels for iOS)
+- Responsive/adaptive behavior must match spec breakpoints or device classes
 
 **Self-correction loop:** If tests fail, Claude reads the error, fixes the code, and retries — up to 10 iterations before escalating to a human. If that fails, it decomposes the task into smaller pieces and retries each.
 
