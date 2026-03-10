@@ -1,0 +1,74 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #ffffff;
+  --text: #333333;
+  --title: #000000;
+  --link: #d23669;
+  --meta: #999999;
+}
+
+.dark {
+  --bg: #282c35;
+  --text: #ffffffde;
+  --title: #ffffff;
+  --link: #ffa7c4;
+  --meta: #ffffffa0;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Prose overrides for overreacted.io style */
+.prose {
+  --tw-prose-body: var(--text);
+  --tw-prose-headings: var(--title);
+  --tw-prose-links: var(--link);
+  --tw-prose-bold: var(--title);
+  --tw-prose-code: var(--title);
+  --tw-prose-quotes: var(--text);
+  --tw-prose-quote-borders: var(--link);
+}
+
+.prose a {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: 1px solid var(--link);
+}
+
+.prose a:hover {
+  border-bottom-style: dashed;
+}
+
+.prose code {
+  font-size: 0.9em;
+}
+
+.prose pre {
+  background-color: color-mix(in srgb, var(--bg), #000 10%);
+  border-radius: 6px;
+  overflow-x: auto;
+}
+
+.dark .prose pre {
+  background-color: color-mix(in srgb, var(--bg), #000 30%);
+}
+
+.prose blockquote {
+  border-left-color: var(--link);
+  font-style: normal;
+}
+
+.prose table {
+  font-size: 0.9em;
+}
+
+.prose th {
+  color: var(--title);
+}
