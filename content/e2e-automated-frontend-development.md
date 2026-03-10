@@ -110,14 +110,14 @@ No need to run the app locally, check responsive behavior manually, run tests, o
 |-------|------|------|
 | Design | Figma | Single source of design truth |
 | Extraction | Figma REST API + Figma-to-Code | Tokens, markup, screenshots |
-| Code generation | Claude Code | Specs + tokens + markup → production components |
-| Framework | Next.js (App Router) | File-based routing, minimal wiring |
-| Styling | Tailwind CSS | Utility classes, constrained by tokens |
-| UI primitives | Radix UI / shadcn/ui | Accessible, composable components |
-| Testing | Vitest + Playwright | Unit tests + E2E + visual regression |
-| Accessibility | axe-core + eslint-plugin-jsx-a11y | Automated a11y audit |
-| Review | Storybook | Isolated visual review for all states |
-| CI | GitHub Actions | Run 7 verification gates |
+| Code generation | Claude Code | Specs + tokens + markup → platform-native code |
+| Web | Next.js + Tailwind CSS + Radix UI | React components, utility-first styling |
+| Android | Kotlin + Jetpack Compose | Compose layouts, Material 3 components |
+| iOS | Swift + SwiftUI | SwiftUI views, native accessibility |
+| Testing | Vitest / JUnit / XCTest + Playwright | Unit + E2E + visual regression (per platform) |
+| Accessibility | axe-core / content descriptions / accessibility labels | Automated a11y audit (per platform) |
+| Review | Storybook / Compose Preview / Xcode Previews | Isolated visual review for all states |
+| CI | GitHub Actions | Run verification gates |
 
 ## What's Next
 
