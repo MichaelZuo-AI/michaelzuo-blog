@@ -112,19 +112,3 @@ No need to run the app locally, check responsive behavior manually, run tests, o
 | Accessibility | axe-core + eslint-plugin-jsx-a11y | Automated a11y audit |
 | Review | Storybook | Isolated visual review for all states |
 | CI | GitHub Actions | Run 7 verification gates |
-
-## What's Proven, What's Next
-
-**Already working in production:**
-- Claude Code generating React components from specs (MewtwoAI: 747 tests, FinancialAssistant: 51 tests)
-- TDD with Claude (tests first, then implementation)
-- Automated verification pipeline (typecheck + lint + test + build)
-- Figma REST API token extraction
-
-**Needs building (~1-2 weeks):**
-- Visual regression with Figma screenshots as baseline (Playwright screenshot comparison, threshold tuning)
-- Figma token sync script (REST API call + JSON transform)
-- CI pipeline with all 7 gates
-- Designer workflow guide (structured Figma files are the contract)
-
-**Open question:** Will designers adopt the structured Figma discipline? The pitch: "your designs get built accurately, every time." The risk: adoption friction. This is the single biggest non-technical dependency.
