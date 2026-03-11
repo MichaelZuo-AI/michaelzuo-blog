@@ -34,6 +34,8 @@ body {
   --tw-prose-code: var(--title);
   --tw-prose-quotes: var(--text);
   --tw-prose-quote-borders: var(--link);
+  --tw-prose-pre-code: var(--text);
+  --tw-prose-pre-bg: color-mix(in srgb, var(--bg), #000 10%);
 }
 
 .prose a {
@@ -56,8 +58,8 @@ body {
   overflow-x: auto;
 }
 
-.dark .prose pre {
-  background-color: color-mix(in srgb, var(--bg), #000 30%);
+.dark .prose {
+  --tw-prose-pre-bg: color-mix(in srgb, var(--bg), #000 30%);
 }
 
 .prose blockquote {
