@@ -284,10 +284,97 @@ FIGMA_TOKEN=your-token npx tsx scripts/sync-figma-tokens.ts YOUR_FILE_KEY > src/
 
 ---
 
+## Dealing with Messy Figma Files
+
+Stage 1 describes the ideal. Reality is different — designers often produce deeply nested redundant layouts, `Frame 47`-style naming, and incomplete customer flows described through rough annotations. Here's how to maximize success rate when your Figma files are far from clean.
+
+### Strategy 1: Go Screenshot-First, Not Structure-First
+
+When Figma structure is a mess, **don't extract code from it**. Switch to a vision-driven approach:
+
+```
+Screenshot Figma pages → Feed to Claude Vision → Claude writes components from the image
+```
+
+Claude's vision can identify layout, spacing, colors, and component boundaries directly from screenshots — completely bypassing the tangled layer tree. This is far more reliable than parsing 5 levels of redundant Auto Layout nesting.
+
+**When to use this:** Your designer uses absolute positioning, names layers `Group 12 > Frame 3 > Rectangle 7`, and the Figma-to-Code plugin output is unusable.
+
+### Strategy 2: Add a "Figma Cleanup" Layer
+
+Insert a cleanup step between extraction (Stage 2) and production refactoring (Stage 3):
+
+```
+Raw Figma export (redundant nesting)
+    ↓
+Claude cleanup prompt:
+  "This is raw HTML exported from Figma. It has deeply nested
+   wrapper divs that serve no layout purpose.
+   1. Flatten unnecessary nesting levels
+   2. Rename classes based on visual purpose
+   3. Output simplified, semantic HTML"
+    ↓
+Cleaned HTML → normal Stage 3 flow
+```
+
+This two-pass approach consistently outperforms trying to go from messy export to production code in one shot.
+
+### Strategy 3: Turn Rough Annotations into Structured Specs
+
+Designers often describe flows through scattered annotations instead of proper specs. Use Claude to bridge the gap:
+
+```
+Input to Claude:
+- Figma screenshots (all pages and states)
+- Designer's rough annotations (paste as-is)
+- One sentence describing what the feature does
+
+Prompt:
+"Based on these screenshots and designer annotations, generate:
+ 1. Component tree (which parts are independent components)
+ 2. User flow as a state machine (states + transitions)
+ 3. Props interface for each component
+ 4. List of missing information (questions for the designer)"
+```
+
+**Item 4 is the key output.** Claude identifies exactly what the designer didn't specify — take that checklist back to the designer instead of guessing. This is 10x more efficient than reverse-engineering intent from ambiguous mockups.
+
+### Strategy 4: Push Only Two Rules (Highest ROI)
+
+Don't ask designers to adopt all of Stage 1 at once. Push only the two rules that yield the most improvement for the least effort:
+
+| Priority | Rule | Why |
+|----------|------|-----|
+| **P0** | Name every layer meaningfully | Lowest effort, highest payoff — names become component names directly |
+| **P1** | Use Auto Layout instead of absolute positioning | Eliminates redundant nesting at the source |
+
+Everything else (Variables, Styles, breakpoint frames) can come later. These two rules alone dramatically improve every downstream step.
+
+### Recommended Workflow for Messy Figma Files
+
+```
+Designer hands off unstructured Figma
+    ↓
+1. Screenshot every page + interaction state (skip plugin export)
+2. Copy designer's annotations verbatim
+3. Feed to Claude:
+   "Here are our design screenshots and designer notes.
+    Our stack is [Next.js + Tailwind].
+    Generate page components from the screenshots.
+    List anything unclear — don't guess, ask."
+4. Claude outputs → missing info checklist → confirm with designer
+5. With gaps filled → Claude generates final code + tests
+```
+
+**Core principle: when Figma structure is unreliable, use Claude as eyes (Vision), not as a parser (Structure).** A screenshot is more trustworthy than a mangled JSON tree.
+
+---
+
 ## Choosing Your Approach
 
 | Team Size | Figma Maturity | Recommended Approach |
 |-----------|---------------|---------------------|
+| Any size | **Low (messy files)** | **Screenshots + Claude Vision — skip structure extraction** |
 | 1-3 devs | Low (no Auto Layout, no Variables) | Dev Mode + manual copy to Claude |
 | 1-3 devs | High (structured files) | Figma-to-Code plugin + Claude refactor |
 | 4-10 devs | High | Figma API token sync + plugin export + Claude |
@@ -295,4 +382,4 @@ FIGMA_TOKEN=your-token npx tsx scripts/sync-figma-tokens.ts YOUR_FILE_KEY > src/
 
 **Start simple. Automate what hurts.**
 
-The biggest ROI is always **Stage 1** — getting designers to structure Figma files properly. Everything downstream gets 10x better when the input is clean.
+The biggest ROI is always **Stage 1** — getting designers to structure Figma files properly. Everything downstream gets 10x better when the input is clean. But if your designers aren't there yet, the screenshot-first approach from "Dealing with Messy Figma Files" gets you shipping today while you gradually improve Figma discipline.
