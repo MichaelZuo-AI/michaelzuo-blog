@@ -6,9 +6,6 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Michael Zuo",
   description: "Writing on software engineering, AI-driven development, and building things.",
-  openGraph: {
-    images: [{ url: "https://michaelzuo.vip/og-image.png", width: 630, height: 630 }],
-  },
 };
 
 export default function RootLayout({
