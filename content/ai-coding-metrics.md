@@ -68,17 +68,7 @@ That's not just "more output." That's the AI earning trust — handling more of 
 
 ## What to Do Tomorrow
 
-You don't need a new tool or a dashboard overhaul. Start here:
-
-1. **Pick one team. Track interventions for two sprints.** A shared spreadsheet is fine. Column A: feature. Column B: intervention type. Column C: weight. That's it.
-
-2. **Calculate FPI at sprint boundaries.** The number itself matters less than the trend. Is it going up?
-
-3. **Use FPI in your next 1:1 with your engineering director.** Not as a KPI — as a conversation starter. "How much of the AI's output are we keeping versus reworking?" That question alone will surface insights.
-
-4. **Compare FPI across teams, not individuals.** FPI is a team-level metric. It reflects how well the team's processes, codebase, and tooling support AI autonomy — not how "good" any one engineer is at prompting.
-
-5. **Watch the intervention mix, not just the number.** A team whose interventions shift from takeovers to minor hints is improving faster than a team whose FPI rises because they're shipping smaller features.
+Start tracking the data. Pick one team, open a shared spreadsheet, and log every human intervention for the next two sprints. Feature name, what the intervention was, done. You don't need a new tool, a dashboard, or a process overhaul. You just need the raw numbers. Once you have data, FPI calculates itself — and the trend will tell you everything you need to know.
 
 ---
 
