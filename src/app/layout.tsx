@@ -48,7 +48,7 @@ export default function RootLayout({
             style={{ color: "var(--meta)", borderColor: "var(--meta)" }}
           >
             <p>
-              Built with Next.js
+              Where Michael Thinks
             </p>
           </footer>
         </div>
