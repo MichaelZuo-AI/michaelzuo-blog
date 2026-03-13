@@ -66,18 +66,6 @@ That's not just "more output." That's the AI earning trust — handling more of 
 2. **"Where are interventions happening most?"** — Is it architecture decisions? Test failures? Integration bugs? The pattern tells you where AI tooling needs improvement.
 3. **"How does FPI vary across teams?"** — Team-level variance reveals which teams have figured out how to work with AI and which haven't. That's a coaching opportunity, not a headcount decision.
 
-## Capability vs. Dependency
-
-FPI answers the question every VP is silently asking: *"Is AI making my team more capable, or more dependent?"*
-
-**Capability** looks like: FPI rising over time. Fewer severe interventions. Engineers spending their time on architecture, product decisions, and code review rather than implementation. The AI handles the mechanical work; humans handle the judgment calls.
-
-**Dependency** looks like: High output numbers but flat or falling FPI. Engineers who can't ship without AI tools. No one on the team who understands the code the AI wrote. When the AI makes a mistake, it takes longer to fix than writing it manually would have.
-
-The difference is directional. Both teams use AI heavily. But one team is building on top of AI capability — each sprint, the AI handles more. The other team is running on a treadmill — same intervention rate, just more volume.
-
-FPI makes this visible.
-
 ## What to Do Tomorrow
 
 You don't need a new tool or a dashboard overhaul. Start here:
