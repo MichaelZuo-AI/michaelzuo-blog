@@ -1,5 +1,5 @@
 ---
-title: "FPI: The One Metric for AI-Augmented Engineering Teams"
+title: "One Metric Is All You Need: Measuring AI Engineering Productivity"
 date: "2026-03-13"
 spoiler: "Velocity measured effort. FPI measures trust. Here's why it's the only metric that matters when AI writes your code."
 ---
