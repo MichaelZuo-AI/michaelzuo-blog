@@ -60,7 +60,7 @@ That's not just "more output." That's the AI earning trust — handling more of 
 
 **Falling FPI** is a red flag. It means the AI is generating more work for humans, not less. Common causes: increased codebase complexity that the AI can't navigate, team members over-relying on AI for tasks it's bad at, or degraded prompt/context quality.
 
-### Questions to Ask Your Engineering Directors
+### Questions to Ask Your Engineering Team
 
 1. **"What's our FPI trend over the last three months?"** — If they can't answer, you're flying blind.
 2. **"Where are interventions happening most?"** — Is it architecture decisions? Test failures? Integration bugs? The pattern tells you where AI tooling needs improvement.
