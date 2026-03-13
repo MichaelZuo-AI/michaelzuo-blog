@@ -22,7 +22,7 @@ export async function generateMetadata({
     openGraph: {
       title: post.title,
       description: post.spoiler,
-      images: [{ url: "https://michaelzuo.vip/og-image.png", width: 1200, height: 630 }],
+      images: [{ url: "https://michaelzuo.vip/og-image.png", width: 600, height: 600 }],
     },
   };
 }

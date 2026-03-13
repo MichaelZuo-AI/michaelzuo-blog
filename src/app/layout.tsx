@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Michael Zuo",
     description: "Writing on software engineering, AI-driven development, and building things.",
-    images: [{ url: "https://michaelzuo.vip/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "https://michaelzuo.vip/og-image.png", width: 600, height: 600 }],
   },
 };
 
