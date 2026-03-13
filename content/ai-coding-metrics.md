@@ -38,27 +38,17 @@ This is exactly what's happening in your engineering org.
 
 **FPI** applies the same logic to AI-augmented software development:
 
-> **FPI = Features Delivered / Weighted Human Interventions**
+> **FPI = Features Delivered / Human Interventions**
 
-A "feature" is a unit of shipped product value — whatever your team already counts as a deliverable (story, task, user-facing change). The denominator is where the insight lives.
+A "feature" is a unit of shipped product value — whatever your team already counts as a deliverable (story, task, user-facing change). An "intervention" is any time a human has to step in — a correction, a rework, a takeover. Just like MPI counts every mile the same regardless of road type, FPI counts every intervention the same. Simple is better. What matters is the ratio and the trend.
 
-### Weighting Interventions
+**Example:** A team delivers 8 features in a sprint. During that sprint, the AI needed 5 human interventions.
 
-Not all human interventions are equal. A quick hint is different from rewriting an entire implementation. FPI uses a severity weight:
+> FPI = 8 / 5 = **1.6**
 
-| Intervention Type | Weight | Example |
-|---|---|---|
-| **Minor guidance** | 0.1 | "Use the existing auth middleware instead of writing a new one" |
-| **Rework** | 0.5 | Rewriting a function the AI produced because the approach was wrong |
-| **Takeover** | 1.0 | Abandoning the AI's output and implementing from scratch |
+The same team, a month later, delivers 12 features with only 3 interventions:
 
-**Example:** A team delivers 8 features in a sprint. During that sprint, the AI needed 3 minor hints (3 × 0.1 = 0.3), 2 reworks (2 × 0.5 = 1.0), and 0 takeovers.
-
-> FPI = 8 / (0.3 + 1.0) = **6.15**
-
-The same team, a month later, delivers 10 features with only 4 minor hints and 1 rework:
-
-> FPI = 10 / (0.4 + 0.5) = **11.1**
+> FPI = 12 / 3 = **4.0**
 
 That's not just "more output." That's the AI earning trust — handling more of the work without human correction.
 
@@ -73,7 +63,7 @@ That's not just "more output." That's the AI earning trust — handling more of 
 ### Questions to Ask Your Engineering Directors
 
 1. **"What's our FPI trend over the last three months?"** — If they can't answer, you're flying blind.
-2. **"Which types of interventions are most common?"** — Mostly minor? You're on track. Mostly rework or takeover? The AI isn't well-integrated.
+2. **"Where are interventions happening most?"** — Is it architecture decisions? Test failures? Integration bugs? The pattern tells you where AI tooling needs improvement.
 3. **"How does FPI vary across teams?"** — Team-level variance reveals which teams have figured out how to work with AI and which haven't. That's a coaching opportunity, not a headcount decision.
 
 ## Capability vs. Dependency
