@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllSlugs, getPost } from "@/lib/posts";
+import PostContent from "@/components/PostContent";
 import type { Metadata } from "next";
 
 type Params = Promise<{ slug: string }>;
@@ -51,9 +52,10 @@ export default async function BlogPost({
           {formatDate(post.date)}
         </small>
       </header>
-      <div
-        className="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: post.contentHtml }}
+      <PostContent
+        contentHtml={post.contentHtml}
+        contentHtmlZh={post.contentHtmlZh}
+        hasTranslation={post.hasTranslation}
       />
       <div className="mt-12">
         <Link

@@ -16,12 +16,19 @@ export interface PostMeta {
 
 export interface Post extends PostMeta {
   contentHtml: string;
+  contentHtmlZh?: string;
+  hasTranslation: boolean;
+}
+
+async function markdownToHtml(markdown: string): Promise<string> {
+  const result = await remark().use(remarkGfm).use(html).process(markdown);
+  return result.toString();
 }
 
 export function getAllPosts(): PostMeta[] {
   const fileNames = fs.readdirSync(postsDirectory);
   const posts = fileNames
-    .filter((name) => name.endsWith(".md"))
+    .filter((name) => name.endsWith(".md") && !name.endsWith(".zh.md"))
     .map((fileName) => {
       const slug = fileName.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, fileName);
@@ -44,7 +51,7 @@ export function getAllPosts(): PostMeta[] {
 export function getAllSlugs(): string[] {
   const fileNames = fs.readdirSync(postsDirectory);
   return fileNames
-    .filter((name) => name.endsWith(".md"))
+    .filter((name) => name.endsWith(".md") && !name.endsWith(".zh.md"))
     .map((name) => name.replace(/\.md$/, ""));
 }
 
@@ -53,8 +60,17 @@ export async function getPost(slug: string): Promise<Post> {
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const processedContent = await remark().use(remarkGfm).use(html).process(content);
-  const contentHtml = processedContent.toString();
+  const contentHtml = await markdownToHtml(content);
+
+  const zhPath = path.join(postsDirectory, `${slug}.zh.md`);
+  const hasTranslation = fs.existsSync(zhPath);
+  let contentHtmlZh: string | undefined;
+
+  if (hasTranslation) {
+    const zhContents = fs.readFileSync(zhPath, "utf8");
+    const { content: zhContent } = matter(zhContents);
+    contentHtmlZh = await markdownToHtml(zhContent);
+  }
 
   return {
     slug,
@@ -62,5 +78,7 @@ export async function getPost(slug: string): Promise<Post> {
     date: data.date,
     spoiler: data.spoiler || "",
     contentHtml,
+    contentHtmlZh,
+    hasTranslation,
   };
 }
