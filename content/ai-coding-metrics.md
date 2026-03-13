@@ -4,13 +4,11 @@ date: "2026-03-13"
 spoiler: "Velocity measured effort. FPI measures trust. Here's why it's the only metric that matters when AI writes your code."
 ---
 
-For a decade, velocity was the number we watched. Story points per sprint, PRs merged per week, lines changed — imperfect, but directionally useful. When a team shipped faster, they were probably getting better. When they slowed down, something was wrong.
+We've always used throughput to measure engineering productivity. To keep improving it, we built process metrics around the development workflow — optimize the process metrics, and throughput follows.
 
-AI broke that correlation.
+But in the age of AI coding, the workflow has fundamentally changed. The process metrics that once drove throughput are no longer the best leading indicators. So what's the new metric?
 
-A team using AI coding tools can 10x their PR throughput while shipping the same number of working features — or fewer. The volume went up, but the signal got lost. If your dashboard shows "productivity" doubling while your customers see the same product, you're measuring the wrong thing.
-
-So what should you measure instead?
+My answer is **FPI**.
 
 ## The Autonomous Driving Parallel
 
