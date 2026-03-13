@@ -19,6 +19,11 @@ export async function generateMetadata({
   return {
     title: `${post.title} — Michael Zuo`,
     description: post.spoiler,
+    openGraph: {
+      title: post.title,
+      description: post.spoiler,
+      images: [{ url: "https://michaelzuo.vip/og-image.png", width: 1200, height: 630 }],
+    },
   };
 }
 
