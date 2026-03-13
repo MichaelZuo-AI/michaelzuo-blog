@@ -10,6 +10,16 @@ But in the age of AI coding, the workflow has fundamentally changed. The process
 
 My answer is **FPI**.
 
+## Why FPI Matters
+
+Here's the key insight: AI can run 24/7. It doesn't sleep, doesn't take PTO, doesn't context-switch between meetings. And you can scale it horizontally — more compute, more parallel agents, more throughput.
+
+But only if it can work autonomously.
+
+If every AI-generated feature requires a human to review, correct, or redo, then humans are still the bottleneck. Adding more AI agents just creates more work for the same engineers. You've scaled the cost without scaling the output.
+
+**High FPI changes the equation entirely.** When AI can deliver features with minimal human intervention, productivity scales linearly with compute. Double the machines, double the output. That's not an incremental improvement — it's a fundamentally different cost curve. FPI is the metric that tells you how close you are to unlocking that leverage.
+
 ## The Autonomous Driving Parallel
 
 The self-driving car industry solved a version of this problem years ago with a metric called **Miles Per Intervention (MPI)**: how far can the car drive before a human has to grab the wheel?
