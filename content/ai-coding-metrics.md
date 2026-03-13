@@ -68,7 +68,7 @@ That's not just "more output." That's the AI earning trust — handling more of 
 
 ## What to Do Tomorrow
 
-Start tracking the data. Pick one team, open a shared spreadsheet, and log every human intervention for every sprint. Feature name, what the intervention was, done. You don't need a new tool, a dashboard, or a process overhaul. You just need the raw numbers. Once you have data, FPI calculates itself — and the trend will tell you everything you need to know.
+Start tracking the data. The good news is you probably don't need to do it manually. AI coding tools already capture this — session logs, intervention points, completion rates. Tools like Claude Code's `/insights` can tell you exactly what happened in each coding session: what the AI handled autonomously and where a human had to step in. The raw data is already there. You just need to start reading it as FPI — and the trend will tell you everything you need to know.
 
 ---
 
