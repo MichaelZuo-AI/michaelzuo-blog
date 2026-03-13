@@ -36,7 +36,7 @@ This is exactly what's happening in your engineering org.
 
 ## Features Per Intervention (FPI)
 
-**FPI** applies the same logic to AI-augmented software development:
+**FPI** applies the same logic to AI coding:
 
 > **FPI = Features Delivered / Human Interventions**
 
@@ -74,4 +74,4 @@ Start tracking the data. The good news is you probably don't need to do it manua
 
 Velocity told you how fast your team was moving. FPI tells you how much of that movement is *earned* — how much your AI tooling can handle on its own, and how much still needs a human hand on the wheel.
 
-In the age of AI-augmented development, the teams that win aren't the ones that generate the most code. They're the ones that intervene the least.
+In the age of AI coding, the teams that win aren't the ones that generate the most code. They're the ones that intervene the least.
