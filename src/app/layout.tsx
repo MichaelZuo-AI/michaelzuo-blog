@@ -34,6 +34,11 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon='{"token": "7f5ba72b27094b788fd87ebf15f14729"}'
+        />
       </head>
       <body className="antialiased">
         <div className="max-w-2xl mx-auto px-6 py-10">
