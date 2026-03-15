@@ -280,21 +280,7 @@ def resolve_token(hex_value: str, token_registry: dict) -> str:
 
 上述 pipeline 是单向的——Figma 进，PR 出。但真正的杠杆在于**让 pipeline 从每次 PR review 中学习**。
 
-```
-PR merged with changes
-       ↓
-Diff Analysis: reviewer 改了什么？
-       ↓
-┌──────────────────────────────────────────┐
-│  分类回流                                  │
-│                                            │
-│  • 组件被替换 → 更新 Component Registry    │
-│  • 样式被改 → 补充 Token 映射              │
-│  • 布局被重写 → 调整 Layout 推断权重       │
-│  • TODO 被解决 → 降低该模式的 confidence   │
-│    阈值（下次可以更大胆地猜）               │
-└──────────────────────────────────────────┘
-```
+![反馈循环分类](/diagrams/figma-feedback-categories.svg)
 
 **实现方式**：在 PR merge 后跑一个轻量 diff analysis job，将 reviewer 的修改分类，自动生成 Registry 更新建议（人工 approve 后生效）。
 

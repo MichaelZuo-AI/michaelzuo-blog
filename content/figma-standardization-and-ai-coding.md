@@ -280,21 +280,7 @@ The fundamental improvement: shifting Figma quality's impact curve from **linear
 
 The pipeline described above is one-directional — Figma in, PR out. But the real leverage is in **making the pipeline learn from every PR review**.
 
-```
-PR merged with changes
-       ↓
-Diff Analysis: what did reviewers change?
-       ↓
-┌──────────────────────────────────────────┐
-│  Categorized feedback                      │
-│                                            │
-│  • Component replaced → update Registry    │
-│  • Styles changed → supplement Token map   │
-│  • Layout rewritten → adjust layout weight │
-│  • TODO resolved → lower confidence        │
-│    threshold (guess more boldly next time)  │
-└──────────────────────────────────────────┘
-```
+![Feedback loop categories](/diagrams/figma-feedback-categories.svg)
 
 **Implementation**: run a lightweight diff analysis job after PR merge, categorize reviewer modifications, auto-generate Registry update suggestions (human-approved before taking effect).
 

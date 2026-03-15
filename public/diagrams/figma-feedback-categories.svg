@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="420" viewBox="0 0 820 420">
+  <rect width="820" height="420" rx="16" ry="16" fill="#EDECE8"/>
+  <rect x="20" y="60" width="780" height="340" rx="12" ry="12" fill="#F5F4F0"/>
+
+  <defs>
+    <marker id="arr-fc" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8" fill="none" stroke="#999" stroke-width="1.5"/>
+    </marker>
+    <marker id="arr-fc-g" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+    </marker>
+  </defs>
+
+  <text x="410" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">Feedback loop</text>
+
+  <!-- PR merged -->
+  <rect x="300" y="80" width="200" height="45" rx="8" ry="8" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="400" y="108" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1A1A1A">PR merged with changes</text>
+
+  <!-- Arrow down -->
+  <line x1="400" y1="125" x2="400" y2="148" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-fc)"/>
+
+  <!-- Diff analysis -->
+  <rect x="270" y="155" width="260" height="40" rx="8" ry="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="400" y="180" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1A1A1A">Diff Analysis</text>
+
+  <!-- Arrow down -->
+  <line x1="400" y1="195" x2="400" y2="218" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-fc)"/>
+
+  <!-- Categorized feedback card -->
+  <rect x="100" y="225" width="620" height="150" rx="10" ry="10" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="410" y="252" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="700" fill="#6BAF7B">Categorized feedback → back to Normalization Agent</text>
+
+  <!-- 4 category rows -->
+  <rect x="130" y="268" width="270" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1"/>
+  <text x="145" y="289" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Component replaced</text>
+  <line x1="400" y1="284" x2="430" y2="284" stroke="#6BAF7B" stroke-width="1.5" marker-end="url(#arr-fc-g)"/>
+  <rect x="440" y="268" width="250" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="455" y="289" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Update Component Registry</text>
+
+  <rect x="130" y="306" width="270" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1"/>
+  <text x="145" y="327" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Styles changed</text>
+  <line x1="400" y1="322" x2="430" y2="322" stroke="#6BAF7B" stroke-width="1.5" marker-end="url(#arr-fc-g)"/>
+  <rect x="440" y="306" width="250" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="455" y="327" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Supplement Token mapping</text>
+
+  <rect x="130" y="344" width="270" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1"/>
+  <text x="145" y="365" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">TODO resolved</text>
+  <line x1="400" y1="360" x2="430" y2="360" stroke="#6BAF7B" stroke-width="1.5" marker-end="url(#arr-fc-g)"/>
+  <rect x="440" y="344" width="250" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="455" y="365" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Lower confidence threshold</text>
+</svg>
