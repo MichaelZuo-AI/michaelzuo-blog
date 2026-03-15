@@ -1,69 +1,76 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="520" viewBox="0 0 820 520">
-  <rect width="820" height="520" fill="#FFFFFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="680" viewBox="0 0 820 680">
+  <!-- Outer card -->
+  <rect width="820" height="680" rx="16" ry="16" fill="#EDECE8"/>
+  <!-- Inner area -->
+  <rect x="20" y="60" width="780" height="600" rx="12" ry="12" fill="#F5F4F0"/>
+
   <defs>
-    <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#2563EB"/>
+    <marker id="arr-g2" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8" fill="none" stroke="#999" stroke-width="1.5"/>
     </marker>
-    <marker id="arrow2g" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
-      <polygon points="0 0, 10 3.5, 0 7" fill="#16A34A"/>
+    <marker id="arr-green" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
     </marker>
-    <filter id="rough2">
-      <feTurbulence type="turbulence" baseFrequency="0.02" numOctaves="3" result="noise" seed="42"/>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="1.2" xChannelSelector="R" yChannelSelector="G"/>
-    </filter>
   </defs>
 
-  <!-- Stage 0: Ingestion -->
-  <rect x="210" y="15" width="400" height="55" rx="8" ry="8" fill="#E3F2FD" stroke="#333" stroke-width="1.5" filter="url(#rough2)"/>
-  <text x="410" y="38" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Stage 0: Ingestion</text>
-  <text x="410" y="56" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Figma MCP + Screenshots + One-pager</text>
+  <!-- Title -->
+  <text x="410" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#333">Normalization pipeline</text>
 
-  <!-- Arrow -->
-  <line x1="410" y1="70" x2="410" y2="90" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow2)"/>
+  <!-- In: Ingestion (salmon box) -->
+  <rect x="200" y="85" width="340" height="65" rx="8" ry="8" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="370" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#333">In</text>
+  <text x="370" y="134" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#C75B3A">Figma + Screenshots + One-pager</text>
+
+  <!-- Arrow down -->
+  <line x1="370" y1="150" x2="370" y2="178" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-g2)"/>
+
+  <!-- Green group area containing Stages 1-4 -->
+  <rect x="80" y="185" width="580" height="380" rx="12" ry="12" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1.5"/>
 
   <!-- Stage 1: Normalization Agent -->
-  <rect x="160" y="95" width="500" height="70" rx="8" ry="8" fill="#FFF3E0" stroke="#333" stroke-width="1.5" filter="url(#rough2)"/>
-  <text x="410" y="118" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Stage 1: Normalization Agent</text>
-  <text x="410" y="138" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Name semanticization + Layout repair + Variant merging + Token lookup</text>
-  <text x="410" y="153" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#888">Output: Semantic IR + confidence map</text>
+  <rect x="130" y="205" width="480" height="65" rx="8" ry="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="370" y="232" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#333">Normalization Agent</text>
+  <text x="370" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#777">Names + Layout + Variants + Tokens → Semantic IR</text>
 
-  <!-- Arrow -->
-  <line x1="410" y1="165" x2="410" y2="185" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow2)"/>
+  <!-- Arrow down -->
+  <line x1="370" y1="270" x2="370" y2="293" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-g2)"/>
 
   <!-- Stage 2: Confidence Gate -->
-  <rect x="220" y="190" width="380" height="60" rx="8" ry="8" fill="#FCE4EC" stroke="#333" stroke-width="1.5" filter="url(#rough2)"/>
-  <text x="410" y="213" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Stage 2: Confidence Gate</text>
-  <text x="410" y="233" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">high → proceed | low → clarify | unknown → fallback</text>
+  <rect x="180" y="300" width="380" height="55" rx="8" ry="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="370" y="324" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#333">Confidence Gate</text>
+  <text x="370" y="344" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#777">high → proceed | low → clarify | unknown → fallback</text>
 
-  <!-- Arrow -->
-  <line x1="410" y1="250" x2="410" y2="270" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow2)"/>
+  <!-- Arrow down -->
+  <line x1="370" y1="355" x2="370" y2="378" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-g2)"/>
 
   <!-- Stage 3: Code Generation -->
-  <rect x="220" y="275" width="380" height="60" rx="8" ry="8" fill="#E8F5E9" stroke="#333" stroke-width="1.5" filter="url(#rough2)"/>
-  <text x="410" y="298" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Stage 3: Style-First Generation</text>
-  <text x="410" y="318" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Semantic IR → Component Tree → Styles → Code</text>
+  <rect x="180" y="385" width="380" height="55" rx="8" ry="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="370" y="409" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#333">Style-First Generation</text>
+  <text x="370" y="429" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#777">IR → Components → Styles → Code</text>
 
-  <!-- Arrow -->
-  <line x1="410" y1="335" x2="410" y2="355" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow2)"/>
+  <!-- Arrow down -->
+  <line x1="370" y1="440" x2="370" y2="463" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-g2)"/>
 
   <!-- Stage 4: Self-Review -->
-  <rect x="220" y="360" width="380" height="55" rx="8" ry="8" fill="#F3E5F5" stroke="#333" stroke-width="1.5" filter="url(#rough2)"/>
-  <text x="410" y="383" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a1a1a">Stage 4: Self-Review Agent</text>
-  <text x="410" y="401" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">Verify completeness + PR description</text>
+  <rect x="180" y="470" width="380" height="55" rx="8" ry="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="370" y="494" text-anchor="middle" font-family="system-ui, sans-serif" font-size="15" font-weight="600" fill="#333">Self-Review Agent</text>
+  <text x="370" y="514" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#777">Verify completeness + flag uncertainties</text>
 
-  <!-- Arrow to PR -->
-  <line x1="410" y1="415" x2="410" y2="440" stroke="#2563EB" stroke-width="2" marker-end="url(#arrow2)"/>
+  <!-- Arrow down to PR -->
+  <line x1="370" y1="525" x2="370" y2="565" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-g2)"/>
 
-  <!-- PR output -->
-  <rect x="370" y="445" width="80" height="40" rx="8" ry="8" fill="#E8F5E9" stroke="#333" stroke-width="2" filter="url(#rough2)"/>
-  <text x="410" y="470" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#1a1a1a">PR</text>
+  <!-- Out: PR (salmon box) -->
+  <rect x="310" y="578" width="120" height="60" rx="8" ry="8" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="370" y="604" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#333">Out</text>
+  <text x="370" y="626" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#C75B3A">PR</text>
 
-  <!-- Feedback loop arrow: PR → back to Stage 1 -->
-  <line x1="450" y1="465" x2="740" y2="465" stroke="#16A34A" stroke-width="2" stroke-dasharray="6,3"/>
-  <line x1="740" y1="465" x2="740" y2="130" stroke="#16A34A" stroke-width="2" stroke-dasharray="6,3"/>
-  <line x1="740" y1="130" x2="665" y2="130" stroke="#16A34A" stroke-width="2" stroke-dasharray="6,3" marker-end="url(#arrow2g)"/>
+  <!-- Feedback loop: PR → back up to Normalization Agent -->
+  <!-- Right side going up -->
+  <line x1="430" y1="608" x2="710" y2="608" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="710" y1="608" x2="710" y2="237" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <line x1="710" y1="237" x2="615" y2="237" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4" marker-end="url(#arr-green)"/>
 
-  <!-- Feedback label -->
-  <text x="755" y="310" font-family="sans-serif" font-size="11" font-weight="bold" fill="#16A34A" transform="rotate(90, 755, 310)">Feedback Loop</text>
-  <text x="755" y="365" font-family="sans-serif" font-size="10" fill="#16A34A" transform="rotate(90, 755, 365)">PR review → improve</text>
+  <!-- Feedback loop label -->
+  <text x="738" y="390" font-family="system-ui, sans-serif" font-size="13" font-weight="600" fill="#6BAF7B" transform="rotate(90, 738, 390)">Feedback Loop</text>
+  <text x="756" y="420" font-family="system-ui, sans-serif" font-size="11" fill="#6BAF7B" transform="rotate(90, 756, 420)">PR review → improve pipeline</text>
 </svg>
