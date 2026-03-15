@@ -16,23 +16,28 @@ export default function Home() {
   return (
     <div>
       {posts.map((post) => (
-        <article key={post.slug} className="mb-10">
-          <h3 className="text-[28px] font-black leading-tight mb-1">
+        <article key={post.slug} className="mb-12">
+          <small
+            className="block mb-2 text-sm"
+            style={{ color: "var(--meta)" }}
+          >
+            {formatDate(post.date)}
+          </small>
+          <h3 className="text-2xl font-semibold leading-snug mb-2 tracking-tight">
             <Link
               href={`/post/${post.slug}`}
-              className="no-underline transition-transform inline-block hover:scale-[1.005]"
+              className="no-underline transition-colors"
               style={{ color: "var(--title)" }}
             >
               {post.title}
             </Link>
           </h3>
-          <small
-            className="block mb-2"
-            style={{ color: "var(--meta)" }}
+          <p
+            className="text-base leading-relaxed"
+            style={{ color: "var(--text-secondary)" }}
           >
-            {formatDate(post.date)}
-          </small>
-          <p style={{ color: "var(--text)" }}>{post.spoiler}</p>
+            {post.spoiler}
+          </p>
         </article>
       ))}
     </div>

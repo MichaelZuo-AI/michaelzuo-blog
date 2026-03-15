@@ -41,12 +41,12 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <div className="max-w-2xl mx-auto px-6 py-10">
-          <header className="flex items-center justify-between mb-12">
+        <div className="max-w-[720px] mx-auto px-6 py-12">
+          <header className="flex items-center justify-between mb-16">
             <Link
               href="/"
-              className="text-[28px] font-black no-underline"
-              style={{ color: "var(--link)" }}
+              className="text-xl font-semibold no-underline tracking-tight"
+              style={{ color: "var(--title)" }}
             >
               Michael Zuo
             </Link>
@@ -54,12 +54,10 @@ export default function RootLayout({
           </header>
           <main>{children}</main>
           <footer
-            className="mt-16 pt-8 border-t text-sm"
-            style={{ color: "var(--meta)", borderColor: "var(--meta)" }}
+            className="mt-20 pt-8 border-t text-sm"
+            style={{ color: "var(--meta)", borderColor: "var(--border-light)" }}
           >
-            <p>
-              Where Michael Thinks
-            </p>
+            <p>Where Michael Thinks</p>
           </footer>
         </div>
       </body>

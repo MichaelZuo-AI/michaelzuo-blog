@@ -46,26 +46,29 @@ export default async function BlogPost({
 
   return (
     <article>
-      <header className="mb-8">
+      <header className="mb-10">
+        <small
+          className="block mb-3 text-sm"
+          style={{ color: "var(--meta)" }}
+        >
+          {formatDate(post.date)}
+        </small>
         <h1
-          className="text-[40px] font-black leading-tight mb-2"
+          className="text-4xl font-bold leading-tight tracking-tight"
           style={{ color: "var(--title)" }}
         >
           {post.title}
         </h1>
-        <small style={{ color: "var(--meta)" }}>
-          {formatDate(post.date)}
-        </small>
       </header>
       <PostContent
         contentHtml={post.contentHtml}
         contentHtmlZh={post.contentHtmlZh}
         hasTranslation={post.hasTranslation}
       />
-      <div className="mt-12">
+      <div className="mt-16">
         <Link
           href="/"
-          className="no-underline font-bold"
+          className="no-underline text-sm font-medium"
           style={{ color: "var(--link)" }}
         >
           &larr; Back to all posts
