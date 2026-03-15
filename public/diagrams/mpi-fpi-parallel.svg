@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="300" viewBox="0 0 820 300">
+  <rect width="820" height="300" rx="16" ry="16" fill="#EDECE8"/>
+  <rect x="20" y="60" width="780" height="220" rx="12" ry="12" fill="#F5F4F0"/>
+
+  <text x="410" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">The autonomous driving parallel</text>
+
+  <!-- MPI column -->
+  <rect x="60" y="85" width="330" height="170" rx="10" ry="10" fill="#EDECE8" stroke="#D5D3CD" stroke-width="1.5"/>
+  <text x="225" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">MPI</text>
+  <text x="225" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#8C8777">Miles Per Intervention</text>
+
+  <rect x="85" y="150" width="120" height="35" rx="6" ry="6" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="145" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#3D3929">Miles driven</text>
+
+  <text x="220" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#8C8777">/</text>
+
+  <rect x="235" y="150" width="130" height="35" rx="6" ry="6" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1"/>
+  <text x="300" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#3D3929">Wheel grabs</text>
+
+  <text x="225" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6651">Measures: earned driving autonomy</text>
+  <text x="225" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6651">Not speed. Not distance. Trust.</text>
+
+  <!-- Equals sign -->
+  <text x="410" y="180" text-anchor="middle" font-family="system-ui, sans-serif" font-size="28" font-weight="300" fill="#8C8777">=</text>
+
+  <!-- FPI column -->
+  <rect x="430" y="85" width="330" height="170" rx="10" ry="10" fill="#EDECE8" stroke="#D5D3CD" stroke-width="1.5"/>
+  <text x="595" y="115" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" font-weight="700" fill="#1A1A1A">FPI</text>
+  <text x="595" y="135" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#8C8777">Features Per Intervention</text>
+
+  <rect x="455" y="150" width="130" height="35" rx="6" ry="6" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="520" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#3D3929">Features shipped</text>
+
+  <text x="600" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="16" fill="#8C8777">/</text>
+
+  <rect x="615" y="150" width="120" height="35" rx="6" ry="6" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1"/>
+  <text x="675" y="173" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#3D3929">Human steps in</text>
+
+  <text x="595" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6651">Measures: earned coding autonomy</text>
+  <text x="595" y="235" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#6B6651">Not velocity. Not LOC. Trust.</text>
+</svg>

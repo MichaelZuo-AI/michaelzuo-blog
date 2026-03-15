@@ -34,6 +34,8 @@ Notice what MPI captures that "miles driven" does not:
 
 This is exactly what's happening in your engineering org.
 
+![MPI and FPI parallel](/diagrams/mpi-fpi-parallel.svg)
+
 ## Features Per Intervention (FPI)
 
 **FPI** applies the same logic to AI coding:
@@ -42,17 +44,13 @@ This is exactly what's happening in your engineering org.
 
 A "feature" is a unit of shipped product value — whatever your team already counts as a deliverable (story, task, user-facing change). An "intervention" is any time a human has to step in — a correction, a rework, a takeover. Just like MPI counts every mile the same regardless of road type, FPI counts every intervention the same. Simple is better. What matters is the ratio and the trend.
 
-**Example:** A team delivers 8 features in a sprint. During that sprint, the AI needed 5 human interventions.
-
-> FPI = 8 / 5 = **1.6**
-
-The same team, a month later, delivers 12 features with only 3 interventions:
-
-> FPI = 12 / 3 = **4.0**
+![FPI formula and progression](/diagrams/fpi-formula.svg)
 
 That's not just "more output." That's the AI earning trust — handling more of the work without human correction.
 
 ## How to Read FPI
+
+![FPI trend interpretation](/diagrams/fpi-trends.svg)
 
 **Rising FPI** means your AI tooling is maturing. The team is learning to prompt better, the codebase is becoming more AI-friendly, and the AI itself is handling more complexity autonomously. You're building earned trust.
 
