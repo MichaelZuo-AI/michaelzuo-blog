@@ -24,6 +24,7 @@ jobs:
           node-version: "20"
           cache: "npm"
       - run: npm ci
+      - run: "[ -f site.config.ts ] || cp site.config.example.ts site.config.ts"
       - run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
