@@ -311,13 +311,7 @@ Diff Analysis: reviewer 改了什么？
 
 不要求设计师改变工作方式，而是在 Engineering 层消化不规范性。
 
-```
-Figma Raw ──┐
-             ├→ [Normalization Agent] → Semantic IR → [Confidence Gate] → Claude Code → PR
-One-pager ──┘                                                                          │
-                                                                                       ↓
-                              ← ← ← ← ← [Feedback Loop] ← ← ← ← ← ← ← PR Review ←┘
-```
+![完整 Pipeline 与反馈循环](/diagrams/figma-normalization-pipeline.svg)
 
 | 策略 | 解决的问题 | 实施成本 | 维护成本 | ROI |
 |------|----------|---------|---------|-----|

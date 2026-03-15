@@ -311,13 +311,7 @@ This transforms the pipeline from a "tool that needs maintenance" into a "flywhe
 
 Don't ask designers to change how they work. Absorb the non-standardization at the engineering layer.
 
-```
-Figma Raw ──┐
-             ├→ [Normalization Agent] → Semantic IR → [Confidence Gate] → Claude Code → PR
-One-pager ──┘                                                                          │
-                                                                                       ↓
-                              ← ← ← ← ← [Feedback Loop] ← ← ← ← ← ← ← PR Review ←┘
-```
+![Complete pipeline with feedback loop](/diagrams/figma-normalization-pipeline.svg)
 
 | Strategy | Problem Solved | Implementation Cost | Maintenance Cost | ROI |
 |----------|---------------|-------------------|-----------------|-----|
