@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="400" viewBox="0 0 820 400">
+  <rect width="820" height="400" rx="16" ry="16" fill="#EDECE8"/>
+  <rect x="20" y="60" width="780" height="320" rx="12" ry="12" fill="#F5F4F0"/>
+
+  <text x="410" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">Semantic IR (Intermediate Representation)</text>
+
+  <!-- Main IR card -->
+  <rect x="80" y="85" width="660" height="275" rx="10" ry="10" fill="#EDECE8" stroke="#D5D3CD" stroke-width="1.5"/>
+
+  <!-- Field rows -->
+  <!-- component -->
+  <rect x="100" y="105" width="180" height="32" rx="6" ry="6" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="115" y="126" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" font-weight="600" fill="#3D3929">component</text>
+  <text x="300" y="126" font-family="'SF Mono', monospace" font-size="13" fill="#3D3929">"Button"</text>
+  <text x="440" y="126" font-family="system-ui, sans-serif" font-size="12" fill="#8C8777">semantic name, not Figma raw name</text>
+
+  <!-- intent -->
+  <rect x="100" y="147" width="180" height="32" rx="6" ry="6" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="115" y="168" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" font-weight="600" fill="#3D3929">intent</text>
+  <text x="300" y="168" font-family="'SF Mono', monospace" font-size="13" fill="#3D3929">"primary CTA"</text>
+  <text x="440" y="168" font-family="system-ui, sans-serif" font-size="12" fill="#8C8777">inferred purpose</text>
+
+  <!-- businessContext -->
+  <rect x="100" y="189" width="180" height="32" rx="6" ry="6" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1"/>
+  <text x="115" y="210" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" font-weight="600" fill="#3D3929">businessContext</text>
+  <text x="300" y="210" font-family="'SF Mono', monospace" font-size="13" fill="#3D3929">"form submit"</text>
+  <text x="440" y="210" font-family="system-ui, sans-serif" font-size="12" fill="#C75B3A">from One-pager</text>
+
+  <!-- layout -->
+  <rect x="100" y="231" width="180" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1"/>
+  <text x="115" y="252" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" font-weight="600" fill="#3D3929">layout</text>
+  <text x="300" y="252" font-family="'SF Mono', monospace" font-size="13" fill="#3D3929">"flex-row gap-4"</text>
+  <text x="440" y="252" font-family="system-ui, sans-serif" font-size="12" fill="#8C8777">normalized layout description</text>
+
+  <!-- tokens -->
+  <rect x="100" y="273" width="180" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1"/>
+  <text x="115" y="294" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" font-weight="600" fill="#3D3929">tokens</text>
+  <text x="300" y="294" font-family="'SF Mono', monospace" font-size="13" fill="#3D3929">{ bg: "brand.500" }</text>
+  <text x="440" y="294" font-family="system-ui, sans-serif" font-size="12" fill="#8C8777">resolved token or fallback hex</text>
+
+  <!-- variants -->
+  <rect x="100" y="315" width="180" height="32" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1"/>
+  <text x="115" y="336" font-family="'SF Mono', 'Fira Code', monospace" font-size="13" font-weight="600" fill="#3D3929">variants</text>
+  <text x="300" y="336" font-family="'SF Mono', monospace" font-size="13" fill="#3D3929">["default", "disabled"]</text>
+  <text x="440" y="336" font-family="system-ui, sans-serif" font-size="12" fill="#8C8777">merged from fragment frames</text>
+</svg>

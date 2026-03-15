@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="380" viewBox="0 0 820 380">
+  <rect width="820" height="380" rx="16" ry="16" fill="#EDECE8"/>
+  <rect x="20" y="60" width="780" height="300" rx="12" ry="12" fill="#F5F4F0"/>
+
+  <text x="410" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">Ingestion paths</text>
+
+  <!-- Path A -->
+  <rect x="50" y="85" width="220" height="95" rx="8" ry="8" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="160" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1A1A1A">Path A</text>
+  <text x="160" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Figma MCP / Dev Mode API</text>
+  <!-- Signal strength bar - full -->
+  <rect x="95" y="148" width="130" height="8" rx="4" ry="4" fill="#E2E0DB"/>
+  <rect x="95" y="148" width="130" height="8" rx="4" ry="4" fill="#6BAF7B"/>
+  <text x="160" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#6BAF7B">Strongest signal</text>
+
+  <!-- Path B -->
+  <rect x="300" y="85" width="220" height="95" rx="8" ry="8" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="410" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1A1A1A">Path B</text>
+  <text x="410" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Screenshot + Vision</text>
+  <!-- Signal strength bar - low -->
+  <rect x="345" y="148" width="130" height="8" rx="4" ry="4" fill="#E2E0DB"/>
+  <rect x="345" y="148" width="35" height="8" rx="4" ry="4" fill="#C75B3A"/>
+  <text x="410" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#C75B3A">Weakest signal</text>
+
+  <!-- Path C -->
+  <rect x="550" y="85" width="220" height="95" rx="8" ry="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="660" y="112" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="600" fill="#1A1A1A">Path C</text>
+  <text x="660" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#3D3929">Design Tokens Export</text>
+  <!-- Signal strength bar - medium -->
+  <rect x="595" y="148" width="130" height="8" rx="4" ry="4" fill="#E2E0DB"/>
+  <rect x="595" y="148" width="75" height="8" rx="4" ry="4" fill="#8C8777"/>
+  <text x="660" y="170" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#8C8777">Medium (style only)</text>
+
+  <!-- What each path preserves/loses -->
+  <text x="160" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6651">Preserves:</text>
+  <text x="160" y="238" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3D3929">Names, tokens, layout,</text>
+  <text x="160" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3D3929">constraints, variants</text>
+
+  <text x="410" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6651">Loses:</text>
+  <text x="410" y="238" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3D3929">Tokens, hierarchy,</text>
+  <text x="410" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3D3929">constraints, responsive</text>
+
+  <text x="660" y="220" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6B6651">Preserves:</text>
+  <text x="660" y="238" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3D3929">Colors, spacing,</text>
+  <text x="660" y="254" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#3D3929">typography tokens</text>
+
+  <!-- Bottom note -->
+  <text x="410" y="310" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-style="italic" fill="#8C8777">The path determines the ceiling of standardization's value</text>
+  <text x="410" y="330" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-style="italic" fill="#8C8777">Path B loses most signal regardless of Figma quality</text>
+</svg>

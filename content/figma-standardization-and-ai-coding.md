@@ -44,37 +44,7 @@ Their relationship isn't complementary — it's **cross-validating**: Figma tell
 
 The impact of standardization **depends first on the ingestion method**:
 
-**Path A: Figma MCP / Dev Mode API (strongest signal)**
-
-```json
-{
-  "name": "Button/Primary/Large",
-  "fills": [{"color": {"r":0.2,"g":0.5}}],
-  "autoLayout": {"direction": "HORIZONTAL", "spacing": 8},
-  "componentProperties": {
-    "label": {"type": "TEXT"},
-    "disabled": {"type": "BOOLEAN"}
-  }
-}
-```
-
-**Path B: Screenshot + Vision (weakest signal)**
-
-```
-PNG → Claude Vision → infer layout intent
-# Lost: tokens, component hierarchy, constraints, responsive rules
-```
-
-**Path C: Design Tokens Export (medium, style-focused)**
-
-```json
-{
-  "color": {"primary": {"value": "#3B82F6"}},
-  "spacing": {"4": {"value": "16px"}}
-}
-```
-
-> **The path determines the ceiling of standardization's value** — with Path B, even perfectly standardized Figma loses most of its signal.
+![Ingestion paths and signal strength](/diagrams/figma-ingestion-paths.svg)
 
 ### 1.3 Impact Weight of Each Standardization Dimension
 
@@ -149,61 +119,21 @@ Relatively low impact, but affects **code organization** for complex pages (whic
 
 ### 1.4 Minimum Viable Standard
 
-```
-Must Have (determines pipeline viability)
-├── Semantic component naming (matching codebase component names)
-├── Auto Layout (no absolute positioning)
-└── Key color/spacing tokenization
-
-Should Have (affects output quality)
-├── Structured Variants
-├── Component Descriptions / Annotations
-└── Responsive Constraints
-
-Nice to Have (affects precision)
-├── Complete Component Properties
-└── Interaction / Prototype definitions
-```
+![Minimum viable standard tiers](/diagrams/figma-minimum-viable-standard.svg)
 
 ## Part 2: Engineering Solutions — Improving the Pipeline to Reduce Standardization Dependency
 
 ### 2.1 Reframing the Root Cause
 
-```
-The real pain point isn't that Figma is non-standard
-It's that the pipeline feeds Figma's raw signals directly to Claude Code
-Missing a "signal cleaning + semantic enrichment" middle layer
-```
+The real pain point isn't that Figma is non-standard — it's that the pipeline feeds Figma's raw signals directly to Claude Code, missing a "signal cleaning + semantic enrichment" middle layer.
 
-```
-Current state (fragile):
-Figma Raw → Claude Code → PR
-              ↑ strong dependency on input quality
-
-Target state (robust):
-Figma Raw → [Normalization Layer] → Semantic IR → Claude Code → PR
-              ↑ absorb non-standardization here
-```
+![Before vs. after pipeline comparison](/diagrams/figma-before-after-pipeline.svg)
 
 ### 2.2 Core Improvement: Inserting a Semantic IR Layer
 
 Introduce a **Figma-agnostic intermediate representation (IR)** that translates Figma's raw structure into a semantic description friendly to Claude Code, decoupled from whether Figma is standardized or not.
 
-```
-┌─────────────────────────────────────────────────────────────┐
-│                   Semantic IR (Intermediate Representation)  │
-│                                                              │
-│  {                                                           │
-│    component: "Button",          ← semantic name, not Figma  │
-│    intent: "primary CTA",        ← inferred intent           │
-│    businessContext: "form submit action",  ← from one-pager  │
-│    layout: "flex-row gap-4",     ← normalized layout desc    │
-│    tokens: { bg: "brand.500" },  ← token or fallback hex     │
-│    variants: ["default","disabled"], ← merged fragment frames│
-│    a11y: { role: "button" }      ← completed semantic info   │
-│  }                                                           │
-└─────────────────────────────────────────────────────────────┘
-```
+![Semantic IR structure](/diagrams/figma-semantic-ir.svg)
 
 This layer's job is to **absorb Figma's chaos and output structured certainty**. Note the `businessContext` field — this is the injection point for the one-pager's semantic signal. When Figma structural signals are insufficient (e.g., chaotic naming), the Normalization Agent uses business descriptions from the one-pager to cross-validate and complete component intent.
 
@@ -331,31 +261,7 @@ def resolve_token(hex_value: str, token_registry: dict) -> str:
 
 ### 2.5 Confidence Gate Design
 
-```python
-class ConfidenceGate:
-    THRESHOLDS = {
-        "component_match": 0.80,
-        "layout_inference": 0.75,
-        "token_resolution": 0.70,
-    }
-
-    def process(self, ir_node):
-        if ir_node.confidence > self.THRESHOLDS[ir_node.type]:
-            return Action.PROCEED
-
-        elif ir_node.confidence > 0.50:
-            return Action.ASK_CLARIFICATION(
-                question=self.generate_question(ir_node),
-                fallback=ir_node.best_guess
-            )
-
-        else:
-            return Action.USE_GENERIC_FALLBACK(
-                comment=f"// TODO: Verify component intent - {ir_node.raw_name}"
-            )
-```
-
-**Core principle**: don't guess when uncertain — **degrade to safe output + explicit marking**, letting PR reviewers quickly locate points requiring human judgment.
+![Confidence Gate decision flow](/diagrams/figma-confidence-gate.svg)
 
 ### 2.6 Estimated Impact
 
