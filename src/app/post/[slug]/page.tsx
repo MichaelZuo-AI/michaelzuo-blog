@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getAllSlugs, getPost } from "@/lib/posts";
 import PostContent from "@/components/PostContent";
 import type { Metadata } from "next";
+import config from "../../../../site.config";
 
 type Params = Promise<{ slug: string }>;
 
@@ -17,12 +18,12 @@ export async function generateMetadata({
   const { slug } = await params;
   const post = await getPost(slug);
   return {
-    title: `${post.title} — Michael Zuo`,
+    title: `${post.title} — ${config.name}`,
     description: post.spoiler,
     openGraph: {
       title: post.title,
       description: post.spoiler,
-      images: [{ url: "https://michaelzuo.vip/og-image.png", width: 600, height: 600 }],
+      images: [{ url: config.ogImage, width: 600, height: 600 }],
     },
   };
 }

@@ -1,15 +1,17 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ThemeToggle from "@/components/ThemeToggle";
+import config from "../../site.config";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Michael Zuo",
-  description: "Writing on software engineering, AI-driven development, and building things.",
+  ...(config.url ? { metadataBase: new URL(config.url) } : {}),
+  title: config.name,
+  description: config.description,
   openGraph: {
-    title: "Michael Zuo",
-    description: "Writing on software engineering, AI-driven development, and building things.",
-    images: [{ url: "https://michaelzuo.vip/og-image.png", width: 600, height: 600 }],
+    title: config.name,
+    description: config.description,
+    images: [{ url: config.ogImage, width: 600, height: 600 }],
   },
 };
 
@@ -34,11 +36,13 @@ export default function RootLayout({
             `,
           }}
         />
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js"
-          data-cf-beacon='{"token": "7f5ba72b27094b788fd87ebf15f14729"}'
-        />
+        {config.cloudflareAnalyticsToken && (
+          <script
+            defer
+            src="https://static.cloudflareinsights.com/beacon.min.js"
+            data-cf-beacon={`{"token": "${config.cloudflareAnalyticsToken}"}`}
+          />
+        )}
       </head>
       <body className="antialiased">
         <div className="max-w-[720px] mx-auto px-6 py-12">
@@ -48,7 +52,7 @@ export default function RootLayout({
               className="text-xl font-semibold no-underline tracking-tight"
               style={{ color: "var(--title)" }}
             >
-              Michael Zuo
+              {config.name}
             </Link>
             <ThemeToggle />
           </header>
@@ -57,7 +61,7 @@ export default function RootLayout({
             className="mt-20 pt-8 border-t text-sm"
             style={{ color: "var(--meta)", borderColor: "var(--border-light)" }}
           >
-            <p>Where Michael Thinks</p>
+            <p>{config.tagline}</p>
           </footer>
         </div>
       </body>

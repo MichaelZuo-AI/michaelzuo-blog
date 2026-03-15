@@ -17,10 +17,11 @@ Personal blog — writing on AI-driven development, engineering productivity, an
 - Anthropic-style SVG diagrams
 - Static site generation — no server required
 
-## Development
+## Setup
 
 ```bash
 npm install
+cp site.config.example.ts site.config.ts  # then edit with your values
 npm run dev     # dev server on :3000
 npm run build   # production build to /out
 ```
