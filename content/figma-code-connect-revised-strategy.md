@@ -1,7 +1,7 @@
 ---
 title: "What Figma Code Connect Changes: Revising the AI Coding Pipeline Strategy"
 date: "2026-03-18"
-spoiler: "Figma's official Code Connect productizes our Component Registry idea. Time to revise the strategy."
+spoiler: "Figma Code Connect + custom strategies working in layers — combining the best tools to maximize AI coding pipeline output."
 ---
 
 > This is a follow-up to [Reducing AI's Dependency on Figma Standardization Through Engineering](/post/figma-standardization-and-ai-coding). Reading the original post first is recommended.
@@ -10,9 +10,9 @@ spoiler: "Figma's official Code Connect productizes our Component Registry idea.
 
 The previous article proposed 5 engineering strategies centered on inserting a Normalization Layer between raw Figma signals and Claude Code. **Component Registry** was identified as the highest-ROI strategy — maintaining a Figma pattern → code component mapping table to shift dependency from designer naming conventions to maintainable engineering configuration.
 
-Today I had a call with the Figma team and learned about [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect) — which does essentially the same thing, and does it better, because it's Figma-native.
+Today I had a call with the Figma team and learned about [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect) — which does essentially the same thing for the component mapping dimension, with a natural advantage of being Figma-native.
 
-**When the platform turns your workaround into a product, the correct response isn't to defend your approach — it's to embrace theirs and reassess the remaining gaps.**
+This means we have a powerful new option in our toolbox. **The question isn't "which replaces which" — it's how to effectively combine all good tools and mechanisms to maximize pipeline output quality.**
 
 ## What Is Figma Code Connect
 
@@ -68,7 +68,7 @@ With Code Connect in the picture, the original 5-strategy architecture needs reo
 
 **Summary of changes:**
 
-1. **Component Registry → Replaced by Code Connect**. The biggest shift. We no longer need to build and maintain a YAML mapping table — Figma provides a better native solution, with mapping information reaching AI agents directly via MCP Server. Maintenance responsibility moves from the engineering team into the Design System team's Figma workflow.
+1. **Component Registry + Code Connect working together**. The biggest shift. For design system components, Code Connect provides Figma-native mapping that reaches AI agents directly via MCP Server. For ad-hoc elements or scenarios Code Connect doesn't cover, the self-built Registry continues as a complementary layer. They're not a replacement relationship — they're layered collaboration.
 
 2. **Preprocessing Agent → Reduced scope**. Previously needed for all poorly-named components. Now only handles **ad-hoc elements not covered by Code Connect** — one-off custom frames, temporary components. Workload shifts from "process everything" to "process the long tail."
 
@@ -87,7 +87,7 @@ Compared to the previous article's architecture, the core difference is:
 - **Happy path (design system components)**: Code Connect → MCP Server → Claude Code. Zero custom code, precise mappings.
 - **Long tail (ad-hoc elements, hardcoded styles, absolute positioning)**: Custom Normalization strategies still provide the safety net.
 
-This is a healthier architecture — **let platform capabilities handle the mainstream cases, custom engineering only handles the gaps**.
+This is a more efficient architecture — **each tool does what it's best at, and together they cover the full spectrum**.
 
 ## Revised Implementation Priority
 
@@ -99,17 +99,17 @@ This is a healthier architecture — **let platform capabilities handle the main
 | **Phase 1** | Token Reverse Lookup + Confidence Gate | Low–Medium | High — eliminates hardcode tech debt + quality safety net |
 | **Phase 2** | Visual Grounding + Preprocessing Agent (reduced scope) | High | Medium — only handles long tail outside design system |
 
-**Key shift**: The original Phase 1 (Component Registry) was the lowest-cost, highest-ROI starting strategy. Now Code Connect does the same thing at even lower cost — and does it better. Phase 0 becomes an almost pure configuration step, further lowering the barrier to entry.
+**Key shift**: Code Connect as Phase 0 is an almost pure configuration step that quickly establishes baseline component mapping capability. Custom strategies start from Phase 1, focusing on dimensions Code Connect doesn't reach, making overall investment more targeted.
 
 ## Practical Considerations
 
-Before embracing Code Connect, several realities need assessment:
+Before integrating Code Connect into the pipeline, several realities need assessment:
 
-**Plan limitations**: Code Connect is only available on Organization and Enterprise plans. If your team is on Professional or Starter, this path is blocked — fall back to the self-built approach from the previous article.
+**Plan limitations**: Code Connect is only available on Organization and Enterprise plans. If your team is on Professional or Starter, the Code Connect layer is unavailable — the self-built Component Registry continues to handle component mapping, and the remaining strategies are unaffected.
 
 **Design system maturity**: Code Connect assumes there are design system components to map. If designers haven't built Figma components (just raw frame assemblies), Code Connect has nothing to connect. In this case, you either need to first push for basic design system infrastructure, or rely entirely on custom Normalization strategies.
 
-**Maintenance model change**: The good news is maintenance responsibility shifts into the Figma workflow — the Design System team maintains Code Connect mappings alongside component management, which is more natural than maintaining a separate YAML. The bad news is this requires the Design System team to accept this additional responsibility, requiring organizational alignment.
+**Maintenance model change**: Code Connect mapping maintenance embeds into the Figma workflow — the Design System team maintains mappings alongside component management, which is more natural than standalone YAML. However, this requires the Design System team to accept the additional responsibility, requiring organizational alignment. If organizational buy-in is difficult, the self-built Registry owned by the engineering team may actually be more controllable.
 
 **Coverage ceiling**: Even with thorough Code Connect configuration, real projects always contain significant page-level ad-hoc elements outside the design system. In practice, design system component coverage typically sits at 60-80%. The remaining 20-40% is uncovered territory that still needs custom strategies.
 
@@ -134,12 +134,12 @@ The improvement margin looks modest (+2-5%), but the real story is:
 
 ## Conclusion
 
-Figma Code Connect validates the core thesis of the previous article — component-to-code mapping is the key to solving AI coding quality. But it also proves that **when the platform offers a native solution, custom workarounds should yield.**
+Figma Code Connect validates the core thesis of the previous article — component-to-code mapping is the key to solving AI coding quality. It adds a powerful native option to our toolbox.
 
-The revised strategy:
+The revised strategy is about **effectively combining all available tools**:
 
-- **Accept Code Connect as the foundation layer**, letting it handle component mapping (the highest-weight problem)
-- **Retain custom strategies for gaps Code Connect doesn't cover** — tokens, layout, ad-hoc elements, quality assurance
-- **Lower total implementation cost**, concentrating limited engineering resources on what truly needs to be custom-built
+- **Code Connect handles what it's best at** — precise mapping of design system components, delivered directly to AI agents via MCP
+- **Custom strategies handle what Code Connect doesn't reach** — token standardization, layout inference, ad-hoc element recognition, quality assurance
+- **The two work in layers**, each contributing in their area of strength rather than replacing each other
 
-The core principle remains unchanged: **don't ask designers to change how they work.** But the implementation path has shifted — lead with platform capabilities for the mainstream, backstop with custom engineering for the long tail. This is more pragmatic and more sustainable than building everything yourself.
+The core principle remains unchanged: **don't ask designers to change how they work.** The implementation path is now richer — platform capabilities and custom engineering each play their role, combining to cover the full spectrum from design system components to ad-hoc elements. The goal is always the same: make the pipeline produce usable output at any input quality level.
