@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="400" viewBox="0 0 820 400">
+  <rect width="820" height="400" rx="16" ry="16" fill="#EDECE8"/>
+  <rect x="20" y="60" width="780" height="320" rx="12" ry="12" fill="#F5F4F0"/>
+
+  <text x="410" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">Code Connect Coverage Map</text>
+
+  <!-- Header row -->
+  <text x="90" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#8C8777">PROBLEM</text>
+  <text x="320" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#6BAF7B">CODE CONNECT</text>
+  <text x="580" y="95" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="700" fill="#C75B3A">STILL NEEDED</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="105" x2="780" y2="105" stroke="#D5D3CD" stroke-width="1"/>
+
+  <!-- Row 1: Component Naming — FULLY COVERED -->
+  <rect x="40" y="115" width="160" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1.2"/>
+  <text x="120" y="139" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Component Naming</text>
+
+  <rect x="220" y="115" width="200" height="38" rx="6" ry="6" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="320" y="133" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1A1A1A">Fully solved</text>
+  <text x="320" y="147" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6651">explicit component → code link</text>
+
+  <rect x="440" y="115" width="340" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="610" y="139" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8C8777">Only for unmapped ad-hoc elements</text>
+
+  <!-- Row 2: Variant Structure — PARTIALLY COVERED -->
+  <rect x="40" y="165" width="160" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1.2"/>
+  <text x="120" y="189" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Variant Structure</text>
+
+  <rect x="220" y="165" width="200" height="38" rx="6" ry="6" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="320" y="183" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#1A1A1A">Mostly solved</text>
+  <text x="320" y="197" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#6B6651">CLI property mapping</text>
+
+  <rect x="440" y="165" width="340" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#C75B3A" stroke-width="1.2"/>
+  <text x="610" y="189" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#C75B3A">Variant Fragment Merge for scattered frames</text>
+
+  <!-- Row 3: Design Tokens — NOT COVERED -->
+  <rect x="40" y="215" width="160" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1.2"/>
+  <text x="120" y="239" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Hardcoded Tokens</text>
+
+  <rect x="220" y="215" width="200" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="320" y="239" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8C8777">Not addressed</text>
+
+  <rect x="440" y="215" width="340" height="38" rx="6" ry="6" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="610" y="239" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#C75B3A">Token Reverse Lookup still essential</text>
+
+  <!-- Row 4: Auto Layout — NOT COVERED -->
+  <rect x="40" y="265" width="160" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1.2"/>
+  <text x="120" y="289" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Absolute Positioning</text>
+
+  <rect x="220" y="265" width="200" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="320" y="289" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8C8777">Not addressed</text>
+
+  <rect x="440" y="265" width="340" height="38" rx="6" ry="6" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="610" y="289" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#C75B3A">Visual Grounding still essential</text>
+
+  <!-- Row 5: Confidence / Quality Gate — NOT COVERED -->
+  <rect x="40" y="315" width="160" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1.2"/>
+  <text x="120" y="339" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="600" fill="#1A1A1A">Quality Assurance</text>
+
+  <rect x="220" y="315" width="200" height="38" rx="6" ry="6" fill="#F5F4F0" stroke="#999" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="320" y="339" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#8C8777">Not addressed</text>
+
+  <rect x="440" y="315" width="340" height="38" rx="6" ry="6" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="610" y="339" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#C75B3A">Confidence Gate + Feedback Loop</text>
+</svg>
