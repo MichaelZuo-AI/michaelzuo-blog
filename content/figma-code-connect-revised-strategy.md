@@ -10,9 +10,9 @@ spoiler: "Figma's official Code Connect productizes our Component Registry idea.
 
 The previous article proposed 5 engineering strategies centered on inserting a Normalization Layer between raw Figma signals and Claude Code. **Component Registry** was identified as the highest-ROI strategy — maintaining a Figma pattern → code component mapping table to shift dependency from designer naming conventions to maintainable engineering configuration.
 
-After publishing, readers pointed out that Figma's official [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect) feature does essentially the same thing — and does it better, because it's Figma-native.
+Today I had a call with the Figma team and learned about [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect) — which does essentially the same thing, and does it better, because it's Figma-native.
 
-They were right. **When the platform turns your workaround into a product, the correct response isn't to defend your approach — it's to embrace theirs and reassess the remaining gaps.**
+**When the platform turns your workaround into a product, the correct response isn't to defend your approach — it's to embrace theirs and reassess the remaining gaps.**
 
 ## What Is Figma Code Connect
 

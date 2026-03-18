@@ -10,9 +10,9 @@ spoiler: "Figma 官方的 Code Connect 产品化了我们提出的 Component Reg
 
 上一篇文章提出了 5 个 Engineering 策略，核心思路是插入一层 Normalization Layer，在 Figma 的原始信号到达 Claude Code 之前完成「信号清洗 + 语义提升」。其中 **Component Registry** 被列为 ROI 最高的策略——通过维护一份 Figma pattern → code component 的映射表，把对设计师命名规范的依赖转移到可维护的工程配置上。
 
-发表后，有读者指出 Figma 官方的 [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect) 功能本质上做了同一件事——而且做得更好，因为它是 Figma-native 的。
+今天跟 Figma team 有一个 call，了解到了 [Code Connect](https://help.figma.com/hc/en-us/articles/23920389749655-Code-Connect)——本质上做了同一件事，而且做得更好，因为它是 Figma-native 的。
 
-这个反馈是对的。**当平台方把你的 workaround 做成了产品，正确的做法不是坚持自己的方案，而是拥抱它，然后重新审视剩下的 gap。**
+**当平台方把你的 workaround 做成了产品，正确的做法不是坚持自己的方案，而是拥抱它，然后重新审视剩下的 gap。**
 
 ## Figma Code Connect 是什么
 
