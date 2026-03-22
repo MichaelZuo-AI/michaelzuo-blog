@@ -16,7 +16,7 @@ It's a demo — not a real product. But that's exactly the point. The completene
 
 **See it yourself: [shop.michaelzuo.vip](https://shop.michaelzuo.vip)**
 
-Every page you see on that site — the flash sale countdowns, the Gold Box deals, the Rocket Delivery section, the editorial collections, the category browser, the membership system — was designed and coded by an AI agent. I wrote zero lines of frontend code. Imagine what happens when you point this pipeline at a real product.
+Every page you see on that site — the promotional banners, the deal countdowns, the express delivery section, the editorial collections, the category browser, the membership system — was designed and coded by an AI agent. I wrote zero lines of frontend code. Imagine what happens when you point this pipeline at a real product.
 
 ## What Is Feature Crew
 
