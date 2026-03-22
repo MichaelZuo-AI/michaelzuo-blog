@@ -14,6 +14,10 @@ By the time I'm publishing this, it has completed 20+ production pages. I haven'
 
 This isn't a demo. This isn't a prototype. This is a production-ready e-commerce app — with category navigation, reviews, membership, wishlists, flash sales, returns — built autonomously by an AI agent crew.
 
+**See it yourself: [shop.michaelzuo.vip](https://shop.michaelzuo.vip)**
+
+Every page you see on that site — the flash sale countdowns, the Gold Box deals, the Rocket Delivery section, the editorial collections, the category browser, the membership system — was designed and coded by an AI agent. I wrote zero lines of frontend code.
+
 ## What Is Feature Crew
 
 [Feature Crew](https://github.com/MichaelZuo-AI/Feature_Crew) is an open-source crew of AI agents that takes a feature from idea to production. It runs as a set of skills inside Claude Code:
