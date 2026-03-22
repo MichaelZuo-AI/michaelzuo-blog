@@ -12,11 +12,11 @@ It started working. Clarifying specs. Generating designs. Writing code. Evaluati
 
 By the time I'm publishing this, it has completed 20+ production pages. I haven't intervened once.
 
-This isn't a demo. This isn't a prototype. This is a production-ready e-commerce app — with category navigation, reviews, membership, wishlists, flash sales, returns — built autonomously by an AI agent crew.
+It's a demo — not a real product. But that's exactly the point. The completeness, the polish, the number of pages — this is what an AI agent crew can produce from nothing but a text prompt and a design language.
 
 **See it yourself: [shop.michaelzuo.vip](https://shop.michaelzuo.vip)**
 
-Every page you see on that site — the flash sale countdowns, the Gold Box deals, the Rocket Delivery section, the editorial collections, the category browser, the membership system — was designed and coded by an AI agent. I wrote zero lines of frontend code.
+Every page you see on that site — the flash sale countdowns, the Gold Box deals, the Rocket Delivery section, the editorial collections, the category browser, the membership system — was designed and coded by an AI agent. I wrote zero lines of frontend code. Imagine what happens when you point this pipeline at a real product.
 
 ## What Is Feature Crew
 
