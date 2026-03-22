@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 420" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Outer card -->
+  <rect width="780" height="420" rx="16" fill="#EDECE8"/>
+
+  <!-- Title -->
+  <text x="40" y="42" font-size="22" font-weight="bold" fill="#1A1A1A">The Software Lifecycle Collapse</text>
+
+  <!-- Inner area -->
+  <rect x="20" y="60" width="740" height="340" rx="12" fill="#F5F4F0"/>
+
+  <!-- BEFORE label -->
+  <text x="40" y="95" font-size="14" font-weight="600" fill="#C75B3A">BEFORE — Weeks, Teams, Meetings</text>
+
+  <!-- Before boxes -->
+  <rect x="40" y="108" width="120" height="52" rx="8" fill="#F5F4F0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="100" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1A1A">Design</text>
+  <text x="100" y="148" text-anchor="middle" font-size="11" fill="#C75B3A">2-4 weeks</text>
+
+  <line x1="160" y1="134" x2="195" y2="134" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M190,130 L198,134 L190,138" fill="none" stroke="#999" stroke-width="1.5"/>
+
+  <rect x="198" y="108" width="120" height="52" rx="8" fill="#F5F4F0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="258" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1A1A">Development</text>
+  <text x="258" y="148" text-anchor="middle" font-size="11" fill="#C75B3A">4-8 weeks</text>
+
+  <line x1="318" y1="134" x2="353" y2="134" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M348,130 L356,134 L348,138" fill="none" stroke="#999" stroke-width="1.5"/>
+
+  <rect x="356" y="108" width="120" height="52" rx="8" fill="#F5F4F0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="416" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1A1A">Testing</text>
+  <text x="416" y="148" text-anchor="middle" font-size="11" fill="#C75B3A">2-3 weeks</text>
+
+  <line x1="476" y1="134" x2="511" y2="134" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M506,130 L514,134 L506,138" fill="none" stroke="#999" stroke-width="1.5"/>
+
+  <rect x="514" y="108" width="120" height="52" rx="8" fill="#F5F4F0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="574" y="130" text-anchor="middle" font-size="13" font-weight="600" fill="#1A1A1A">Deploy</text>
+  <text x="574" y="148" text-anchor="middle" font-size="11" fill="#C75B3A">1-2 weeks</text>
+
+  <rect x="650" y="108" width="90" height="52" rx="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="695" y="130" text-anchor="middle" font-size="11" fill="#8C8777">5-10 people</text>
+  <text x="695" y="148" text-anchor="middle" font-size="11" fill="#8C8777">10-17 weeks</text>
+
+  <!-- Divider -->
+  <line x1="40" y1="185" x2="740" y2="185" stroke="#999" stroke-width="0.5" stroke-dasharray="4,4"/>
+
+  <!-- AFTER label -->
+  <text x="40" y="215" font-size="14" font-weight="600" fill="#6BAF7B">NOW — Minutes, One Person, One Prompt</text>
+
+  <!-- After: Idea box (salmon - human input) -->
+  <rect x="40" y="230" width="130" height="70" rx="8" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="105" y="256" text-anchor="middle" font-size="14" font-weight="600" fill="#C75B3A">Idea</text>
+  <text x="105" y="275" text-anchor="middle" font-size="11" fill="#C75B3A">Human writes intent</text>
+  <text x="105" y="290" text-anchor="middle" font-size="11" fill="#C75B3A">in plain text</text>
+
+  <!-- Arrow -->
+  <line x1="170" y1="265" x2="215" y2="265" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M210,261 L218,265 L210,269" fill="none" stroke="#999" stroke-width="1.5"/>
+
+  <!-- After: Agent Pipeline (green group) -->
+  <rect x="218" y="225" width="360" height="80" rx="12" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="398" y="248" text-anchor="middle" font-size="12" font-weight="600" fill="#6BAF7B">AI Agent Pipeline — Fully Autonomous</text>
+
+  <rect x="233" y="258" width="70" height="36" rx="6" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="268" y="280" text-anchor="middle" font-size="10" fill="#1A1A1A">Design</text>
+
+  <text x="311" y="280" text-anchor="middle" font-size="11" fill="#6BAF7B">→</text>
+
+  <rect x="321" y="258" width="70" height="36" rx="6" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="356" y="280" text-anchor="middle" font-size="10" fill="#1A1A1A">Code</text>
+
+  <text x="399" y="280" text-anchor="middle" font-size="11" fill="#6BAF7B">→</text>
+
+  <rect x="409" y="258" width="70" height="36" rx="6" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="444" y="280" text-anchor="middle" font-size="10" fill="#1A1A1A">Eval + QA</text>
+
+  <text x="487" y="280" text-anchor="middle" font-size="11" fill="#6BAF7B">→</text>
+
+  <rect x="497" y="258" width="70" height="36" rx="6" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="532" y="280" text-anchor="middle" font-size="10" fill="#1A1A1A">Ship</text>
+
+  <!-- Arrow -->
+  <line x1="578" y1="265" x2="623" y2="265" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M618,261 L626,265 L618,269" fill="none" stroke="#999" stroke-width="1.5"/>
+
+  <!-- After: Review box (salmon - human input) -->
+  <rect x="626" y="230" width="120" height="70" rx="8" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="686" y="256" text-anchor="middle" font-size="14" font-weight="600" fill="#C75B3A">Review</text>
+  <text x="686" y="275" text-anchor="middle" font-size="11" fill="#C75B3A">Human checks</text>
+  <text x="686" y="290" text-anchor="middle" font-size="11" fill="#C75B3A">the output</text>
+
+  <!-- Bottom note -->
+  <text x="40" y="340" font-size="11" fill="#8C8777" font-style="italic">1 person · 40 minutes · 20+ production pages · zero manual coding</text>
+
+  <!-- Feedback loop arrow under green box -->
+  <path d="M460,305 C460,325 300,325 300,305" fill="none" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M296,308 L300,300 L304,308" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="380" y="336" text-anchor="middle" font-size="10" fill="#6BAF7B">Fail → Fix → Re-evaluate</text>
+</svg>

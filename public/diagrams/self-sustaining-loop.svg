@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 400" font-family="system-ui, -apple-system, sans-serif">
+  <!-- Outer card -->
+  <rect width="780" height="400" rx="16" fill="#EDECE8"/>
+
+  <!-- Title -->
+  <text x="40" y="42" font-size="22" font-weight="bold" fill="#1A1A1A">The Self-Sustaining Loop</text>
+
+  <!-- Inner area -->
+  <rect x="20" y="60" width="740" height="320" rx="12" fill="#F5F4F0"/>
+
+  <!-- Human input (left, salmon) -->
+  <rect x="40" y="130" width="130" height="90" rx="8" fill="#F8D7D0" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="105" y="158" text-anchor="middle" font-size="13" font-weight="600" fill="#C75B3A">Human Input</text>
+  <text x="105" y="178" text-anchor="middle" font-size="11" fill="#C75B3A">Design language</text>
+  <text x="105" y="193" text-anchor="middle" font-size="11" fill="#C75B3A">6 core pages</text>
+  <text x="105" y="208" text-anchor="middle" font-size="11" fill="#C75B3A">"Complete the app"</text>
+
+  <!-- Arrow from human to loop -->
+  <line x1="170" y1="175" x2="210" y2="175" stroke="#999" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M205,171 L213,175 L205,179" fill="none" stroke="#999" stroke-width="1.5"/>
+  <text x="190" y="165" text-anchor="middle" font-size="9" fill="#8C8777">once</text>
+
+  <!-- Autonomous loop (green group) -->
+  <rect x="213" y="80" width="440" height="260" rx="12" fill="#D4EDDA" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="433" y="105" text-anchor="middle" font-size="13" font-weight="600" fill="#6BAF7B">Autonomous Agent Loop — No Human Intervention</text>
+
+  <!-- Step 1: Clarify -->
+  <rect x="240" y="125" width="110" height="48" rx="8" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="295" y="146" text-anchor="middle" font-size="12" font-weight="600" fill="#1A1A1A">Clarify</text>
+  <text x="295" y="162" text-anchor="middle" font-size="10" fill="#6B6651">Generate spec</text>
+
+  <!-- Arrow -->
+  <line x1="350" y1="149" x2="380" y2="149" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M375,145 L383,149 L375,153" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+
+  <!-- Step 2: Design -->
+  <rect x="383" y="125" width="110" height="48" rx="8" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="438" y="146" text-anchor="middle" font-size="12" font-weight="600" fill="#1A1A1A">Design</text>
+  <text x="438" y="162" text-anchor="middle" font-size="10" fill="#6B6651">Stitch MCP</text>
+
+  <!-- Arrow -->
+  <line x1="493" y1="149" x2="523" y2="149" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M518,145 L526,149 L518,153" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+
+  <!-- Step 3: Implement -->
+  <rect x="526" y="125" width="110" height="48" rx="8" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="581" y="146" text-anchor="middle" font-size="12" font-weight="600" fill="#1A1A1A">Implement</text>
+  <text x="581" y="162" text-anchor="middle" font-size="10" fill="#6B6651">Write code</text>
+
+  <!-- Arrow down -->
+  <line x1="581" y1="173" x2="581" y2="210" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M577,205 L581,213 L585,205" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+
+  <!-- Step 4: Evaluate -->
+  <rect x="526" y="213" width="110" height="48" rx="8" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="581" y="234" text-anchor="middle" font-size="12" font-weight="600" fill="#1A1A1A">Evaluate</text>
+  <text x="581" y="250" text-anchor="middle" font-size="10" fill="#6B6651">90% quality gate</text>
+
+  <!-- Arrow left -->
+  <line x1="526" y1="237" x2="493" y2="237" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M498,233 L490,237 L498,241" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+
+  <!-- Step 5: QA -->
+  <rect x="383" y="213" width="110" height="48" rx="8" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="438" y="234" text-anchor="middle" font-size="12" font-weight="600" fill="#1A1A1A">QA</text>
+  <text x="438" y="250" text-anchor="middle" font-size="10" fill="#6B6651">Find + fix bugs</text>
+
+  <!-- Arrow left -->
+  <line x1="383" y1="237" x2="350" y2="237" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M355,233 L347,237 L355,241" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+
+  <!-- Step 6: Ship -->
+  <rect x="240" y="213" width="110" height="48" rx="8" fill="#F5F4F0" stroke="#6BAF7B" stroke-width="1"/>
+  <text x="295" y="234" text-anchor="middle" font-size="12" font-weight="600" fill="#1A1A1A">Ship</text>
+  <text x="295" y="250" text-anchor="middle" font-size="10" fill="#6B6651">Deploy feature</text>
+
+  <!-- Loop back arrow: Ship back up to Clarify (next feature) -->
+  <path d="M240,237 C220,237 220,149 240,149" fill="none" stroke="#6BAF7B" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M236,153 L244,149 L236,145" fill="none" stroke="#6BAF7B" stroke-width="1.5"/>
+  <text x="218" y="195" text-anchor="middle" font-size="9" fill="#6BAF7B" transform="rotate(-90, 218, 195)">next feature</text>
+
+  <!-- Fail loop: Evaluate back to Implement -->
+  <path d="M610,213 C625,195 625,175 610,173" fill="none" stroke="#C75B3A" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <path d="M614,177 L610,169 L606,177" fill="none" stroke="#C75B3A" stroke-width="1.5"/>
+  <text x="645" y="195" font-size="9" fill="#C75B3A">fail → fix</text>
+
+  <!-- Output (right) -->
+  <rect x="660" y="155" width="90" height="80" rx="8" fill="#F5F4F0" stroke="#999" stroke-width="1.5"/>
+  <text x="705" y="180" text-anchor="middle" font-size="22" font-weight="bold" fill="#6BAF7B">20+</text>
+  <text x="705" y="198" text-anchor="middle" font-size="11" fill="#1A1A1A">pages built</text>
+  <text x="705" y="215" text-anchor="middle" font-size="11" fill="#8C8777">0 intervention</text>
+
+  <!-- Bottom note -->
+  <text x="40" y="365" font-size="11" fill="#8C8777" font-style="italic">The agent doesn't just execute tasks — it sustains a process. Each completed feature triggers the next.</text>
+</svg>
