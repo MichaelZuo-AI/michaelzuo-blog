@@ -1,5 +1,5 @@
 ---
-title: "从一个想法到20页移动App：AI Agent在造，我在看"
+title: "成为一个 AI Psychosis 患者"
 date: "2026-03-22"
 spoiler: "我给AI Agent一套设计语言和6个核心页面，它自己完成了20多个生产级页面。全程零干预。"
 ---
