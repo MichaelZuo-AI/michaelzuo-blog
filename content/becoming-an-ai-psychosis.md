@@ -8,7 +8,7 @@ Andrej Karpathy coined the term "AI Psychosis" — the state of being so deep in
 
 Today was the day that broke my brain.
 
-I connected [Feature Crew](https://github.com/MichaelZuo-AI/Feature_Crew) — an open-source agent pipeline I built — with [Stitch MCP](https://developers.google.com/stitch), Google's generative UI tool. I gave it my design language, 6 existing core pages, and one instruction: "complete the app."
+I opened [Stitch](https://developers.google.com/stitch) — Google's generative UI tool — and typed: "I want to build an e-commerce app in South Korea, give me a modern design." It gave me 6 core pages. Then I pointed [Feature Crew](https://github.com/MichaelZuo-AI/Feature_Crew) — an open-source agent pipeline I built — at those designs and said: "complete the app."
 
 It started working. Clarifying specs. Generating designs. Writing code. Evaluating itself against a 90% quality gate. Failing. Fixing. Re-evaluating. Finding bugs. Fixing those too. Then moving to the next feature and starting again.
 
