@@ -4,7 +4,9 @@ date: "2026-03-22"
 spoiler: "我给AI Agent一套设计语言和6个核心页面，它自己完成了20多个生产级页面。全程零干预。"
 ---
 
-今天，我一边写这篇文章，一边看着AI Agent帮我开发App。
+Andrej Karpathy造了一个词叫"AI Psychosis"——一种沉浸在AI中无法自拔的状态，不停地探索AI还能做什么。每天16个小时和Claude Code为伴。搭建流水线。连接工具。把Agent的自主能力推到极限。每天都有太多的好想法。太多新能力。根本停不下来。
+
+今天，是我彻底破防的一天。
 
 我把 [Feature Crew](https://github.com/MichaelZuo-AI/Feature_Crew)——一个我自己开发的开源Agent流水线——连接上了 [Stitch MCP](https://developers.google.com/stitch)（Google的生成式UI工具）。给了它我的设计语言、6个已有的核心页面，和一条指令："把这个App补全。"
 
@@ -110,15 +112,13 @@ Feature Crew是一组Claude Code Skill。Stitch是Google的MCP Server。Claude C
 
 趋势很清晰。而且在加速。
 
-## AI Psychosis
-
-Andrej Karpathy造了一个词叫"AI Psychosis"——一种沉浸在AI中无法自拔的状态，不停地探索AI还能做什么。我有深深的共鸣。
-
-每天16个小时和Claude Code为伴。搭建流水线。连接工具。把Agent的自主能力推到极限。每天都有太多的好想法。太多新能力。太多可以连接的点。根本停不下来。
+## 所以，我确诊了
 
 这篇文章不是教程。它是一个信号。
 
 我们熟知的软件行业——设计冲刺、代码评审、QA周期、10人Feature团队——正在被压缩成一个prompt和一条流水线。工具是开源的。协议是开放标准。任何人今天就可以搭起来。
+
+而我已经停不下来了。每天太多好想法。太多可以连接的点。太多Agent做出某件事的瞬间，让我盯着屏幕发呆。
 
 世界变了。大多数人还没注意到。
 

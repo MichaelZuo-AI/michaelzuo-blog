@@ -4,7 +4,9 @@ date: "2026-03-22"
 spoiler: "I gave my AI agent a design language and 6 core pages. It built 20+ production pages on its own. I didn't touch a thing."
 ---
 
-Today I watched an AI agent build my app while I wrote this post.
+Andrej Karpathy coined the term "AI Psychosis" — the state of being so deep in AI that you can't stop exploring what it can do. I spend 16 hours a day with Claude Code. Building pipelines. Connecting tools. Pushing the boundary of what an agent can do autonomously. Every day there are too many good ideas. Too many new capabilities. I literally cannot stop.
+
+Today was the day that broke my brain.
 
 I connected [Feature Crew](https://github.com/MichaelZuo-AI/Feature_Crew) — an open-source agent pipeline I built — with [Stitch MCP](https://developers.google.com/stitch), Google's generative UI tool. I gave it my design language, 6 existing core pages, and one instruction: "complete the app."
 
@@ -110,15 +112,13 @@ When the agent can spin up worktrees in parallel and build 5 features simultaneo
 
 The trajectory is clear. And it's accelerating.
 
-## AI Psychosis
-
-Andrej Karpathy coined the term "AI Psychosis" — the state of being so deep in AI that you can't stop exploring what it can do. I feel it deeply.
-
-16 hours a day with Claude Code. Building pipelines. Connecting tools. Pushing the boundary of what an agent can do autonomously. Every day there are too many good ideas. Too many new capabilities. Too many dots to connect. I literally cannot stop.
+## So Yes, I'm an AI Psychosis Patient Now
 
 This post isn't a tutorial. It's a signal.
 
 The software industry as we know it — with its design sprints, code reviews, QA cycles, and 10-person feature teams — is being compressed into a prompt and a pipeline. The tools are open source. The protocols are open standard. Anyone can set this up today.
+
+And I can't stop. Every day, too many good ideas. Too many dots to connect. Too many moments where the agent does something that makes me sit back and stare at the screen.
 
 The world changed. Most people haven't noticed yet.
 
