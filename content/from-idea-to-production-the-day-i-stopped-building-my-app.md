@@ -1,5 +1,5 @@
 ---
-title: "From Idea to a Full Mobile App: The Day I Stopped Building It Myself"
+title: "From Idea to a 20-Page Mobile App: AI Agents Built It, I Just Watched"
 date: "2026-03-22"
 spoiler: "I gave my AI agent a design language and 6 core pages. It built 20+ production pages on its own. I didn't touch a thing."
 ---
