@@ -45,8 +45,26 @@ export default async function BlogPost({
   const { slug } = await params;
   const post = await getPost(slug);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.spoiler,
+    datePublished: post.date,
+    author: {
+      "@type": "Person",
+      name: config.name,
+      url: config.url,
+    },
+    url: `${config.url}/post/${slug}`,
+  };
+
   return (
     <article>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <header className="mb-10">
         <small
           className="block mb-3 text-sm"
