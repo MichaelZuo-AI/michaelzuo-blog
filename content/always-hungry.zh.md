@@ -1,5 +1,5 @@
 ---
-title: "Always Hungry：让你的项目自我进化的模式"
+title: "Always Hungry：AI 时代的项目自我进化模式"
 date: "2026-03-29"
 spoiler: "如果你的项目能自己观察开源社区、学习、然后升级自己呢？不需要你做任何事。"
 ---

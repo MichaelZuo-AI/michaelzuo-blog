@@ -1,5 +1,5 @@
 ---
-title: "Always Hungry: A Self-Evolution Mode to Improve Your Project While You Sleep"
+title: "Always Hungry: A Self-Evolution Mode for the AI Era"
 date: "2026-03-29"
 spoiler: "What if your project could watch the open-source community, learn from it, and upgrade itself — without you doing anything?"
 ---
