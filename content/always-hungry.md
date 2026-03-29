@@ -8,8 +8,6 @@ The world is moving too fast to look only inward.
 
 In the AI era, the open-source ecosystem evolves at a pace no individual can track. A better pattern ships on GitHub while you sleep. A cleaner architecture emerges in a repo you've never heard of. The gap between what your project *is* and what it *could be* widens every day — not because your code is bad, but because the world around it keeps getting better.
 
-Most "AI code improvement" tools look inward. They analyze your code and suggest refactors. That's useful, but it's not enough. The best improvements aren't the ones you derive from first principles — they're the ones someone else already figured out and battle-tested. JSON-LD structured data isn't something you'd "refactor" your way into. It's a pattern you learn from seeing other projects do it.
-
 **Your project needs to look outward.** It needs to continuously observe its ecosystem and absorb what works.
 
 `/always-hungry` is a Claude Code skill that does exactly this. Point it at any codebase, and it scouts the open-source community for relevant patterns, tests them against your code, and merges what passes. Autonomously.
