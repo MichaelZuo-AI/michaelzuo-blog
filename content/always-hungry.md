@@ -98,13 +98,7 @@ This identity persists across runs. The project gets better at recognizing what'
 
 ## Running It
 
-One command to install:
-
-```bash
-git clone https://github.com/ai-awesome/skill-always-hungry.git ~/.claude/skills/always-hungry
-```
-
-Then open Claude Code in any project and type:
+Grab it from [GitHub](https://github.com/ai-awesome/skill-always-hungry), then open Claude Code in any project and type:
 
 ```
 /always-hungry
