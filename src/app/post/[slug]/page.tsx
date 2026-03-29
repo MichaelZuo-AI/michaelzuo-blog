@@ -52,7 +52,7 @@ export default async function BlogPost({
           className="block mb-3 text-sm"
           style={{ color: "var(--meta)" }}
         >
-          {formatDate(post.date)}
+          {formatDate(post.date)} · {post.readingTime}
         </small>
         <h1
           className="text-4xl font-bold leading-tight tracking-tight"

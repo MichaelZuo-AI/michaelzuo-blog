@@ -36,6 +36,7 @@ export default function RootLayout({
             `,
           }}
         />
+        <link rel="alternate" type="application/rss+xml" title="Michael Zuo" href="/feed.xml" />
         {config.cloudflareAnalyticsToken && (
           <script
             defer

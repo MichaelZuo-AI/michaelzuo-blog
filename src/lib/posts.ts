@@ -1,9 +1,12 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
-import { remark } from "remark";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
 import remarkGfm from "remark-gfm";
-import html from "remark-html";
+import remarkRehype from "remark-rehype";
+import rehypeHighlight from "rehype-highlight";
+import rehypeStringify from "rehype-stringify";
 
 const postsDirectory = path.join(process.cwd(), "content");
 
@@ -12,6 +15,7 @@ export interface PostMeta {
   title: string;
   date: string;
   spoiler: string;
+  readingTime: string;
 }
 
 export interface Post extends PostMeta {
@@ -20,8 +24,20 @@ export interface Post extends PostMeta {
   hasTranslation: boolean;
 }
 
+function calculateReadingTime(text: string): string {
+  const words = text.split(/\s+/).filter(Boolean).length;
+  const minutes = Math.max(1, Math.ceil(words / 200));
+  return `${minutes} min read`;
+}
+
 async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark().use(remarkGfm).use(html).process(markdown);
+  const result = await unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype)
+    .use(rehypeHighlight, { detect: true })
+    .use(rehypeStringify)
+    .process(markdown);
   return result.toString();
 }
 
@@ -33,13 +49,14 @@ export function getAllPosts(): PostMeta[] {
       const slug = fileName.replace(/\.md$/, "");
       const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, "utf8");
-      const { data } = matter(fileContents);
+      const { data, content } = matter(fileContents);
 
       return {
         slug,
         title: data.title,
         date: data.date,
         spoiler: data.spoiler || "",
+        readingTime: calculateReadingTime(content),
       };
     });
 
@@ -77,6 +94,7 @@ export async function getPost(slug: string): Promise<Post> {
     title: data.title,
     date: data.date,
     spoiler: data.spoiler || "",
+    readingTime: calculateReadingTime(content),
     contentHtml,
     contentHtmlZh,
     hasTranslation,

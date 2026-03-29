@@ -21,7 +21,7 @@ export default function Home() {
             className="block mb-2 text-sm"
             style={{ color: "var(--meta)" }}
           >
-            {formatDate(post.date)}
+            {formatDate(post.date)} · {post.readingTime}
           </small>
           <h3 className="text-2xl font-semibold leading-snug mb-2 tracking-tight">
             <Link
