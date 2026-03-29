@@ -69,5 +69,3 @@ The project reads its own `CLAUDE.md`, builds its identity, observes its ecosyst
 We're used to thinking of software as something we build and maintain. Always-hungry inverts that. The project evolves by continuously learning from its ecosystem.
 
 The world moves fast. Your project should too — even when you're not watching.
-
-That's the real point. Not that an agent writes code. That **your project learns from the world while you're doing something else**.
