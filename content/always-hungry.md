@@ -68,4 +68,4 @@ The project reads its own `CLAUDE.md`, builds its identity, observes its ecosyst
 
 We're used to thinking of software as something we build and maintain. Always-hungry inverts that. The project evolves by continuously learning from its ecosystem.
 
-The world moves fast. Your project should too — even when you are sleeping.
+The world moves fast. And your project — even while you sleep — can stay always hungry, learning the best ideas from across the globe.
