@@ -17,12 +17,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
+  const postUrl = `${config.url}/post/${slug}`;
   return {
     title: `${post.title} — ${config.name}`,
     description: post.spoiler,
+    alternates: {
+      canonical: postUrl,
+      ...(post.hasTranslation
+        ? {
+            languages: {
+              en: postUrl,
+              "zh-Hans": postUrl,
+            },
+          }
+        : {}),
+    },
     openGraph: {
       title: post.title,
       description: post.spoiler,
+      type: "article",
+      publishedTime: post.date,
+      authors: [config.name],
+      ...(post.hasTranslation ? { locale: "en", alternateLocale: ["zh-Hans"] } : {}),
       images: [{ url: config.ogImage, width: 600, height: 600 }],
     },
   };
