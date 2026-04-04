@@ -1,5 +1,5 @@
 ---
-title: "The Jobs AI Creates: Why Supply Overflow Leads to More Employment"
+title: "When Everyone Has AI, What's Your Edge?"
 date: "2026-04-04"
 spoiler: "AI creates more jobs than it destroys — history proves it. Here are the 5 skills that matter for what's coming."
 ---
