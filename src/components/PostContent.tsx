@@ -4,10 +4,14 @@ import { useCallback, useState } from "react";
 import LanguageToggle from "./LanguageToggle";
 
 export default function PostContent({
+  title,
+  titleZh,
   contentHtml,
   contentHtmlZh,
   hasTranslation,
 }: {
+  title: string;
+  titleZh?: string;
   contentHtml: string;
   contentHtmlZh?: string;
   hasTranslation: boolean;
@@ -19,6 +23,7 @@ export default function PostContent({
   }, []);
 
   const html = lang === "zh" && contentHtmlZh ? contentHtmlZh : contentHtml;
+  const displayTitle = lang === "zh" && titleZh ? titleZh : title;
 
   return (
     <>
@@ -27,6 +32,12 @@ export default function PostContent({
           <LanguageToggle onChange={handleChange} />
         </div>
       )}
+      <h1
+        className="text-4xl font-bold leading-tight tracking-tight mb-10"
+        style={{ color: "var(--title)" }}
+      >
+        {displayTitle}
+      </h1>
       <div
         className="prose prose-lg max-w-none"
         dangerouslySetInnerHTML={{ __html: html }}

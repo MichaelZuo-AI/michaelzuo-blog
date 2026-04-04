@@ -88,14 +88,10 @@ export default async function BlogPost({
         >
           {formatDate(post.date)} · {post.readingTime}
         </small>
-        <h1
-          className="text-4xl font-bold leading-tight tracking-tight"
-          style={{ color: "var(--title)" }}
-        >
-          {post.title}
-        </h1>
       </header>
       <PostContent
+        title={post.title}
+        titleZh={post.titleZh}
         contentHtml={post.contentHtml}
         contentHtmlZh={post.contentHtmlZh}
         hasTranslation={post.hasTranslation}

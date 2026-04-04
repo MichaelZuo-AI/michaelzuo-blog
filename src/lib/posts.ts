@@ -21,6 +21,7 @@ export interface PostMeta {
 export interface Post extends PostMeta {
   contentHtml: string;
   contentHtmlZh?: string;
+  titleZh?: string;
   hasTranslation: boolean;
 }
 
@@ -82,11 +83,13 @@ export async function getPost(slug: string): Promise<Post> {
   const zhPath = path.join(postsDirectory, `${slug}.zh.md`);
   const hasTranslation = fs.existsSync(zhPath);
   let contentHtmlZh: string | undefined;
+  let titleZh: string | undefined;
 
   if (hasTranslation) {
     const zhContents = fs.readFileSync(zhPath, "utf8");
-    const { content: zhContent } = matter(zhContents);
+    const { data: zhData, content: zhContent } = matter(zhContents);
     contentHtmlZh = await markdownToHtml(zhContent);
+    titleZh = zhData.title;
   }
 
   return {
@@ -97,6 +100,7 @@ export async function getPost(slug: string): Promise<Post> {
     readingTime: calculateReadingTime(content),
     contentHtml,
     contentHtmlZh,
+    titleZh,
     hasTranslation,
   };
 }
