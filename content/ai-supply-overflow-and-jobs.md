@@ -4,6 +4,14 @@ date: "2026-04-04"
 spoiler: "AI creates more jobs than it destroys — history proves it. Here are the 5 skills that matter for what's coming."
 ---
 
+AI can write your copy, analyze your data, generate your code, and design your slides. It gets cheaper every month and better every quarter. The tools that required a team two years ago now run in a browser tab.
+
+So if everyone has access to the same capability, what separates you? And the more uncomfortable version: if AI can do what you do, does the company still need you at the same level?
+
+That's the fear. Here's why history says it's pointing in the wrong direction.
+
+---
+
 ## The Fear Is Rational — and Historically Wrong
 
 The argument is intuitive: AI does more work, companies need fewer people. Supply of output rises, demand for labor falls. Jobs disappear.
