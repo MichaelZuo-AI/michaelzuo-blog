@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://michaelzuo.vip/sitemap.xml
+Sitemap: https://blog.michaelzuo.vip/sitemap.xml

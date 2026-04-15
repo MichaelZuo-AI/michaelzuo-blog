@@ -4,7 +4,7 @@ import config from "../../site.config";
 
 export const dynamic = "force-static";
 
-const BASE_URL = config.url || "https://michaelzuo.vip";
+const BASE_URL = config.url || "https://blog.michaelzuo.vip";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();

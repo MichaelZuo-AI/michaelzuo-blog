@@ -12,7 +12,7 @@ const config: SiteConfig = {
   description: "Writing on software engineering, AI-driven development, and building things.",
   tagline: "Where Michael Thinks",
   ogImage: "/og-image.png",
-  url: "https://michaelzuo.vip",
+  url: "https://blog.michaelzuo.vip",
   cloudflareAnalyticsToken: "7f5ba72b27094b788fd87ebf15f14729",
 };
 

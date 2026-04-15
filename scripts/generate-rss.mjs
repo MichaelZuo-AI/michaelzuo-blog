@@ -5,7 +5,7 @@ import matter from "gray-matter";
 const SITE_TITLE = "Michael Zuo";
 const SITE_DESCRIPTION =
   "Writing on software engineering, AI-driven development, and building things.";
-const SITE_URL = "https://michaelzuo.vip";
+const SITE_URL = "https://blog.michaelzuo.vip";
 
 const contentDir = path.join(process.cwd(), "content");
 const outDir = path.join(process.cwd(), "out");
