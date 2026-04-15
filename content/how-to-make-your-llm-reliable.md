@@ -4,7 +4,7 @@ date: "2026-04-15"
 spoiler: "Four rules from Karpathy's skills repo — and why they're the same rules you'd teach a junior engineer."
 ---
 
-Paste these four rules from [Andrej Karpathy's skills repo](https://github.com/forrestchang/andrej-karpathy-skills/blob/main/CLAUDE.md) into your instruction file. Each one fixes a specific failure your model has by default.
+This post comes out of two sources: [Karpathy's notes on coding with Claude](https://x.com/karpathy/status/2015883857489522876), and [a skills repo](https://github.com/forrestchang/andrej-karpathy-skills/blob/main/CLAUDE.md) that distills his observations into a CLAUDE.md format. The repo picked up nearly 40,000 stars in under three months — a strong signal that people recognized something real in the distillation. Both point at the same four rules. Each one, when I looked closely, turned out to be a specific property of *reliability* — the word for what you actually want from a model you trust with real work.
 
 ## 1. Surface what you don't know
 
@@ -45,10 +45,12 @@ A fuzzy definition of done ("make it work") becomes a clarification loop or a gu
 
 ## The part nobody put on the label
 
-Paste those four rules into your `CLAUDE.md` and the next session behaves better. That's the practical payoff.
+Get those four rules in front of the model and the next session behaves better. That's the practical payoff.
 
 Read them back-to-back, though — *surface what you don't know, don't add what wasn't asked for, stay inside the scope, define done before you start* — and they aren't prompt engineering. They're the four things a mentor spends years getting into a junior engineer's head. A junior who can do all four is the moment people stop saying *"talented"* and start saying *"reliable."*
 
-But even with a perfect prompt, the model is still probabilistic. It can still guess wrong, drift, or declare victory on vibes. Prompt polishing raises the floor, not the ceiling. The real work is one level up: **harness engineering** — the external feedback loop that validates the model's output against ground truth. A test that actually runs. The prompt tells the model what to aim at. The harness tells you whether it hit.
+But even with a perfect prompt, the model is still probabilistic. It can still guess wrong, drift, or declare victory on vibes. Prompt polishing raises the floor, not the ceiling. Karpathy's own notes concede the point: these failures persist, he writes, *"despite a few simple attempts to fix it via instructions in CLAUDE.md."* The rules help. They don't close the gap.
+
+The real work is one level up: **harness engineering** — the external feedback loop that validates the model's output against ground truth. A test that actually runs. The prompt tells the model what to aim at. The harness tells you whether it hit.
 
 **The rules get you most of the way. The feedback loop gets you the rest.**
