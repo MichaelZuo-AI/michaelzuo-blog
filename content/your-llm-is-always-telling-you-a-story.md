@@ -22,7 +22,7 @@ That's the gap. Not hallucination in the dramatic sense, not the model confusing
 
 FBI researchers Fisher and Geiselman developed [cognitive interviewing](https://en.wikipedia.org/wiki/Cognitive_interview) in the 1980s as a technique for investigative interviewing — specifically for eyewitness testimony, where cooperative subjects are trying to help but whose first-pass account is reconstruction, not record. The insight was that cooperative subjects aren't lying — they're pattern-matching from general knowledge of what usually happens, filling in what they don't specifically remember. The cognitive interview works by forcing reconstruction-specific detail: peripheral facts, exact sequences, sensory specifics — the kind of detail that only exists in a genuine memory, not in a plausible reconstruction of one.
 
-Contrast that with the Reid technique, which assumes deception and is designed to elicit confessions — adversarial by design. Cognitive interviewing assumes the subject is trying to help and is cooperative. It just doesn't accept the narrative they hand over first.
+Contrast that with the Reid technique, which assumes deception and is designed to elicit confessions — adversarial by design. Cognitive interviewing assumes the subject is trying to help. It just doesn't accept the narrative they hand over first.
 
 That posture maps directly to LLMs. The model isn't trying to deceive you. It's generating the most plausible account — which is indistinguishable from the accurate account until you probe with precision. The model's summary is the opening statement, not the final answer. The real investigative work starts after that.
 
@@ -51,7 +51,7 @@ That posture maps directly to LLMs. The model isn't trying to deceive you. It's 
 **Probe:**
 > "Before you ran the check, what did you expect to find, and why?"
 
-**Tell:** A real verification starts with a hypothesis. You have a prior expectation — you're checking whether reality matches it. Pattern-matched narratives work backward from the conclusion: the model knows the answer, then constructs a plausible path to it. Ask for the expectation that preceded the check and one of two things happens. The model invents one that aligns suspiciously neatly with the outcome — a tell in itself. Or it concedes it had none. Either way, the probe has done its job.
+**Tell:** A real verification starts with a hypothesis. You have a prior expectation — you're checking whether reality matches it. Pattern-matched narratives work backward from the conclusion: the model knows the answer, then constructs a plausible path to it. Ask for the expectation that preceded the check. One of two things happens. The model invents one that aligns suspiciously neatly with the outcome — a tell in itself. Or it concedes it had none. Either way, the probe has done its job.
 
 ## Check the tool-trail
 
