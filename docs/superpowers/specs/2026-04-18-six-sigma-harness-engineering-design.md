@@ -1,4 +1,4 @@
-# Spec: "六西格玛管得住 AI 的手吗?"
+# Spec: "Can Six Sigma Rein In Your LLM?" / "六西格玛管得住 AI 的手吗?"
 
 **Date:** 2026-04-18
 **Author:** Michael Zuo
@@ -38,9 +38,23 @@ Single lived observation, used throughout. Other scenarios not introduced.
 
 ## Post structure
 
-Target length: **1800–2200 字**. Matches the mid-length register of recent posts. Thinking-out-loud posture — not a long-form manifesto.
+Target length: **~1200–1400 words (English, primary)** / **~1800–2200 字 (Chinese translation)**. Matches the mid-length register of recent posts. Thinking-out-loud posture — not a long-form manifesto. English drafted first; Chinese translation preserves the register and compression of prior ZH versions (see *"你的 LLM 总在给你讲故事"* for reference voice).
+
+Section-level word counts below are given in English words (with ZH character counts in parentheses where the split is non-obvious). Section headers are shown here in English; Chinese headers are derived at translation time.
 
 ### Frontmatter
+
+**English (`.md`):**
+
+```
+---
+title: "Can Six Sigma Rein In Your LLM?"
+date: "2026-04-18"
+spoiler: "Prompt engineering is a mean-shifting tool. Tightening the distribution takes a different toolkit — the one from the factory floor."
+---
+```
+
+**Chinese (`.zh.md`, derived):**
 
 ```
 ---
@@ -53,101 +67,121 @@ spoiler: "prompt engineering 是均值工具。收窄分布需要另一套工具
 ### Section 1 — Cold open (no H2; opens the post)
 
 **Constraints:**
-- ~220–270 字, tight.
-- First person (*"过去两个月我密切和 Claude Code 一起工作……"*).
+- ~140–170 words (EN) / ~220–270 字 (ZH), tight.
+- First person (*"For the past two months I've been working closely with Claude Code..."*).
 - Three beats, in order:
-  1. The observation: 同样的输入、同样的 prompt,不同 run,质量分布从很差到很好。
-  2. The frustration: prompt engineering 不管怎么打磨,都没有把这个分布收窄。
-  3. The pivot: 也许 prompt engineering 本来就不是收窄分布的工具 — 它提升均值,但变异本身需要另一套方法。
+  1. The observation: same inputs, same prompt, different runs — quality ranges from poor to high.
+  2. The frustration: no amount of prompt polishing narrows this distribution.
+  3. The pivot: maybe prompt engineering was never a variance-reduction tool — it shifts the mean; tightening the distribution needs a different toolkit.
 - Ends on a turn into Shewhart's distinction, setting up Section 2.
 
-### Section 2 — `## 你一直在把共因当特殊因处理`
+### Section 2 — `## You've been treating common causes as special causes`
+
+(ZH: `## 你一直在把共因当特殊因处理`)
 
 **Constraints:**
-- ~200–250 字.
-- Walter Shewhart 1920s — SPC 的起点。*共因变异*(过程设计里烘焙好的)vs *特殊因变异*(可归咎于某次具体事件的)。
-- Key assertion: 我们对 AI 不满意时的默认反应——重跑、改 prompt 再试——是把共因当成特殊因处理的反射。大多数"这次 AI 没理解我"其实是每次都在发生的东西。
+- ~130–160 words (EN) / ~200–250 字 (ZH).
+- Walter Shewhart 1920s — the origin of SPC. *Common-cause variation* (baked into the process design) vs *special-cause variation* (attributable to a specific event).
+- Key assertion: our default reaction to a bad AI output — re-run, re-prompt, try again — is the reflex of treating common causes as special. Most *"the model didn't get me this time"* moments are things that happen every time.
 - No new scenarios. Reference the anchor observation if needed.
-- Lands on: 如果要收窄分布,我们需要的不是"这次运气怎么这么差"的语言,是"这套过程本身能力如何"的语言。这是 Six Sigma 的语言。
+- Lands on: to tighten the distribution, we need the language of *"how capable is this process?"* — not *"how unlucky was this run?"*. That is Six Sigma's language.
 
-### Section 3 — `## Six Sigma 的真正内核不是消灭 bug`
+### Section 3 — `## Six Sigma's real core isn't bug elimination`
 
-**Constraints:**
-- ~200–250 字.
-- 快速讲清 Six Sigma 的数学内核:
-  - 名字本身就是讲标准差——±6σ 要装进规格边界内。
-  - 3.4 DPMO 是从这个几何关系推出来的,不是凭空的目标。
-  - 所有工具(控制图、Cpk、DOE)都围绕"测量 σ、缩小 σ"展开。
-- 落点:*缺陷 = 变异本身*。规格边界 = 可接受的落地 + 可接受的风格。
-- 一句话把 harness engineering 重新命名成 *"过程能力提升"*。
-- Section 末尾:简化版表格亮一次(只有来源 + 典型症状两列),吊出第 4 节的分解。
-
-### Section 4 — `## 把变异分解成来源`
+(ZH: `## Six Sigma 的真正内核不是消灭 bug`)
 
 **Constraints:**
-- ~900–1100 字. 主体。
-- 5 个子节,每节以 h3 (`###`) 标题起头。
-- 每节 150–200 字,除 4.5 (需求落地变异) 单独给 300 字展开——这是整篇 post 最戏剧性的一行,也是全篇最能为 stance B (公开实验) 铺路的一行。
+- ~130–160 words (EN) / ~200–250 字 (ZH).
+- Quickly establish Six Sigma's mathematical core:
+  - The name itself is about standard deviations — ±6σ has to fit inside your spec limits.
+  - The 3.4 DPMO target is derived from that geometry, not set arbitrarily.
+  - Every tool (control charts, Cpk, DOE) exists to *measure σ and shrink σ*.
+- Landing: *the defect is variance itself*. Spec limits = acceptable requirement fulfillment + acceptable style/format.
+- One line renames harness engineering as *"process capability improvement"*.
+- End of section: show a simplified version of the table (two columns: source + typical symptom), setting up Section 4's decomposition.
 
-**子节结构:**
+### Section 4 — `## Decomposing variance into sources`
 
-#### `### 模型随机性`
-- 症状:同 prompt 不同 run 结果波动。
-- 最容易被承认是变异的一类,但在"真实痛点"里占比往往被高估。
-- Harness 层杠杆:温度、采样策略、K-of-N 投票。
-- 一句关于 "K-of-N 在代码任务里是否真的成立" 的怀疑,埋下 Section 5 的钩子。
-
-#### `### 输入变异`
-- 症状:prompt 表述飘移、context 被无关信息污染。
-- Harness 层杠杆:prompt 模板化、context 裁剪、最小必要上下文。
-- 这一类是 prompt engineering 社区已经在做的事——Six Sigma 视角只是给它换一个更严谨的名字(输入稳定性)。
-
-#### `### 过程变异`
-- 症状:agent loop 分支路径不同、工具调用失败、同任务走出完全不同的执行轨迹。
-- Harness 层杠杆:流程收敛、工具白名单、验证 gate。
-- 一句关于 "收敛流程是否会在压变异的同时压掉能力" 的怀疑,埋下 Section 5 的钩子。
-
-#### `### 格式/风格变异`
-- 症状:同一任务不同架构风格、格式飘移。
-- Harness 层杠杆:Linter、Validator、Schema 约束、再生策略。
-- 最"机械"的一类——这类变异其实已经被工程化,只是大家没给它一个 Six Sigma 的名字。
-
-#### `### 需求落地变异`(关键,~300 字)
-- 症状:代码没按需求实现、feature 不可用、bug 扎堆、"看起来像在做这件事但其实没做"。
-- 这是 Section 2 的 "共因 vs 特殊因" 戏剧性最强的一行——最容易被当特殊因处理("这次 AI 没理解我,再说一遍"),但其实是 harness 设计里*没有强制把规格以可验证形式带进流程*的必然输出。
-- Harness 层杠杆:规格前置(spec/AC 进 prompt)、plan-before-code、TDD 式"测试即规格"、验证 gate(跑测试 / LLM-as-judge 对照规格)、双 agent 交叉校验。
-- 一句关于 "LLM-based verification 本身就是高变异工具,用它去压变异合不合理" 的怀疑,埋下 Section 5 的钩子。
-
-**子节结束后:** 贴一次完整版表格(三列:来源 / 症状 / 杠杆),同时对即将在 Section 5 标出的 3 条"最怀疑"加粗。
-
-### Section 5 — `## 我最怀疑的三条假设`
+(ZH: `## 把变异分解成来源`)
 
 **Constraints:**
-- ~280–330 字.
-- Stance B 的诚实落脚:不做方法论宣言,只把自己最没把握的 3 条摊开来。
-- 每条 80–110 字,标题用一句话总结假设本身,然后用 1-2 句说为什么可疑。
+- ~600–750 words (EN) / ~900–1100 字 (ZH). Body of the post.
+- 5 sub-sections, each headed with h3 (`###`).
+- Each sub-section ~100–135 words (EN) / 150–200 字 (ZH), except sub-section 4.5 (requirement-fulfillment variance) which gets ~200 words (EN) / 300 字 (ZH) — this is the post's most dramatic line and the one best aligned with stance B (public experiment).
 
-**三条(已选,待 user 审):**
+**Sub-section structure:**
 
-1. **"LLM-based 验证 gate 能收窄需求落地变异。"**(Row 5)
-   验证器本身就是高变异的 LLM。用一个变异高的工具去压另一个变异高的工具,很可能只是把变异从 A 搬到 B。Six Sigma 有一个前置步骤叫 *测量系统分析*(MSA)——测量工具自己的分辨率要比被测过程的变异小一个量级,否则控制图读出来的都是测量噪声。LLM-as-judge 可能连这个门槛都没过。
+#### `### Model stochasticity` (ZH: `### 模型随机性`)
+- Symptom: same prompt, different runs, output fluctuates.
+- The variance source most readily acknowledged — but its share of real pain tends to be overestimated.
+- Harness-level levers: temperature, sampling strategy, K-of-N voting.
+- A line of doubt about *whether K-of-N actually holds for code tasks*, planting a hook for Section 5.
 
-2. **"K-of-N 采样能降低代码输出变异。"**(Row 1)
-   K-of-N 对有"标准答案"的任务(数学、分类)有效。但代码任务里,很多条都"对",选哪条是最佳?你需要一个仲裁器——又踢回到假设 1 的坑里。而且 K-of-N 在代码任务上的经验证据远比在数学任务上弱。
+#### `### Input variance` (ZH: `### 输入变异`)
+- Symptom: prompt phrasing drift, context contaminated with irrelevant information.
+- Harness-level levers: prompt templating, context pruning, minimal-necessary-context discipline.
+- This is what the prompt engineering community is already doing — the Six Sigma frame just gives it a more rigorous name (input stability).
 
-3. **"流程收敛能在不损失能力的前提下压过程变异。"**(Row 3)
-   Agent loop 会产生变异,恰恰是因为模型在每一步自主选分支——而分支本身就是它解决陌生问题的能力来源。过度收敛把变异压下去,可能同时把能力也压下去。Six Sigma 语言里这叫 *process stability vs process capability* 的张力。只优化稳定性,等于把 harness 训练成一个更笨的工程师。
+#### `### Process variance` (ZH: `### 过程变异`)
+- Symptom: agent loop takes different branches, tool calls fail, the same task produces entirely different execution traces.
+- Harness-level levers: flow convergence, tool whitelisting, verification gates.
+- A line of doubt about *whether convergent flow shrinks variance at the cost of capability*, planting a hook for Section 5.
+
+#### `### Style/format variance` (ZH: `### 格式/风格变异`)
+- Symptom: varying architecture styles for the same task, format drift.
+- Harness-level levers: linter, validator, schema constraints, regeneration.
+- The most "mechanical" category — this variance has already been engineered against; it just hasn't been named in Six Sigma terms.
+
+#### `### Requirement-fulfillment variance` (key, ~200 words EN / ~300 字 ZH) (ZH: `### 需求落地变异`)
+- Symptom: the code doesn't implement the requirement, the feature is unusable, bugs cluster, output *looks like* it did the thing but didn't.
+- This is Section 2's "common cause vs special cause" at its most dramatic — most easily treated as special ("the model didn't get me, say it again"), but in fact a predictable output of a harness design that *fails to force the spec into the process in a verifiable form*.
+- Harness-level levers: spec-first prompting (spec/AC in prompt), plan-before-code, TDD-style *"tests as spec"*, verification gates (run tests / LLM-as-judge against spec), dual-agent cross-check.
+- A line of doubt about *whether LLM-based verification — itself a high-variance tool — can legitimately compress variance*, planting a hook for Section 5.
+
+**After sub-sections:** paste the full table (three columns: source / symptom / lever), with the 3 "most suspect" rows bolded to flag Section 5.
+
+### Section 5 — `## The three assumptions I'm most uncertain about`
+
+(ZH: `## 我最怀疑的三条假设`)
+
+**Constraints:**
+- ~180–220 words (EN) / ~280–330 字 (ZH).
+- The honest landing for stance B: no methodology manifesto — just lay out the 3 weakest links.
+- Each item ~55–75 words (EN) / 80–110 字 (ZH): title states the assumption; 1–2 sentences say why it's suspect.
+
+**The three (selected, pending user review):**
+
+1. **"LLM-based verification gates can tighten the requirement-fulfillment distribution."** (Row 5)
+   The verifier is itself a high-variance LLM. Using a variance-prone tool to compress another variance-prone tool's output may just move variance from A to B. Six Sigma has a preliminary step called *Measurement System Analysis (MSA)* — the measurement tool's resolution must be an order of magnitude tighter than the process variance it's trying to resolve, or the control chart reads out measurement noise. LLM-as-judge may not clear this bar.
+
+2. **"K-of-N sampling reduces variance for code output."** (Row 1)
+   K-of-N works for tasks with a defined correct answer (math, classification). For code, multiple outputs can all be "correct" — picking the best requires an arbiter, which loops back into Assumption 1. Worse, K-of-N's empirical track record on code is substantially weaker than on mathematical tasks.
+
+3. **"Convergent flow design compresses process variance without losing capability."** (Row 3)
+   Agent loops produce variance precisely because the model chooses branches at each step — and branching is also the source of its ability to solve novel problems. Over-constricting the flow may suppress variance and capability together. In Six Sigma's language this is the *process stability vs process capability* tension. Optimizing for stability alone trains the harness into a worse engineer.
+
+**ZH translations of the three titles (for reference during translation):**
+1. *"LLM-based 验证 gate 能收窄需求落地变异。"*
+2. *"K-of-N 采样能降低代码输出变异。"*
+3. *"流程收敛能在不损失能力的前提下压过程变异。"*
 
 ### Section 6 — Closing (standalone)
 
 **Constraints:**
-- ~130–180 字.
-- 不引用前两篇 post。
+- ~85–115 words (EN) / ~130–180 字 (ZH).
+- Does not reference the previous two posts.
 - Builds to a short bolded final sentence.
-- 合拢 stance B:这是设计,不是结论。接下来会在我自己的 harness 里对每一条变异来源跑 1-2 个最小干预,过几周回来报告哪条假设活下来。
-- 避免"方法论布道"腔,保留思考过程的诚实感。
+- Closes stance B: this is a design, not a conclusion. I'll run 1–2 minimal interventions per variance source in my own harness, then report back in a few weeks on which assumptions survived.
+- Avoid methodology-sermon tone; preserve the honesty of a thinking-in-progress piece.
 
 **Primary landing line candidates** (pick at drafting time, lock the sharpest):
+
+**English candidates:**
+- **"Prompt engineering tunes the mean. To tighten the distribution, you have to go to the factory floor."**
+- **"Whether Six Sigma can rein in an LLM, I'll tell you in a few weeks."**
+- **"Stop treating common causes as special ones. That's already half the answer."**
+
+**Chinese candidates (derived, for translation reference):**
 - **"prompt engineering 调的是均值。收窄分布,得去生产线上找答案。"**
 - **"Six Sigma 能不能管住 AI 的手,几周后回来告诉你。"**
 - **"把共因不当特殊因处理,已经是一半的答案。"**
@@ -164,26 +198,20 @@ spoiler: "prompt engineering 是均值工具。收窄分布需要另一套工具
 - First-person voice, declarative, mid-register — match *"你的 LLM 总在给你讲故事"* and *"让你的 LLM 更可靠"*
 - No paper / data citations — this is hypothesis framing, not empirical work; pretending otherwise would break the stance B honesty
 
-## Bilingual note
+## Bilingual requirement
 
-This post ships **Chinese-only for the initial release**. The English version is deferred — pending either the follow-up (post-experiment) post generating sufficient English-reader interest, or a later translation pass.
+Per the blog's convention, this post ships in **both English and Simplified Chinese**. English is the primary drafting language; Chinese is translated from it at publish time. Matches the pattern of *"How to make your LLM reliable"* and *"Your LLM is always telling you a story"*.
 
-**Implementation caveat (flag for author at publish time):** The blog convention pairs `[slug].md` (EN) with `[slug].zh.md` (ZH). If `src/lib/posts.ts` requires the EN counterpart to exist for routing, options:
-- (a) ship the ZH content as `[slug].md` initially (breaks the EN-first convention for this post only),
-- (b) write a minimal EN version at publish time to satisfy the pairing,
-- (c) verify posts.ts actually requires the pairing — if it does not, ship `[slug].zh.md` standalone.
-
-Decision deferred to implementation phase.
+Translation guidance: preserve proper nouns (Shewhart, Six Sigma, DPMO, Cpk, DOE, MSA, K-of-N, Claude Code, TDD) unchanged. Use natural Chinese equivalents for concepts with established translations (变异 for variance, 共因 / 特殊因 for common / special cause, 过程能力 for process capability, 规格边界 for spec limits). Match the register and compression of the Chinese version of *"你的 LLM 总在给你讲故事"*.
 
 ## Filename convention
 
-Slug: `six-sigma-for-harness-engineering`
+Slug: `can-six-sigma-rein-in-your-llm`
 
-Primary file (per bilingual decision above):
-- `content/six-sigma-for-harness-engineering.zh.md` — Chinese (this release)
+Files (shipped together):
 
-Deferred:
-- `content/six-sigma-for-harness-engineering.md` — English (post-experiment or translation pass)
+- `content/can-six-sigma-rein-in-your-llm.md` — English (primary)
+- `content/can-six-sigma-rein-in-your-llm.zh.md` — Simplified Chinese (translation)
 
 ## Out of scope
 
