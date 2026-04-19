@@ -326,14 +326,11 @@ body {
   overflow: hidden;
 }
 
-.mz-card-initial {
-  font-family: var(--font-sans), Georgia, serif;
-  font-weight: 700;
-  font-size: clamp(80px, 12vw, 140px);
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: rgba(245, 244, 240, 0.35);
-  user-select: none;
+.mz-card-illustration {
+  width: 72%;
+  max-width: 220px;
+  height: auto;
+  opacity: 0.92;
 }
 
 .mz-card-body {
@@ -392,7 +389,7 @@ body {
 .dark .mz-hero--terracotta { background: #9E6B52; }
 .dark .mz-hero--lavender   { background: #6F6C8E; }
 .dark .mz-hero--rose       { background: #8D5D7B; }
-.dark .mz-card-initial     { color: rgba(28, 27, 24, 0.3); }
+.dark .mz-card-illustration { opacity: 0.85; }
 
 /* Syntax highlighting — light mode (GitHub-inspired) */
 .hljs {

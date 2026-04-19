@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { PostMeta } from "@/lib/posts";
+import HeroIllustration from "./HeroIllustration";
 
 function formatDate(dateString: string): string {
   const date = new Date(dateString);
@@ -20,13 +21,12 @@ const TAG_HERO_CLASS: Record<string, string> = {
 export default function PostCard({ post }: { post: PostMeta }) {
   const primary = post.tags[0];
   const heroClass = primary ? TAG_HERO_CLASS[primary] ?? "mz-hero--neutral" : "mz-hero--neutral";
-  const initial = post.title.charAt(0).toUpperCase();
 
   return (
     <Link href={`/post/${post.slug}`} className="mz-card-link no-underline">
       <article className="mz-card">
-        <div className={`mz-card-hero ${heroClass}`} aria-hidden="true">
-          <span className="mz-card-initial">{initial}</span>
+        <div className={`mz-card-hero ${heroClass}`}>
+          <HeroIllustration tag={primary} />
         </div>
         <div className="mz-card-body">
           <small className="mz-card-meta">
