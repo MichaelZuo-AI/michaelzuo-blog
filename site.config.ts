@@ -1,5 +1,6 @@
 export interface SiteConfig {
   name: string;
+  author: string;
   description: string;
   tagline: string;
   ogImage: string;
@@ -8,7 +9,8 @@ export interface SiteConfig {
 }
 
 const config: SiteConfig = {
-  name: "Michael Zuo",
+  name: "Where Michael Thinks",
+  author: "Michael Zuo",
   description: "Writing on software engineering, AI-driven development, and building things.",
   tagline: "Where Michael Thinks",
   ogImage: "/og-image.png",

@@ -77,7 +77,16 @@ export default function RootLayout({
             className="mt-20 pt-8 border-t text-sm"
             style={{ color: "var(--meta)", borderColor: "var(--border-light)" }}
           >
-            <p>{config.tagline}</p>
+            <p>
+              &copy; {new Date().getFullYear()} {config.author} &middot;{" "}
+              <a
+                href="/feed.xml"
+                style={{ color: "var(--meta)" }}
+                className="underline"
+              >
+                RSS
+              </a>
+            </p>
           </footer>
         </div>
       </body>

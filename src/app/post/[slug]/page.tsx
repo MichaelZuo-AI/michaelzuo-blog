@@ -37,7 +37,7 @@ export async function generateMetadata({
       description: post.spoiler,
       type: "article",
       publishedTime: post.date,
-      authors: [config.name],
+      authors: [config.author],
       ...(post.hasTranslation ? { locale: "en", alternateLocale: ["zh-Hans"] } : {}),
       images: [{ url: config.ogImage, width: 600, height: 600 }],
     },
@@ -69,7 +69,7 @@ export default async function BlogPost({
     datePublished: post.date,
     author: {
       "@type": "Person",
-      name: config.name,
+      name: config.author,
       url: config.url,
     },
     url: `${config.url}/post/${slug}`,

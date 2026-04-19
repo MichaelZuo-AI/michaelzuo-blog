@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 
-const SITE_TITLE = "Michael Zuo";
+const SITE_TITLE = "Where Michael Thinks";
 const SITE_DESCRIPTION =
   "Writing on software engineering, AI-driven development, and building things.";
 const SITE_URL = "https://blog.michaelzuo.vip";
