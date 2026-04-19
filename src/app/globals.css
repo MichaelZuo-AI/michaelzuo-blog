@@ -242,6 +242,40 @@ body {
   border-radius: 4px;
 }
 
+/* Home intro header */
+.mz-intro {
+  max-width: 720px;
+  margin: 0 0 64px;
+}
+
+.mz-intro-name {
+  margin: 0 0 16px;
+  font-family: var(--font-sans), Georgia, serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--title);
+}
+
+.mz-intro-tagline {
+  margin: 0 0 24px;
+  font-size: 1.3125rem;
+  line-height: 1.5;
+  color: var(--title);
+}
+
+.mz-intro-bio {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+
+.mz-intro-bio:last-child {
+  margin-bottom: 0;
+}
+
 /* Home grid of post cards */
 .mz-grid {
   display: grid;
