@@ -2,6 +2,7 @@
 title: "Always Hungry: A Self-Evolution Mode for the AI Era"
 date: "2026-03-29"
 spoiler: "What if your project could watch the open-source community, learn from it, and upgrade itself — without you doing anything?"
+tags: ["agents"]
 ---
 
 The world is moving too fast to look only inward.

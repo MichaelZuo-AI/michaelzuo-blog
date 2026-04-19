@@ -2,6 +2,7 @@
 title: "Can Six Sigma Rein In Your LLM?"
 date: "2026-04-18"
 spoiler: "Prompt engineering tunes the mean. Narrowing the distribution takes a different toolkit — one that came out of factories a hundred years ago."
+tags: ["ai-engineering"]
 ---
 
 For the past two months I've used Claude Code every day. One thing has been bugging me: same input, same prompt, two different runs — and the code comes back different. Sometimes it's great. Sometimes it misses the requirement, or only does half, or ships with bugs already inside. I don't know what I'll get until I see it.

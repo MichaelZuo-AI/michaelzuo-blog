@@ -88,6 +88,19 @@ export default async function BlogPost({
         >
           {formatDate(post.date)} · {post.readingTime}
         </small>
+        {post.tags.length > 0 && (
+          <div className="mz-tag-row">
+            {post.tags.map((tag) => (
+              <Link
+                key={tag}
+                href={`/archive?tag=${encodeURIComponent(tag)}`}
+                className="mz-tag-chip mz-tag-chip--sm no-underline"
+              >
+                {tag}
+              </Link>
+            ))}
+          </div>
+        )}
       </header>
       <PostContent
         title={post.title}
@@ -98,7 +111,7 @@ export default async function BlogPost({
       />
       <div className="mt-16">
         <Link
-          href="/"
+          href="/archive"
           className="no-underline text-sm font-medium"
           style={{ color: "var(--link)" }}
         >

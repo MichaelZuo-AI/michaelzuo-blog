@@ -2,6 +2,7 @@
 title: "How to make your LLM reliable"
 date: "2026-04-15"
 spoiler: "Four rules from Karpathy's skills repo — and why they're the same rules you'd teach a junior engineer."
+tags: ["ai-engineering"]
 ---
 
 This post comes out of two sources: [Karpathy's notes on coding with Claude](https://x.com/karpathy/status/2015883857489522876), and [a skills repo](https://github.com/forrestchang/andrej-karpathy-skills/blob/main/CLAUDE.md) that distills his observations into a CLAUDE.md format. The repo picked up nearly 40,000 stars in under three months — a strong signal that people recognized something real in the distillation. Both point at the same four rules. Each one, when I looked closely, turned out to be a specific property of *reliability* — the word for what you actually want from a model you trust with real work.

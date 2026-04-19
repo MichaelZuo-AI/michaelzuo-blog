@@ -2,6 +2,7 @@
 title: "Reducing AI's Dependency on Figma Standardization Through Engineering"
 date: "2026-03-15"
 spoiler: "Don't ask designers to change how they work. Absorb Figma's messiness in the engineering layer instead."
+tags: ["design-systems"]
 ---
 
 > Scenario: Figma file in, Claude Code auto-generates a PR

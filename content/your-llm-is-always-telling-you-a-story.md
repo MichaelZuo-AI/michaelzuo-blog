@@ -2,6 +2,7 @@
 title: "Your LLM is always telling you a story"
 date: "2026-04-16"
 spoiler: "The model always hands you a systematic-sounding story. It usually isn't the truth. What FBI cognitive interviewing teaches you to do next."
+tags: ["ai-engineering"]
 ---
 
 I ask Claude to generate a feature SPEC from a folder of source documents. The output looks right — structured sections, requirements organized by theme, exactly the shape I had in mind. I open the source documents side by side. Half the requirements aren't there. I go back to Claude: *"Did you read all of them?"* It says: *"I tried to go through everything thoroughly."*

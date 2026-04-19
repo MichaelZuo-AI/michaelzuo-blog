@@ -16,6 +16,7 @@ export interface PostMeta {
   date: string;
   spoiler: string;
   readingTime: string;
+  tags: string[];
 }
 
 export interface Post extends PostMeta {
@@ -23,6 +24,11 @@ export interface Post extends PostMeta {
   contentHtmlZh?: string;
   titleZh?: string;
   hasTranslation: boolean;
+}
+
+function normalizeTags(raw: unknown): string[] {
+  if (!Array.isArray(raw)) return [];
+  return raw.filter((t): t is string => typeof t === "string" && t.trim().length > 0);
 }
 
 function calculateReadingTime(text: string): string {
@@ -58,12 +64,25 @@ export function getAllPosts(): PostMeta[] {
         date: data.date,
         spoiler: data.spoiler || "",
         readingTime: calculateReadingTime(content),
+        tags: normalizeTags(data.tags),
       };
     });
 
   return posts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
   );
+}
+
+export function getAllTags(): string[] {
+  const counts = new Map<string, number>();
+  for (const post of getAllPosts()) {
+    for (const tag of post.tags) {
+      counts.set(tag, (counts.get(tag) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([tag]) => tag);
 }
 
 export function getAllSlugs(): string[] {
@@ -98,6 +117,7 @@ export async function getPost(slug: string): Promise<Post> {
     date: data.date,
     spoiler: data.spoiler || "",
     readingTime: calculateReadingTime(content),
+    tags: normalizeTags(data.tags),
     contentHtml,
     contentHtmlZh,
     titleZh,

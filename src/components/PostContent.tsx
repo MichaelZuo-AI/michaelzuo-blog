@@ -33,8 +33,13 @@ export default function PostContent({
         </div>
       )}
       <h1
-        className="text-4xl font-bold leading-tight tracking-tight mb-10"
-        style={{ color: "var(--title)" }}
+        className="font-bold mb-10"
+        style={{
+          color: "var(--title)",
+          fontSize: "2.5rem",
+          lineHeight: 1.15,
+          letterSpacing: "-0.015em",
+        }}
       >
         {displayTitle}
       </h1>

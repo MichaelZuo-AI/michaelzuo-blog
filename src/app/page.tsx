@@ -10,8 +10,12 @@ function formatDate(dateString: string): string {
   });
 }
 
+const HOME_POST_LIMIT = 5;
+
 export default function Home() {
-  const posts = getAllPosts();
+  const allPosts = getAllPosts();
+  const posts = allPosts.slice(0, HOME_POST_LIMIT);
+  const hasMore = allPosts.length > HOME_POST_LIMIT;
 
   return (
     <div>
@@ -23,7 +27,10 @@ export default function Home() {
           >
             {formatDate(post.date)} · {post.readingTime}
           </small>
-          <h3 className="text-2xl font-semibold leading-snug mb-2 tracking-tight">
+          <h3
+            className="text-2xl font-semibold leading-snug mb-2"
+            style={{ letterSpacing: "-0.005em" }}
+          >
             <Link
               href={`/post/${post.slug}`}
               className="no-underline transition-colors"
@@ -40,6 +47,17 @@ export default function Home() {
           </p>
         </article>
       ))}
+      {hasMore && (
+        <div className="mt-4">
+          <Link
+            href="/archive"
+            className="no-underline text-sm font-medium"
+            style={{ color: "var(--link)" }}
+          >
+            All posts &rarr;
+          </Link>
+        </div>
+      )}
     </div>
   );
 }

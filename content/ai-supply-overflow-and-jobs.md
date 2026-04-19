@@ -2,6 +2,7 @@
 title: "When Everyone Has AI, What's Your Edge?"
 date: "2026-04-04"
 spoiler: "AI creates more jobs than it destroys — history proves it. Here are the 5 skills that matter for what's coming."
+tags: ["career"]
 ---
 
 AI can write your copy, analyze your data, generate your code, and design your slides. It gets cheaper every month and better every quarter. The tools that required a team two years ago now run in a browser tab.

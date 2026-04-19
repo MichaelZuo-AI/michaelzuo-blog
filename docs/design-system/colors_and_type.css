@@ -1,0 +1,192 @@
+@charset "UTF-8";
+/* =========================================================================
+   Michael Zuo Blog - colors & type
+   Warm, paper-like palette inspired by Anthropic's blog. Light + dark.
+   System font stack by design (no custom webfont files required).
+   ========================================================================= */
+
+:root {
+  /* ---------- Base palette (light — the default "paper" look) ------------ */
+  --mz-paper:          #F5F4F0;   /* page background */
+  --mz-paper-card:     #EDECE8;   /* raised surface */
+  --mz-paper-code:     #E8E6E1;   /* code surface */
+  --mz-ink:            #1A1A1A;   /* near-black title */
+  --mz-ink-body:       #3D3929;   /* warm-charcoal body */
+  --mz-ink-soft:       #6B6651;   /* secondary text */
+  --mz-ink-meta:       #8C8777;   /* metadata / timestamps */
+  --mz-rule:           #D5D3CD;   /* borders */
+  --mz-rule-soft:      #E2E0DB;   /* subtle dividers */
+
+  /* Accents — used sparingly. Terracotta link, sage positive, salmon warn. */
+  --mz-link:           #C75B3A;   /* terracotta */
+  --mz-link-hover:     #A84A2E;
+  --mz-sage:           #6BAF7B;
+  --mz-sage-wash:      #D4EDDA;
+  --mz-salmon-wash:    #F8D7D0;
+
+  /* ---------- Semantic aliases (what designs should reference) ---------- */
+  --bg:                var(--mz-paper);
+  --bg-card:           var(--mz-paper-card);
+  --bg-code:           var(--mz-paper-code);
+  --fg:                var(--mz-ink-body);
+  --fg-title:          var(--mz-ink);
+  --fg-secondary:      var(--mz-ink-soft);
+  --fg-meta:           var(--mz-ink-meta);
+  --border:            var(--mz-rule);
+  --border-light:      var(--mz-rule-soft);
+  --link:              var(--mz-link);
+  --link-hover:        var(--mz-link-hover);
+  --accent-positive:   var(--mz-sage);
+  --accent-positive-bg:var(--mz-sage-wash);
+  --accent-warn-bg:    var(--mz-salmon-wash);
+
+  /* ---------- Type ramp ------------------------------------------------- */
+  /* Source Serif 4 (body + display) + JetBrains Mono (code). Load via Google
+     Fonts in the host document:
+       <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+  */
+  --font-sans: "Source Serif 4", Charter, "Iowan Old Style", "Palatino Linotype", Georgia, "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", "SF Mono", "Fira Code", Menlo, Consolas, monospace;
+
+  /* Scale - the blog uses a narrow column so the ramp is modest */
+  --fs-meta:  0.875rem;   /* 14 - dates, kicker (shown in JetBrains Mono for texture) */
+  --fs-body:  1.0625rem;  /* 17 - prose body at prose-lg */
+  --fs-lead:  1.1875rem;  /* 19 - post-list spoiler (serifs breathe larger) */
+  --fs-h3:    1.5rem;     /* 24 - post-list titles */
+  --fs-h2:    1.875rem;   /* 30 - in-post H2 */
+  --fs-h1:    2.5rem;     /* 40 - post title (serif likes more headroom) */
+
+  --lh-tight:  1.15;
+  --lh-snug:   1.3;
+  --lh-normal: 1.55;
+  --lh-prose:  1.7;
+
+  /* Serif wants less negative tracking than a geometric sans */
+  --tracking-tight: -0.015em;   /* H1 */
+  --tracking-h:     -0.005em;   /* H2/H3 */
+  --tracking-body:   0;
+
+  /* ---------- Rhythm / layout ------------------------------------------ */
+  --column:  720px;         /* the canonical reading column */
+  --pad-x:   24px;
+  --pad-y:   48px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Diagrams and illustrations use the paper + terracotta + sage palette */
+  --diagram-bg:     var(--bg-card);
+  --diagram-inner:  var(--bg);
+  --diagram-stroke: #999;
+}
+
+.dark,
+:root.dark {
+  --mz-paper:          #1C1B18;
+  --mz-paper-card:     #272520;
+  --mz-paper-code:     #2E2C27;
+  --mz-ink:            #F5F4F0;
+  --mz-ink-body:       #D4D0C8;
+  --mz-ink-soft:       #9E9A8F;
+  --mz-ink-meta:       #8C8777;
+  --mz-rule:           #3D3B35;
+  --mz-rule-soft:      #33312C;
+  --mz-link:           #E07A5A;
+  --mz-link-hover:     #F09070;
+  --mz-sage:           #7EC48E;
+  --mz-sage-wash:      #2A3D2E;
+  --mz-salmon-wash:    #3D2A25;
+
+  --diagram-stroke: #5A574F;
+}
+
+/* =========================================================================
+   Semantic element defaults — use these on raw HTML or via @apply
+   ========================================================================= */
+
+.mz-body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  line-height: var(--lh-prose);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.mz-h1 {
+  color: var(--fg-title);
+  font-family: var(--font-sans);
+  font-size: var(--fs-h1);
+  font-weight: 700;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+}
+
+.mz-h2 {
+  color: var(--fg-title);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-h);
+}
+
+.mz-h3 {
+  color: var(--fg-title);
+  font-size: var(--fs-h3);
+  font-weight: 600;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-h);
+}
+
+.mz-lead {
+  color: var(--fg-secondary);
+  font-size: var(--fs-lead);
+  line-height: var(--lh-normal);
+}
+
+.mz-meta {
+  color: var(--fg-meta);
+  font-size: var(--fs-meta);
+  line-height: var(--lh-snug);
+}
+
+.mz-link {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.15s ease;
+}
+.mz-link:hover { text-decoration-color: var(--link); }
+
+.mz-code-inline {
+  font-family: var(--font-mono);
+  font-size: 0.875em;
+  background: var(--bg-card);
+  padding: 0.15em 0.35em;
+  border-radius: var(--radius-sm);
+}
+
+.mz-code-block {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  line-height: 1.7;
+  background: var(--bg-card);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  padding: 1.25em 1.5em;
+  overflow-x: auto;
+}
+
+.mz-quote {
+  border-left: 3px solid var(--border);
+  color: var(--fg-secondary);
+  padding-left: 1.25em;
+  margin: 1.5em 0;
+}
+
+.mz-rule { border: 0; border-top: 1px solid var(--border-light); margin: 3em 0; }

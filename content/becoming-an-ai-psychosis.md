@@ -2,6 +2,7 @@
 title: "Becoming an AI Psychosis"
 date: "2026-03-22"
 spoiler: "I gave my AI agent a design language and 6 core pages. It built 20+ production pages on its own. I didn't touch a thing."
+tags: ["agents"]
 ---
 
 Andrej Karpathy coined the term "AI Psychosis" — the state of being so deep in AI that you can't stop exploring what it can do. I spend 16 hours a day with Claude Code. Building pipelines. Connecting tools. Pushing the boundary of what an agent can do autonomously. Every day there are too many good ideas. Too many new capabilities. I literally cannot stop.

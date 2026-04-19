@@ -2,6 +2,7 @@
 title: "Catching the AI Boat: A Software Engineer's Transformation Guide"
 date: "2026-03-17"
 spoiler: "AI doesn't replace engineers — it replaces the version of engineering we grew up doing. Here's how to make the shift."
+tags: ["career"]
 ---
 
 ## The Boat Is Leaving

@@ -2,6 +2,7 @@
 title: "What Figma Code Connect Changes: Revising the AI Coding Pipeline Strategy"
 date: "2026-03-18"
 spoiler: "Figma Code Connect + custom strategies working in layers — combining the best tools to maximize AI coding pipeline output."
+tags: ["design-systems"]
 ---
 
 > This is a follow-up to [Reducing AI's Dependency on Figma Standardization Through Engineering](/post/figma-standardization-and-ai-coding). Reading the original post first is recommended.

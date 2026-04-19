@@ -2,6 +2,7 @@
 title: "One Metric Is All You Need: Measuring AI Engineering Productivity"
 date: "2026-03-13"
 spoiler: "Velocity measured effort. FPI measures trust. Here's why it's the only metric that matters when AI writes your code."
+tags: ["ai-engineering"]
 ---
 
 We've always used throughput to measure engineering productivity. To keep improving it, we built process metrics around the development workflow — optimize the process metrics, and throughput follows.

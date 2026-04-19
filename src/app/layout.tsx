@@ -1,8 +1,23 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { Source_Serif_4, JetBrains_Mono } from "next/font/google";
 import ThemeToggle from "@/components/ThemeToggle";
 import config from "../../site.config";
 import "./globals.css";
+
+const serif = Source_Serif_4({
+  subsets: ["latin"],
+  variable: "--font-sans",
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+});
+
+const mono = JetBrains_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "500", "600"],
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   ...(config.url ? { metadataBase: new URL(config.url) } : {}),
@@ -21,7 +36,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={`${serif.variable} ${mono.variable}`} suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -50,8 +65,8 @@ export default function RootLayout({
           <header className="flex items-center justify-between mb-16">
             <Link
               href="/"
-              className="text-xl font-semibold no-underline tracking-tight"
-              style={{ color: "var(--title)" }}
+              className="text-xl font-semibold no-underline"
+              style={{ color: "var(--title)", letterSpacing: "-0.005em" }}
             >
               {config.name}
             </Link>
