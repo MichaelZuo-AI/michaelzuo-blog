@@ -61,7 +61,7 @@ export default function RootLayout({
         )}
       </head>
       <body className="antialiased">
-        <div className="max-w-[720px] mx-auto px-6 py-12">
+        <div className="max-w-[1200px] mx-auto px-6 py-12">
           <header className="flex items-center justify-between mb-16">
             <Link
               href="/"

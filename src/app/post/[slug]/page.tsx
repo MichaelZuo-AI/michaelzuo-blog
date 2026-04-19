@@ -76,7 +76,7 @@ export default async function BlogPost({
   };
 
   return (
-    <article>
+    <article className="max-w-[720px] mx-auto">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
