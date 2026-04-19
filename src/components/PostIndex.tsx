@@ -45,7 +45,7 @@ function groupByYearThenMonth(posts: PostMeta[]) {
     }));
 }
 
-export default function ArchiveList({
+export default function PostIndex({
   posts,
   tags,
 }: {

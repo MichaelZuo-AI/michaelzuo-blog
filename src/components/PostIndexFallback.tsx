@@ -33,7 +33,7 @@ function groupByYearThenMonth(posts: PostMeta[]) {
     }));
 }
 
-export default function ArchiveFallback({
+export default function PostIndexFallback({
   posts,
   tags,
 }: {

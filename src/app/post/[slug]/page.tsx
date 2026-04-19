@@ -93,7 +93,7 @@ export default async function BlogPost({
             {post.tags.map((tag) => (
               <Link
                 key={tag}
-                href={`/archive?tag=${encodeURIComponent(tag)}`}
+                href={`/?tag=${encodeURIComponent(tag)}`}
                 className="mz-tag-chip mz-tag-chip--sm no-underline"
               >
                 {tag}
@@ -111,7 +111,7 @@ export default async function BlogPost({
       />
       <div className="mt-16">
         <Link
-          href="/archive"
+          href="/"
           className="no-underline text-sm font-medium"
           style={{ color: "var(--link)" }}
         >
