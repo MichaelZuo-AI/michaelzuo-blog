@@ -38,6 +38,8 @@ content/
 
 Diagrams live in `public/diagrams/` as SVG files, shared across both languages.
 
-## Writing New Posts
+## Agent Workflow
 
-Use `/blog-post` in Claude Code — it handles bilingual generation, diagram creation, build verification, and deployment automatically.
+This repo is set up for Codex through the root [`AGENTS.md`](AGENTS.md).
+
+Use the `blog-post` skill for new posts. It handles bilingual generation, diagram creation, build verification, and deployment.
