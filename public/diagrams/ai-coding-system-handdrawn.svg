@@ -1,65 +1,71 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="660" viewBox="0 0 960 660" role="img" aria-labelledby="title desc">
   <title id="title">AI coding short chain versus system chain</title>
-  <desc id="desc">A hand-drawn diagram contrasting the false short chain AI coding causes productivity with a longer system chain that includes model capability, spec, context, tests, ranking, and feedback.</desc>
+  <desc id="desc">The false short chain says AI coding directly causes productivity. The real chain includes model capability, spec, context, tests, ranking, and feedback.</desc>
   <defs>
-    <marker id="arrow-warn" markerWidth="12" markerHeight="10" refX="9" refY="5" orient="auto">
+    <marker id="arrow-red" markerWidth="12" markerHeight="10" refX="9" refY="5" orient="auto">
       <path d="M1,1 L10,5 L1,9" fill="none" stroke="#C75B3A" stroke-width="2" stroke-linecap="round"/>
     </marker>
     <marker id="arrow-green" markerWidth="12" markerHeight="10" refX="9" refY="5" orient="auto">
-      <path d="M1,1 L10,5 L1,9" fill="none" stroke="#2F6F73" stroke-width="2" stroke-linecap="round"/>
+      <path d="M1,1 L10,5 L1,9" fill="none" stroke="#4E8D67" stroke-width="2" stroke-linecap="round"/>
     </marker>
   </defs>
-  <rect width="980" height="560" rx="16" fill="#EDECE8"/>
-  <rect x="20" y="64" width="940" height="476" rx="12" fill="#F5F4F0"/>
-  <text x="490" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">AI coding is not a one-step cause / AI coding 不是单步因果</text>
 
-  <text x="75" y="110" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="28" fill="#1A1A1A">The tempting short chain</text>
-  <text x="78" y="136" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">错误短链：看起来合理，但省略变量</text>
+  <rect width="960" height="660" rx="16" fill="#EDECE8"/>
+  <rect x="24" y="68" width="912" height="568" rx="12" fill="#F5F4F0"/>
+  <text x="480" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">AI coding is not a one-step cause</text>
 
-  <rect x="84" y="174" width="182" height="76" rx="9" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
-  <path d="M88 181 C139 164 207 182 263 175" fill="none" stroke="#C75B3A" stroke-width="1.5"/>
-  <text x="175" y="218" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="25" fill="#1A1A1A">AI coding</text>
+  <text x="88" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#C75B3A">Tempting short chain</text>
+  <text x="88" y="141" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">看起来合理，但省略了关键变量</text>
 
-  <rect x="714" y="174" width="182" height="76" rx="9" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
-  <path d="M719 247 C768 262 838 240 892 252" fill="none" stroke="#C75B3A" stroke-width="1.5"/>
-  <text x="805" y="218" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="25" fill="#1A1A1A">Productivity</text>
+  <rect x="100" y="186" width="180" height="82" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
+  <text x="190" y="220" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#1A1A1A">AI coding</text>
+  <text x="190" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">用了 AI</text>
 
-  <path d="M270 212 C430 162 568 163 710 212" fill="none" stroke="#C75B3A" stroke-width="2" marker-end="url(#arrow-warn)"/>
-  <path d="M415 153 L568 274 M570 153 L415 274" fill="none" stroke="#C75B3A" stroke-width="3" stroke-linecap="round"/>
-  <text x="490" y="300" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="24" fill="#C75B3A">too short to be causal</text>
+  <rect x="680" y="186" width="180" height="82" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
+  <text x="770" y="220" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#1A1A1A">Productivity</text>
+  <text x="770" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">效率提升</text>
 
-  <path d="M60 328 C258 304 654 304 920 329" fill="none" stroke="#999" stroke-width="1.5" stroke-dasharray="8 8"/>
+  <path d="M286 227 C410 178 552 178 674 227" fill="none" stroke="#C75B3A" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#arrow-red)"/>
+  <path d="M426 178 L536 276 M538 178 L426 276" fill="none" stroke="#C75B3A" stroke-width="3" stroke-linecap="round"/>
+  <text x="480" y="314" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#C75B3A">too short to explain repeatability</text>
 
-  <text x="75" y="376" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="28" fill="#1A1A1A">The system that actually runs</text>
-  <text x="78" y="402" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">真实系统：能力必须被约束、验证和反馈</text>
+  <path d="M64 350 C260 326 650 326 896 350" fill="none" stroke="#B8B2A4" stroke-width="1.5" stroke-dasharray="8 8"/>
 
-  <rect x="70" y="436" width="122" height="60" rx="9" fill="#D4EDDA" stroke="#2F6F73" stroke-width="2"/>
-  <text x="131" y="463" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="18" fill="#1A1A1A">Model</text>
-  <text x="131" y="481" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6B6651">模型能力</text>
+  <text x="88" y="398" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#4E8D67">The system that actually runs</text>
+  <text x="88" y="423" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">模型能力必须被约束、验证和反馈</text>
 
-  <rect x="230" y="418" width="116" height="56" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
-  <text x="288" y="452" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="18" fill="#1A1A1A">Spec</text>
-  <rect x="230" y="488" width="116" height="56" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
-  <text x="288" y="522" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="18" fill="#1A1A1A">Context</text>
+  <rect x="72" y="480" width="166" height="88" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
+  <text x="155" y="515" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">Model</text>
+  <text x="155" y="541" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">模型能力</text>
 
-  <rect x="382" y="418" width="116" height="56" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
-  <text x="440" y="452" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="18" fill="#1A1A1A">Tests</text>
-  <rect x="382" y="488" width="116" height="56" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
-  <text x="440" y="522" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="18" fill="#1A1A1A">Retry</text>
+  <rect x="306" y="454" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="372" y="483" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Spec</text>
+  <text x="372" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">需求约束</text>
 
-  <rect x="536" y="452" width="126" height="60" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
-  <text x="599" y="478" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="18" fill="#1A1A1A">Ranking</text>
-  <text x="599" y="496" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6B6651">选择机制</text>
+  <rect x="460" y="454" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="526" y="483" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Context</text>
+  <text x="526" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">代码上下文</text>
 
-  <rect x="704" y="452" width="156" height="60" rx="9" fill="#D4EDDA" stroke="#2F6F73" stroke-width="2"/>
-  <text x="782" y="478" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="18" fill="#1A1A1A">Stable delivery</text>
-  <text x="782" y="496" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#6B6651">稳定可交付</text>
+  <rect x="306" y="546" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="372" y="575" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Tests</text>
+  <text x="372" y="597" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">验证行为</text>
 
-  <path d="M194 466 C209 455 217 451 228 447" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M194 476 C212 500 218 512 228 516" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M347 447 C360 447 369 447 380 447" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M347 516 C360 514 369 513 380 512" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M499 447 C520 454 529 463 535 474" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M499 515 C520 508 529 497 535 487" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
-  <path d="M664 482 C681 482 690 482 702 482" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <rect x="460" y="546" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="526" y="575" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Feedback</text>
+  <text x="526" y="597" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">失败重试</text>
+
+  <rect x="662" y="480" width="142" height="88" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="733" y="515" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Selection</text>
+  <text x="733" y="541" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">选择机制</text>
+
+  <rect x="820" y="480" width="112" height="88" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
+  <text x="876" y="511" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Stable</text>
+  <text x="876" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">delivery</text>
+  <text x="876" y="558" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">稳定交付</text>
+
+  <path d="M240 524 C266 520 282 507 302 491" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M240 532 C266 554 282 572 302 580" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M594 490 C620 497 637 508 660 522" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M594 580 C620 565 637 544 660 532" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M806 524 C812 524 814 524 818 524" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
 </svg>
