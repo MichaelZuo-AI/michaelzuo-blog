@@ -1,241 +1,230 @@
 ---
-title: "Success You Cannot Reproduce Is an Illusion"
+title: "The Success You Cannot Reproduce Is an Illusion"
 date: "2026-04-25"
-spoiler: "Most success stories are correlation dressed up as causality. If you cannot reproduce it, you did not learn the cause."
-tags: ["认知", "因果", "AI", "思考"]
+spoiler: "Correlation explains why AI coding can feel magical and unreliable: the system, not the model alone, turns probability into control."
+tags: ["认知", "因果", "AI", "软件工程"]
 ---
 
-You have probably seen this pattern.
+Most success stories fail to replicate for a simple reason.
 
-Someone writes a clear success story. The logic is clean. The examples are real. The steps sound practical. You copy the playbook.
+The lesson was not causal.
 
-The result is completely different.
+It was correlation with a clean story wrapped around it.
 
-The easy explanation is personal failure:
+This sounds obvious. Everyone knows correlation is not causation. The problem is that we still make the mistake every day, especially when a tool gives us a few impressive wins in a row.
 
-- you did not execute hard enough
-- you missed a detail
-- you got unlucky
+AI coding made this visible for me.
 
-Sometimes that is true.
+## Correlation vs causation
 
-More often, the playbook was never causal. It was correlation with a better narrative.
+Most experience reports have the same shape:
 
-Success that cannot be reproduced is not a method. It is an outcome that learned how to sound like one.
+- someone did A
+- result B happened afterward
 
-## The whole problem
+The story then becomes:
 
-Two things get confused constantly:
+**A caused B.**
 
-- **Correlation**: two things happen together
-- **Causation**: changing one thing changes the other
+But the evidence only says:
 
-Most advice fails at this boundary.
+**A and B happened together.**
 
-It shows correlation, then sells it as causation.
+That is correlation.
 
-The useful question is not whether the story is coherent. Coherent stories are cheap.
+Causation needs a harder test:
 
-The useful question is:
+**If I actively change A, does B reliably change with it?**
 
-**If I repeat the intervention, does the result hold?**
+Or more plainly:
 
-## A mistake I made recently
+**Can I reproduce the result?**
 
-I have been using AI coding agents to write feature-level code.
+![Correlation versus causation: correlation means two things appeared together; causation requires stable results after intervention.](/diagrams/correlation-causality-handdrawn.svg)
 
-The first few runs were impressive:
+## The AI coding trap
 
-- some features landed in minutes
-- the code structure looked clean
-- the development loop felt faster
+I have been using AI coding agents for feature-level work.
 
-My brain immediately produced a conclusion:
+The first runs felt strong:
 
-**This tool significantly improves development speed.**
+- development moved faster
+- several features landed in one pass
+- repetitive work almost disappeared
 
-That sounded reasonable. It matched the evidence in front of me.
+It is easy to turn that into a conclusion:
 
-It was also too fast.
+**AI coding significantly improves developer productivity.**
 
-I had seen several successful outcomes. Then I converted those outcomes into a stable claim about capability.
+That conclusion is not absurd.
 
-## The problem was reproducibility
+There is evidence for it.
 
-After more use, the variance became harder to ignore.
+The problem is that the evidence often proves less than it seems to prove.
 
-- tasks with similar complexity produced very different results
-- code that looked correct broke on edge cases
-- some sessions cost more time in debugging than writing by hand
+It proves that I used AI coding and several good outcomes followed.
 
-The important part was not that the tool sometimes failed.
+That is still correlation.
 
-The important part was that I could not predict when it would be good and when it would be bad.
+## The failure is reproducibility
 
-That is not a stable causal relationship.
+After more use, the real shape became clearer.
 
-What I had observed was simple:
+- tasks with similar complexity produced very different output quality
+- code that worked in simple cases failed in the real system
+- some sessions took longer to repair than they would have taken to write by hand
 
-I used the tool, and several good results followed.
+The important failure was not that AI coding sometimes missed.
 
-My brain filled in the stronger claim:
+The important failure was that I could not reliably reproduce the high-quality output.
 
-the tool caused the productivity gain.
+That is the difference.
 
-Maybe. But the evidence did not prove that. A more honest statement was:
+AI coding can be useful. But if the useful result cannot be reproduced under known conditions, it is not a method yet.
 
-tool usage and successful outcomes were correlated.
+It is an outcome.
 
-The causal link was still unstable.
+## From model capability to system design
 
-## Why this mistake is so easy
+The next tempting conclusion is also too simple:
 
-This is not a failure of intelligence.
+**AI is not mature enough for complex coding.**
 
-It is the default behavior of the human mind.
+That is another causal shortcut.
 
-### The brain hates randomness
+The real question is not just:
 
-When we see an outcome, we ask why.
+**Can AI write code?**
 
-Then we quickly attach the most plausible explanation:
+The better question is:
 
-- success means the method worked
-- failure means execution was weak
+**Under what conditions can it reliably write code that matches the intent?**
 
-That habit is useful in simple environments. If something hurts you, find the cause. If something helps you, repeat the move.
+Model capability matters.
 
-In complex systems, the same habit becomes dangerous.
+But capability is not the final unit of engineering value.
 
-It turns results into reasons too quickly.
+Engineering value comes when that capability is placed inside a system that can produce verifiable, shippable, maintainable results.
 
-### The world you see is already filtered
+![The wrong short chain for AI coding versus the real system chain: model capability sits beside spec, context, tests, selection, and feedback.](/diagrams/ai-coding-system-handdrawn.svg)
 
-Visible success stories usually have three properties:
+## Correlation thinking vs causal thinking
 
-- they already happened
-- they can be narrated
-- they look logical in hindsight
+Correlation thinking says:
 
-What you do not see:
+- I used AI
+- it sometimes worked
+- therefore AI is useful
 
-- failed attempts using the same method
-- unrecorded variables
-- randomness that got edited out of the story
+That is not entirely wrong.
 
-That is selection bias.
+It is just too coarse.
 
-A founder says one habit made the company work. You see the founder and the habit. You do not see the thousand people who had the same habit and no company.
+Causal thinking asks the next question:
 
-### Reality has a lot of noise
+**Does the result hold across different requirements, contexts, and codebases?**
 
-Some domains are noisy by design:
+That question changes the frame.
 
-- markets
-- product growth
-- AI output
-- career outcomes
+The problem is not only model capability.
 
-A single success can simply mean the noise moved in your favor.
+The problem is how to constrain capability into stable output.
 
-If you mistake that for a method, the next attempt feels unfair.
+## From tool use to harness engineering
 
-The noise was never taking orders from you.
+AI coding is not really a question of whether to use a tool.
 
-## The same error shows up everywhere
+It is a systems engineering problem.
 
-### Investing
+If you write a prompt and ask for code directly, what you get is a probabilistic sample.
 
-An asset rises.
+Sometimes the sample is excellent.
 
-The convenient explanation is:
+Sometimes it is expensive.
 
-it rose because it had value.
+One good sample should not be mistaken for stable capability.
 
-Maybe. But the real driver could be liquidity, sentiment, positioning, or an external variable you never saw.
+To make the result reproducible, you need harness engineering:
 
-You observed the price.
+- explicit requirements and specs
+- multiple generations and selection
+- automated tests
+- lint and static analysis
+- failure retry with feedback
+- constraints on the change surface and acceptance criteria
 
-You did not necessarily observe the cause.
+Harness engineering is not a longer prompt.
 
-### Product
+It is the system around the model.
 
-A feature ships. The metric goes up.
+The model proposes candidates.
 
-The comfortable story is:
+The harness selects, verifies, feeds back, and decides which candidates are allowed to remain.
 
-the feature worked.
+![Harness engineering loop: spec, sampling, ranking, tests, static analysis, feedback, retry, and accepted code.](/diagrams/harness-engineering-loop-handdrawn.svg)
 
-Without a control group, that may just be coincidence on a timeline. Seasonality changed. A campaign launched. The user mix shifted. Another channel moved.
+## What the harness is really doing
 
-The lift might be real.
+The goal is not to make the model deterministic.
 
-It might also have happened next to the feature, not because of it.
+The model is probabilistic.
 
-### Personal growth
+The goal is simpler:
 
-Successful people often share visible habits:
+**turn random success into high-probability success.**
 
-- waking early
-- writing
-- reading
-- training
+More precisely:
 
-So people copy the habits.
+**raw model use samples; harness engineering controls the output distribution.**
 
-The harder question is whether those habits caused the success, or whether they are downstream of some other trait: energy, discipline, environment, incentives, or time control.
+That is what it means to compress correlation into something closer to causal behavior.
 
-Copying the visible behavior does not mean you copied the causal structure behind it.
+You are not proving the model is always reliable.
 
-## What real causality looks like
+You are building the conditions under which it becomes more reliably useful.
 
-The simplest test is reproducibility.
+## A better conclusion
 
-Not: did it happen once?
+My first conclusion was:
 
-But: can I make it happen again under understood conditions?
+**AI coding improves development speed.**
 
-A stricter version asks three questions:
+The better version is:
 
-1. Can I intervene on the variable?
-2. Does the result hold across contexts?
-3. Have I ruled out the major confounders?
+**AI coding plus the right engineering system can reliably improve development speed.**
 
-If a claim cannot survive those questions, treat it as an observation.
+The first sentence is an experience report.
 
-Observations are useful.
+The second is closer to a reproducible system design.
 
-They are not methods yet.
+## The broader pattern
 
-## Why it matters
+This is not only about AI.
 
-This is the difference between explaining the world and controlling outcomes.
+A lot of visible success is only local correlation inside a larger system.
 
-Correlation lets you explain anything after the fact.
+It becomes causal only when the system is understood, the key variables are controlled, and the verification loop is strong enough to survive repetition.
 
-It gives you a clean story once the result is already known.
+Investing works this way.
 
-Causality is harder, but it gives you leverage.
+Product growth works this way.
 
-It tells you where to intervene, which variables to control, and what evidence would prove the lesson actually transfers.
+Personal growth works this way.
 
-That is why I now ask one extra question before accepting any success story:
+When you fail to copy someone else's success, the problem is often not that you copied poorly.
 
-Can it be reproduced?
-
-If not, I keep it in the observation bucket. I do not promote it into a method.
+You copied the visible behavior instead of the causal system behind it.
 
 ## The closing line
 
-Success you cannot reproduce is an illusion.
+**Success you cannot reproduce is an illusion.**
 
-The problem is not always effort.
-
-Sometimes you learned the wrong thing from the start.
+Real capability is the ability to turn accidental success into a result that can be designed and repeated.
 
 ## TL;DR
 
 - Most success advice is correlation
-- Correlation is easy to mistake for causation
-- Reproducibility is the useful test
-- Success you cannot reproduce is an illusion
+- Correlation does not guarantee reproducibility
+- The AI coding problem is not only capability; it is system design
+- Harness engineering turns probability into controlled results
+- Causality is what makes success repeatable

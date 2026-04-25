@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="560" viewBox="0 0 980 560" role="img" aria-labelledby="title desc">
+  <title id="title">Harness engineering loop</title>
+  <desc id="desc">A hand-drawn loop showing requirement and spec, sampling, ranking, tests, static checks, accepted code, and feedback retry.</desc>
+  <defs>
+    <marker id="arrow-green" markerWidth="12" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M1,1 L10,5 L1,9" fill="none" stroke="#2F6F73" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="12" markerHeight="10" refX="9" refY="5" orient="auto">
+      <path d="M1,1 L10,5 L1,9" fill="none" stroke="#C75B3A" stroke-width="2" stroke-linecap="round"/>
+    </marker>
+  </defs>
+  <rect width="980" height="560" rx="16" fill="#EDECE8"/>
+  <rect x="20" y="64" width="940" height="476" rx="12" fill="#F5F4F0"/>
+  <text x="490" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">Harness engineering turns samples into a system / Harness 把采样变成系统</text>
+
+  <rect x="70" y="142" width="150" height="76" rx="9" fill="#D4EDDA" stroke="#2F6F73" stroke-width="2"/>
+  <text x="145" y="172" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="20" fill="#1A1A1A">Requirement</text>
+  <text x="145" y="195" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6651">目标 / 边界 / done</text>
+
+  <rect x="286" y="142" width="150" height="76" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="361" y="172" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="20" fill="#1A1A1A">Sampling</text>
+  <text x="361" y="195" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6651">多候选解</text>
+
+  <rect x="502" y="142" width="150" height="76" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="577" y="172" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="20" fill="#1A1A1A">Ranking</text>
+  <text x="577" y="195" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6651">比较 / 选择</text>
+
+  <rect x="718" y="142" width="172" height="76" rx="9" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
+  <text x="804" y="172" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="20" fill="#1A1A1A">Tests</text>
+  <text x="804" y="195" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6651">unit / integration</text>
+
+  <rect x="718" y="320" width="172" height="76" rx="9" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
+  <text x="804" y="350" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="20" fill="#1A1A1A">Static checks</text>
+  <text x="804" y="373" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6651">lint / types / policy</text>
+
+  <rect x="502" y="320" width="150" height="76" rx="9" fill="#D4EDDA" stroke="#2F6F73" stroke-width="2"/>
+  <text x="577" y="350" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="20" fill="#1A1A1A">Accepted</text>
+  <text x="577" y="373" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6651">可交付代码</text>
+
+  <rect x="286" y="320" width="150" height="76" rx="9" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
+  <text x="361" y="350" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="20" fill="#1A1A1A">Feedback</text>
+  <text x="361" y="373" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6B6651">失败证据</text>
+
+  <path d="M222 180 C246 178 263 178 284 180" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M438 180 C462 178 479 178 500 180" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M654 180 C681 178 694 178 716 180" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M804 220 C822 256 822 284 804 318" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <path d="M716 358 C692 360 676 360 654 358" fill="none" stroke="#2F6F73" stroke-width="2" marker-end="url(#arrow-green)"/>
+
+  <path d="M500 358 C477 360 459 360 438 358" fill="none" stroke="#C75B3A" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <path d="M360 318 C334 282 334 253 360 220" fill="none" stroke="#C75B3A" stroke-width="2" marker-end="url(#arrow-red)"/>
+  <path d="M286 358 C190 348 130 296 128 220" fill="none" stroke="#C75B3A" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrow-red)"/>
+
+  <text x="490" y="470" text-anchor="middle" font-family="'Kaiti SC','STKaiti','Bradley Hand',cursive" font-size="27" fill="#1A1A1A">Raw model use samples. Harness controls the output distribution.</text>
+  <text x="490" y="500" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">裸用模型是在抽样；harness engineering 是在控制输出分布。</text>
+</svg>
