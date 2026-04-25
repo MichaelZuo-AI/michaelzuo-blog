@@ -15,15 +15,15 @@
   <text x="480" y="40" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700" fill="#1A1A1A">AI coding is not a one-step cause</text>
 
   <text x="88" y="116" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#C75B3A">Tempting short chain</text>
-  <text x="88" y="141" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">看起来合理，但省略了关键变量</text>
+  <text x="88" y="141" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">plausible, but missing variables</text>
 
   <rect x="100" y="186" width="180" height="82" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
   <text x="190" y="220" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#1A1A1A">AI coding</text>
-  <text x="190" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">用了 AI</text>
+  <text x="190" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">used AI</text>
 
   <rect x="680" y="186" width="180" height="82" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
   <text x="770" y="220" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#1A1A1A">Productivity</text>
-  <text x="770" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">效率提升</text>
+  <text x="770" y="245" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">speed gain</text>
 
   <path d="M286 227 C410 178 552 178 674 227" fill="none" stroke="#C75B3A" stroke-width="2" stroke-dasharray="8 7" marker-end="url(#arrow-red)"/>
   <path d="M426 178 L536 276 M538 178 L426 276" fill="none" stroke="#C75B3A" stroke-width="3" stroke-linecap="round"/>
@@ -32,36 +32,36 @@
   <path d="M64 350 C260 326 650 326 896 350" fill="none" stroke="#B8B2A4" stroke-width="1.5" stroke-dasharray="8 8"/>
 
   <text x="88" y="398" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#4E8D67">The system that actually runs</text>
-  <text x="88" y="423" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">模型能力必须被约束、验证和反馈</text>
+  <text x="88" y="423" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">capability must be constrained, verified, and fed back</text>
 
   <rect x="72" y="480" width="166" height="88" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
   <text x="155" y="515" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">Model</text>
-  <text x="155" y="541" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">模型能力</text>
+  <text x="155" y="541" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">capability</text>
 
   <rect x="306" y="454" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="372" y="483" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Spec</text>
-  <text x="372" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">需求约束</text>
+  <text x="372" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">constraints</text>
 
   <rect x="460" y="454" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="526" y="483" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Context</text>
-  <text x="526" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">代码上下文</text>
+  <text x="526" y="505" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">code context</text>
 
   <rect x="306" y="546" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="372" y="575" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Tests</text>
-  <text x="372" y="597" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">验证行为</text>
+  <text x="372" y="597" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">verify behavior</text>
 
   <rect x="460" y="546" width="132" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="526" y="575" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Feedback</text>
-  <text x="526" y="597" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">失败重试</text>
+  <text x="526" y="597" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">retry failures</text>
 
   <rect x="662" y="480" width="142" height="88" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="733" y="515" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Selection</text>
-  <text x="733" y="541" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">选择机制</text>
+  <text x="733" y="541" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">ranking gate</text>
 
   <rect x="820" y="480" width="112" height="88" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
   <text x="876" y="511" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Stable</text>
   <text x="876" y="535" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">delivery</text>
-  <text x="876" y="558" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">稳定交付</text>
+  <text x="876" y="558" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6B6651">repeatable</text>
 
   <path d="M240 524 C266 520 282 507 302 491" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
   <path d="M240 532 C266 554 282 572 302 580" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>

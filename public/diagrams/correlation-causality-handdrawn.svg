@@ -20,11 +20,11 @@
 
   <rect x="84" y="190" width="140" height="86" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
   <text x="154" y="225" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#1A1A1A">A happens</text>
-  <text x="154" y="252" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">做了 A</text>
+  <text x="154" y="252" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">action A</text>
 
   <rect x="300" y="190" width="140" height="86" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
   <text x="370" y="225" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#1A1A1A">B appears</text>
-  <text x="370" y="252" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">出现 B</text>
+  <text x="370" y="252" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">outcome B</text>
 
   <path d="M228 232 C252 222 274 222 296 232" fill="none" stroke="#C75B3A" stroke-width="2" stroke-dasharray="7 6" marker-end="url(#arrow-gray)"/>
   <text x="262" y="210" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#8C8777">same time</text>
@@ -38,20 +38,20 @@
 
   <rect x="554" y="176" width="168" height="78" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
   <text x="638" y="207" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">Change A</text>
-  <text x="638" y="233" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">主动干预</text>
+  <text x="638" y="233" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">intervention</text>
 
   <rect x="768" y="142" width="132" height="66" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="834" y="170" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">Control</text>
-  <text x="834" y="192" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">控制变量</text>
+  <text x="834" y="192" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">other vars</text>
 
   <rect x="768" y="250" width="132" height="78" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
   <text x="834" y="281" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="17" font-weight="700" fill="#1A1A1A">B repeats</text>
-  <text x="834" y="306" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">B 稳定出现</text>
+  <text x="834" y="306" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">stable B</text>
 
   <path d="M724 203 C744 192 752 184 766 176" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
   <path d="M724 226 C744 252 752 270 766 286" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
 
   <rect x="584" y="390" width="292" height="78" rx="10" fill="#F5F4F0" stroke="#4E8D67" stroke-width="2"/>
   <text x="730" y="421" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="19" font-weight="700" fill="#1A1A1A">Repeatable result</text>
-  <text x="730" y="447" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">能复现，才接近因果</text>
+  <text x="730" y="447" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#6B6651">reproducible causal signal</text>
 </svg>

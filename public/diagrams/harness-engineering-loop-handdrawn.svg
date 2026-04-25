@@ -18,19 +18,19 @@
 
   <rect x="82" y="174" width="160" height="82" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
   <text x="162" y="205" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Requirement</text>
-  <text x="162" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">目标 / 边界</text>
+  <text x="162" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">goal / boundary</text>
 
   <rect x="306" y="174" width="150" height="82" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="381" y="205" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Sampling</text>
-  <text x="381" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">多候选解</text>
+  <text x="381" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">candidates</text>
 
   <rect x="530" y="174" width="150" height="82" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="605" y="205" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Ranking</text>
-  <text x="605" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">比较 / 选择</text>
+  <text x="605" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">compare / choose</text>
 
   <rect x="734" y="174" width="150" height="82" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
   <text x="809" y="205" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Tests</text>
-  <text x="809" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">自动化验证</text>
+  <text x="809" y="231" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">automated checks</text>
 
   <rect x="734" y="370" width="150" height="82" rx="10" fill="#F8D7D0" stroke="#C75B3A" stroke-width="2"/>
   <text x="809" y="401" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Static check</text>
@@ -38,11 +38,11 @@
 
   <rect x="520" y="370" width="160" height="82" rx="10" fill="#D4EDDA" stroke="#4E8D67" stroke-width="2"/>
   <text x="600" y="401" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Accepted</text>
-  <text x="600" y="427" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">可交付代码</text>
+  <text x="600" y="427" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">shippable code</text>
 
   <rect x="306" y="370" width="150" height="82" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="381" y="401" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#1A1A1A">Feedback</text>
-  <text x="381" y="427" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">失败证据</text>
+  <text x="381" y="427" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">failure evidence</text>
 
   <path d="M246 215 C270 213 284 213 302 215" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
   <path d="M458 215 C486 213 504 213 526 215" fill="none" stroke="#4E8D67" stroke-width="2" marker-end="url(#arrow-green)"/>
@@ -56,5 +56,5 @@
 
   <rect x="162" y="538" width="636" height="70" rx="10" fill="#F5F4F0" stroke="#999" stroke-width="2"/>
   <text x="480" y="568" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#1A1A1A">Raw model use samples. Harness controls distribution.</text>
-  <text x="480" y="592" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">裸用模型是在抽样；harness 是在控制输出分布。</text>
+  <text x="480" y="592" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6B6651">The harness turns random wins into repeatable outcomes.</text>
 </svg>
