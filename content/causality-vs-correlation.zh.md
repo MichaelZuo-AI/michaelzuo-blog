@@ -2,7 +2,7 @@
 title: "你复制不了的成功，本质都是错觉"
 date: "2026-04-25"
 spoiler: "从相关性与因果性出发，重新理解 AI coding：不是单纯能力问题，而是如何用工程体系把概率变成可控结果。"
-tags: ["认知", "因果", "AI", "软件工程"]
+tags: ["cognition", "causality", "AI", "software-engineering"]
 ---
 
 很多“成功经验”之所以无法复制，不是因为你执行得不够好，而是因为：

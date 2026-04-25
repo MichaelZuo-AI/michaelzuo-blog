@@ -2,7 +2,7 @@
 title: "The Success You Cannot Reproduce Is an Illusion"
 date: "2026-04-25"
 spoiler: "Correlation explains why AI coding can feel magical and unreliable: the system, not the model alone, turns probability into control."
-tags: ["认知", "因果", "AI", "软件工程"]
+tags: ["cognition", "causality", "AI", "software-engineering"]
 ---
 
 Most success stories fail to replicate for a simple reason.
