@@ -112,7 +112,9 @@ function DefaultIllustration() {
 
 export default function HeroIllustration({ tag }: { tag?: string }) {
   switch (tag) {
+    case "AI":
     case "ai-engineering":
+    case "software-engineering":
       return <AiEngineeringIllustration />;
     case "agents":
       return <AgentsIllustration />;

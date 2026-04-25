@@ -12,7 +12,9 @@ function formatDate(dateString: string): string {
 }
 
 const TAG_HERO_CLASS: Record<string, string> = {
+  AI: "mz-hero--sage",
   "ai-engineering": "mz-hero--sage",
+  "software-engineering": "mz-hero--sage",
   agents: "mz-hero--terracotta",
   career: "mz-hero--lavender",
   "design-systems": "mz-hero--rose",
@@ -20,13 +22,14 @@ const TAG_HERO_CLASS: Record<string, string> = {
 
 export default function PostCard({ post }: { post: PostMeta }) {
   const primary = post.tags[0];
-  const heroClass = primary ? TAG_HERO_CLASS[primary] ?? "mz-hero--neutral" : "mz-hero--neutral";
+  const heroTag = post.tags.find((tag) => TAG_HERO_CLASS[tag]) ?? primary;
+  const heroClass = heroTag ? TAG_HERO_CLASS[heroTag] ?? "mz-hero--neutral" : "mz-hero--neutral";
 
   return (
     <Link href={`/post/${post.slug}`} className="mz-card-link no-underline">
       <article className="mz-card">
         <div className={`mz-card-hero ${heroClass}`}>
-          <HeroIllustration tag={primary} />
+          <HeroIllustration tag={heroTag} />
         </div>
         <div className="mz-card-body">
           <small className="mz-card-meta">
