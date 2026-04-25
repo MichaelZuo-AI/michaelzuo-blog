@@ -220,11 +220,3 @@ You copied the visible behavior instead of the causal system behind it.
 **Success you cannot reproduce is an illusion.**
 
 Real capability is the ability to turn accidental success into a result that can be designed and repeated.
-
-## TL;DR
-
-- Most success advice is correlation
-- Correlation does not guarantee reproducibility
-- The AI coding problem is not only capability; it is system design
-- Harness engineering turns probability into controlled results
-- Causality is what makes success repeatable
