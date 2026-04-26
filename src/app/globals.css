@@ -502,6 +502,7 @@ a {
 .mz-hero--terracotta,
 .mz-hero--lavender,
 .mz-hero--rose,
+.mz-hero--cognition,
 .mz-hero--neutral {
   background-color: var(--bg-code);
 }
@@ -512,6 +513,10 @@ a {
 
 .mz-hero--terracotta .mz-card-illustration {
   color: var(--accent-amber);
+}
+
+.mz-hero--cognition .mz-card-illustration {
+  color: var(--accent-red);
 }
 
 .mz-hero--lavender .mz-card-illustration,

@@ -15,6 +15,8 @@ const TAG_HERO_CLASS: Record<string, string> = {
   AI: "mz-hero--sage",
   "ai-engineering": "mz-hero--sage",
   "software-engineering": "mz-hero--sage",
+  causality: "mz-hero--cognition",
+  cognition: "mz-hero--cognition",
   agents: "mz-hero--terracotta",
   career: "mz-hero--lavender",
   "design-systems": "mz-hero--rose",
