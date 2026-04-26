@@ -5,6 +5,9 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui",
     "start": "next start",
     "lint": "next lint",
     "postbuild": "node scripts/generate-rss.mjs"
@@ -22,6 +25,7 @@
     "unified": "^11.0.5"
   },
   "devDependencies": {
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/postcss": "^4.1.0",
     "@tailwindcss/typography": "^0.5.16",
     "@types/node": "^22.0.0",
