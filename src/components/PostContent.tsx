@@ -28,18 +28,12 @@ export default function PostContent({
   return (
     <>
       {hasTranslation && (
-        <div className="mb-4 flex justify-end">
+        <div className="mz-post-tools">
           <LanguageToggle onChange={handleChange} />
         </div>
       )}
       <h1
-        className="font-bold mb-10"
-        style={{
-          color: "var(--title)",
-          fontSize: "2.5rem",
-          lineHeight: 1.15,
-          letterSpacing: "-0.015em",
-        }}
+        className="mz-post-title"
       >
         {displayTitle}
       </h1>

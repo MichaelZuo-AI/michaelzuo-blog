@@ -26,9 +26,10 @@ export default function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Toggle dark mode"
-      className="text-2xl leading-none cursor-pointer"
+      className="mz-mode-toggle"
     >
-      {dark ? "🌞" : "🌙"}
+      <span aria-hidden="true" />
+      {dark ? "light" : "dark"}
     </button>
   );
 }

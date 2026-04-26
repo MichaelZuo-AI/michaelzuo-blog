@@ -76,16 +76,13 @@ export default async function BlogPost({
   };
 
   return (
-    <article className="max-w-[720px] mx-auto">
+    <article className="mz-post-shell">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <header className="mb-10">
-        <small
-          className="block mb-3 text-sm"
-          style={{ color: "var(--meta)" }}
-        >
+      <header className="mz-post-header">
+        <small className="mz-post-meta">
           {formatDate(post.date)} · {post.readingTime}
         </small>
         {post.tags.length > 0 && (
@@ -109,11 +106,10 @@ export default async function BlogPost({
         contentHtmlZh={post.contentHtmlZh}
         hasTranslation={post.hasTranslation}
       />
-      <div className="mt-16">
+      <div className="mz-post-back">
         <Link
           href="/"
           className="no-underline text-sm font-medium"
-          style={{ color: "var(--link)" }}
         >
           &larr; Back to all posts
         </Link>

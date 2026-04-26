@@ -61,29 +61,22 @@ export default function RootLayout({
         )}
       </head>
       <body className="antialiased">
-        <div className="max-w-[1200px] mx-auto px-6 py-12">
-          <header className="flex items-center justify-between mb-16">
+        <div className="mz-page-shell">
+          <header className="mz-site-header">
             <Link
               href="/"
-              className="text-xl font-semibold no-underline"
-              style={{ color: "var(--title)", letterSpacing: "-0.005em" }}
+              className="mz-site-mark no-underline"
             >
-              {config.name}
+              <span className="mz-site-mark__prompt">$</span>
+              <span>{config.name}</span>
             </Link>
             <ThemeToggle />
           </header>
           <main>{children}</main>
-          <footer
-            className="mt-20 pt-8 border-t text-sm"
-            style={{ color: "var(--meta)", borderColor: "var(--border-light)" }}
-          >
+          <footer className="mz-site-footer">
             <p>
               &copy; {new Date().getFullYear()} {config.author} &middot;{" "}
-              <a
-                href="/feed.xml"
-                style={{ color: "var(--meta)" }}
-                className="underline"
-              >
+              <a href="/feed.xml" className="underline">
                 RSS
               </a>
             </p>

@@ -28,8 +28,7 @@ export default function LanguageToggle({
     <button
       onClick={toggle}
       aria-label="Toggle language"
-      className="text-sm font-medium cursor-pointer px-3 py-1 rounded-md transition-colors"
-      style={{ color: "var(--text-secondary)", backgroundColor: "var(--bg-card)", border: "1px solid var(--border-light)" }}
+      className="mz-language-toggle"
     >
       {lang === "en" ? "中文" : "EN"}
     </button>
