@@ -63,13 +63,19 @@ function AiEngineeringIllustration() {
 function AgentsIllustration() {
   return (
     <Sketch id="sk-ag" seed={7}>
-      {/* loop (recursion) */}
-      <path d="M 170 75 A 46 46 0 1 1 124 29" />
-      {/* arrowhead */}
-      <path d="M 116 24 L 126 29 L 122 38" />
-      {/* core */}
-      <circle cx="120" cy="80" r="16" />
-      <circle cx="120" cy="80" r="4" fill={STROKE} />
+      {/* agent pipeline */}
+      <rect x="40" y="52" width="42" height="42" rx="6" />
+      <rect x="99" y="52" width="42" height="42" rx="6" />
+      <rect x="158" y="52" width="42" height="42" rx="6" />
+      <path d="M 55 66 L 67 66" />
+      <path d="M 55 80 L 72 80" />
+      <path d="M 112 66 L 128 80 L 112 80" />
+      <path d="M 170 66 L 188 66" />
+      <path d="M 170 80 L 188 80" />
+      <path d="M 84 73 L 96 73" />
+      <path d="M 91 66 L 98 73 L 91 80" />
+      <path d="M 143 73 L 155 73" />
+      <path d="M 150 66 L 157 73 L 150 80" />
     </Sketch>
   );
 }
