@@ -1,0 +1,61 @@
+<svg width="960" height="520" viewBox="0 0 960 520" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Agentic coding feedback loop with ground truth verification</title>
+  <desc id="desc">A terminal-style diagram showing an agent coding loop where ground truth verification produces evidence for the next iteration.</desc>
+  <defs>
+    <pattern id="grid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M24 0H0V24" stroke="#72D572" stroke-opacity="0.12" stroke-width="1"/>
+    </pattern>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,1 L8,5 L0,9" stroke="#72D572" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <marker id="arrow-amber" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,1 L8,5 L0,9" stroke="#F2C15B" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <rect x="12" y="12" width="936" height="496" rx="8" fill="#12160F" stroke="#3A442F" stroke-width="1.5"/>
+  <rect x="12" y="12" width="936" height="36" rx="8" fill="#171B12"/>
+  <circle cx="34" cy="30" r="6" fill="#D96B5F"/>
+  <circle cx="56" cy="30" r="6" fill="#F2C15B"/>
+  <circle cx="78" cy="30" r="6" fill="#72D572"/>
+  <rect x="28" y="64" width="904" height="420" fill="url(#grid)"/>
+
+  <text x="48" y="102" fill="#E8F6D8" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="700">Feedback loop is all you need</text>
+  <text x="48" y="128" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-style="italic">Prompts start the work. Ground truth verification makes the work compound.</text>
+
+  <rect x="58" y="176" width="148" height="92" rx="6" fill="#20251A" stroke="#3A442F" stroke-width="1.5"/>
+  <text x="84" y="211" fill="#E8F6D8" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">Spec</text>
+  <text x="84" y="236" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">Target and</text>
+  <text x="84" y="253" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">constraints</text>
+
+  <rect x="248" y="176" width="148" height="92" rx="6" fill="#20251A" stroke="#3A442F" stroke-width="1.5"/>
+  <text x="274" y="211" fill="#E8F6D8" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">Agent edits</text>
+  <text x="274" y="236" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">Patch, refactor,</text>
+  <text x="274" y="253" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">or implement</text>
+
+  <rect x="438" y="176" width="176" height="92" rx="6" fill="#2A3022" stroke="#72D572" stroke-width="1.5"/>
+  <text x="466" y="211" fill="#E8F6D8" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">Ground truth</text>
+  <text x="466" y="236" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">Build, tests, UI,</text>
+  <text x="466" y="253" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">logs, runtime</text>
+
+  <rect x="656" y="176" width="148" height="92" rx="6" fill="#2A2418" stroke="#F2C15B" stroke-width="1.5"/>
+  <text x="682" y="211" fill="#E8F6D8" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">Evidence</text>
+  <text x="682" y="236" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">Concrete failure</text>
+  <text x="682" y="253" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">or pass signal</text>
+
+  <rect x="836" y="176" width="68" height="92" rx="6" fill="#20251A" stroke="#3A442F" stroke-width="1.5"/>
+  <text x="852" y="211" fill="#E8F6D8" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="700">Fix</text>
+  <text x="850" y="236" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">Next</text>
+  <text x="850" y="253" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">turn</text>
+
+  <path d="M206 222H244" stroke="#72D572" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-green)"/>
+  <path d="M396 222H434" stroke="#72D572" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-green)"/>
+  <path d="M614 222H652" stroke="#72D572" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-green)"/>
+  <path d="M804 222H832" stroke="#72D572" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-green)"/>
+  <path d="M870 268C870 340 132 340 132 272" stroke="#F2C15B" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#arrow-amber)"/>
+
+  <rect x="108" y="372" width="744" height="70" rx="8" fill="#20251A" fill-opacity="0.72" stroke="#4F5A40" stroke-width="1.5" stroke-dasharray="7 5"/>
+  <text x="138" y="404" fill="#72D572" font-family="'JetBrains Mono', 'SF Mono', monospace" font-size="13" font-weight="700">$ verify</text>
+  <text x="218" y="404" fill="#E8F6D8" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600">The loop improves when every claim is attached to evidence.</text>
+  <text x="218" y="426" fill="#9CA989" font-family="system-ui, -apple-system, sans-serif" font-size="12">No ground truth, no correction. No correction, no agentic engineering.</text>
+</svg>
