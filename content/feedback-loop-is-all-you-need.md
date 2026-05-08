@@ -5,11 +5,15 @@ spoiler: "Agentic coding works when the loop has ground truth. Prompts help, but
 tags: ["ai-engineering"]
 ---
 
-Andrej Karpathy's [Sequoia Ascent 2026 summary](https://karpathy.bearblog.dev/sequoia-ascent-2026/) has a line that explains why coding agents feel so different from ordinary chatbots:
+After several months of working with coding agents every day, I keep coming back to the same lesson: the agent is only as good as the loop around it.
+
+Then I read Andrej Karpathy's [Sequoia Ascent 2026 summary](https://karpathy.bearblog.dev/sequoia-ascent-2026/), and one line landed with exactly that resonance:
 
 Traditional software automates what you can specify. LLMs and reinforcement learning automate what you can verify.
 
-That is the right frame for agentic coding.
+That was the missing frame for what I had been seeing in practice.
+
+This post is a note to make that thinking explicit.
 
 The important unit is not the prompt. It is not the model. It is not even the agent.
 
