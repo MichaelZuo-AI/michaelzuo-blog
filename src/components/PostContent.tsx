@@ -1,7 +1,27 @@
 "use client";
 
-import { useCallback, useState } from "react";
+import { useCallback, useSyncExternalStore } from "react";
 import LanguageToggle from "./LanguageToggle";
+
+const LANGUAGE_CHANGE_EVENT = "mz-language-change";
+
+function getLanguageSnapshot(): "en" | "zh" {
+  if (typeof window === "undefined") {
+    return "en";
+  }
+
+  return localStorage.getItem("lang") === "zh" ? "zh" : "en";
+}
+
+function subscribeToLanguageChange(callback: () => void) {
+  window.addEventListener("storage", callback);
+  window.addEventListener(LANGUAGE_CHANGE_EVENT, callback);
+
+  return () => {
+    window.removeEventListener("storage", callback);
+    window.removeEventListener(LANGUAGE_CHANGE_EVENT, callback);
+  };
+}
 
 export default function PostContent({
   title,
@@ -16,10 +36,15 @@ export default function PostContent({
   contentHtmlZh?: string;
   hasTranslation: boolean;
 }) {
-  const [lang, setLang] = useState<"en" | "zh">("en");
+  const lang = useSyncExternalStore<"en" | "zh">(
+    subscribeToLanguageChange,
+    getLanguageSnapshot,
+    () => "en"
+  );
 
   const handleChange = useCallback((newLang: "en" | "zh") => {
-    setLang(newLang);
+    localStorage.setItem("lang", newLang);
+    window.dispatchEvent(new Event(LANGUAGE_CHANGE_EVENT));
   }, []);
 
   const html = lang === "zh" && contentHtmlZh ? contentHtmlZh : contentHtml;
@@ -29,7 +54,7 @@ export default function PostContent({
     <>
       {hasTranslation && (
         <div className="mz-post-tools">
-          <LanguageToggle onChange={handleChange} />
+          <LanguageToggle lang={lang} onChange={handleChange} />
         </div>
       )}
       <h1

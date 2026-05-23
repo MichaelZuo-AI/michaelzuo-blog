@@ -1,26 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
-
 export default function LanguageToggle({
+  lang,
   onChange,
 }: {
+  lang: "en" | "zh";
   onChange: (lang: "en" | "zh") => void;
 }) {
-  const [lang, setLang] = useState<"en" | "zh">("en");
-
-  useEffect(() => {
-    const saved = localStorage.getItem("lang");
-    if (saved === "zh") {
-      setLang("zh");
-      onChange("zh");
-    }
-  }, [onChange]);
-
   const toggle = () => {
     const next = lang === "en" ? "zh" : "en";
-    setLang(next);
-    localStorage.setItem("lang", next);
     onChange(next);
   };
 

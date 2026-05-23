@@ -4,7 +4,7 @@ Personal blog — writing on AI-driven development, engineering productivity, an
 
 ## Stack
 
-- **Framework:** Next.js 15 (static export)
+- **Framework:** Next.js 16 (static export)
 - **Styling:** Tailwind CSS 4 + Typography plugin
 - **Hosting:** GitHub Pages
 - **Analytics:** Cloudflare Web Analytics

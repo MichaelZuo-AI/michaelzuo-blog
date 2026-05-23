@@ -8,8 +8,8 @@ test("home page renders posts and tag-specific hero art", async ({ page }) => {
   ).toBeVisible();
 
   const cards = page.locator(".mz-card");
-  await expect(cards).toHaveCount(12);
-  await expect(page.locator(".mz-card-illustration")).toHaveCount(12);
+  await expect(cards).toHaveCount(13);
+  await expect(page.locator(".mz-card-illustration")).toHaveCount(13);
 
   await expect(
     page.locator('a[href="/post/causality-vs-correlation"] .mz-card-hero'),
