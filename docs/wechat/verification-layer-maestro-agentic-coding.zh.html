@@ -3,195 +3,173 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Verification Layer 才是 Agentic Coding 的操作系统 - 微信公众号模板</title>
+    <title>Verification Layer 才是 Agentic Coding 的最后一公里 - 微信公众号模板</title>
   </head>
   <body style="margin:0;background:#f5f6f3;color:#20231f;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;">
     <section style="max-width:680px;margin:0 auto;padding:28px 18px 48px;background:#fff;">
       <section style="margin:0 0 26px;padding:22px 20px;border:1px solid #dfe5dc;background:#fbfcf8;">
-        <p style="margin:0 0 10px;color:#657060;font-size:13px;line-height:1.7;">AI Engineering / 2026-05-30</p>
-        <h1 style="margin:0;color:#151915;font-size:26px;line-height:1.36;font-weight:800;letter-spacing:0;">Verification Layer 才是 Agentic Coding 的操作系统</h1>
-        <p style="margin:14px 0 0;color:#555f51;font-size:15px;line-height:1.85;">从 LLM 生成测试失败，到用 Maestro 构建可复现的需求验证层。</p>
+        <p style="margin:0 0 10px;color:#657060;font-size:13px;line-height:1.7;">AI Engineering / 2026-05-31</p>
+        <h1 style="margin:0;color:#151915;font-size:26px;line-height:1.36;font-weight:800;letter-spacing:0;">Verification Layer 才是 Agentic Coding 的最后一公里</h1>
+        <p style="margin:14px 0 0;color:#555f51;font-size:15px;line-height:1.85;">从 LLM 直接生成测试脚本失败，到用 Maestro 构建可复现、可依赖、可持续演进的验证系统。</p>
       </section>
 
       <section style="font-size:16px;line-height:1.95;color:#252a24;">
-        <p style="margin:0 0 18px;">这段时间做 agentic coding pipeline，我越来越明显地感觉到：最难的部分已经不只是“让 Agent 写代码”。</p>
-        <p style="margin:0 0 18px;">从需求生成 PR，做 multi-sampling、self-evolve、scoring loop，这些都已经能跑起来。真正耗人的，是后面那句更朴素的问题：这个 PR 到底对不对？</p>
-        <p style="margin:0 0 18px;">一个 Agent 可以很快写出十个候选实现。问题是：哪一个真的满足需求？哪一个只是看起来合理？哪一个没有破坏边界条件？哪一个在明天、下周、另一个设备、另一份测试数据上还能稳定通过？</p>
-        <p style="margin:0 0 18px;">如果 verification 的成本太高，Agentic Coding 的 ROI 很容易被吃掉。代码是省下来了，但成本转移到了写测试、调 flaky、补 fixture、人工 review、排查 false pass 上。</p>
-        <p style="margin:0 0 26px;">所以这篇想讨论的不是“怎么让 LLM 多写测试”，而是怎么把 verification 做成一层稳定、可复用、真的能证明需求满足的系统。</p>
+        <p style="margin:0 0 18px;">过去一段时间，Agentic Coding 经历了一个很典型的认知周期。</p>
+        <p style="margin:0 0 18px;">最开始，大家对它的期待很简单：既然 LLM 已经可以理解需求、写代码、改代码，那人是不是终于可以从 coding 里解放出来？只要把 intent 交给 AI，它就能自动生成 feature code，甚至自动提交 PR。</p>
+        <p style="margin:0 0 18px;">这个想法很有吸引力，也确实在很多 demo 里展示出了惊人的效果。但真正落地之后，很多团队会经历从“膜拜”到“怀疑”的过程。</p>
+        <p style="margin:0 0 18px;">Demo 可以很惊艳。但要持续稳定地生成符合业务预期、工程规范、系统设计和质量要求的代码，远比想象中困难。</p>
+        <p style="margin:0 0 18px;">我不认为这说明 Agentic Coding 走错了方向。相反，这说明它正在进入真正的工程化阶段。</p>
+        <p style="margin:0 0 26px;">LLM 已经提供了可能性。下一块拼图，不是再让模型多写几行代码，而是建立足够强的 harness engineering。这里面最核心的一层，就是 Verification Layer。</p>
 
         <blockquote style="margin:22px 0;padding:14px 18px;border-left:4px solid #4f8f68;background:#f2f7f3;color:#273126;font-size:16px;line-height:1.9;">
-          Verification Layer 不是让 AI 多写几段测试脚本，而是把需求编译成稳定、可复现、能被评分的 verifier。
+          Agentic Coding 的最后一公里，不是 code generation，而是 verification。
         </blockquote>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">瓶颈开始转向验证</h2>
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">为什么 Verification 是核心</h2>
 
-        <p style="margin:0 0 18px;">LLM 生成代码的 output range 很宽。它可以写出正确实现，也可以写出语法正确、叙述漂亮、但业务上错一半的实现。</p>
-        <p style="margin:0 0 18px;">Regression testing 相对容易，因为已有行为和已有测试可以复用。New feature testing 难得多，因为需求本身还没有可执行 verifier。</p>
-        <p style="margin:0 0 18px;">贵的地方也不只是写一段测试脚本，而是把需求拆成可验证条件，准备稳定 fixture，定义 selector，控制环境状态，设计 oracle，执行多轮稳定性检查，再把失败结果映射回具体 acceptance criteria。</p>
-        <p style="margin:0 0 26px;">如果这些都靠人临时手写，Agentic Coding 只是把开发瓶颈换了一个位置。</p>
+        <p style="margin:0 0 18px;">在真实软件开发中，无论是人还是 AI，都不能天然保证写出来的代码一定符合 feature requirement。</p>
+        <p style="margin:0 0 18px;">原因很简单：需求本身经常不完备，甚至可能和现有系统冲突。</p>
+        <p style="margin:0 0 18px;">一个典型场景是，产品需求说要在原有功能上新增一个能力，但需求文档里对原有功能的描述本身就是错的。人类工程师在开发时，会基于系统背景、历史上下文、团队沟通、产品确认、QA 反馈，不断修正自己对 requirement 的理解。</p>
+        <p style="margin:0 0 18px;">AI 很难自动完成这一整套隐性沟通。它能读文档、读代码、读上下文，但它无法天然知道哪些需求描述是错的，哪些旧逻辑不能改，哪些边界条件是团队默认约定，哪些异常路径虽然没写进需求但必须支持。</p>
+        <p style="margin:0 0 18px;">所以对 Agentic Coding 来说，更现实的方向不是期待 AI 第一次就写对，而是建立一套机制：</p>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">第一次尝试：让 LLM 直接写测试脚本</h2>
-
-        <p style="margin:0 0 18px;">最自然的方案是这样的：</p>
         <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">自然语言 test case<br>→ LLM 生成 test script<br>→ 执行 test script<br>→ 用执行结果验证 Agent 生成的 PR</p>
+          <p style="margin:0;">无论 AI 怎么生成 code，Verification Layer 都能告诉它：<br><br>1. 哪里不符合预期？<br>2. 预期应该是什么？<br>3. 对应哪条 requirement / acceptance criterion？<br>4. 应该修 production code、test code、fixture，还是 requirement 本身需要澄清？</p>
         </section>
-        <p style="margin:0 0 18px;">这个方案一开始看起来很合理，因为 LLM 很擅长把自然语言翻译成代码。但真实工程里，它通常会同时暴露两个问题。</p>
 
-        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第一，测试几乎抓不到 bug</h3>
-        <p style="margin:0 0 18px;">问题不是 LLM 不会写语法，而是它很容易生成“看起来像测试”的脚本，却缺少真正有效的 oracle。</p>
-        <p style="margin:0 0 18px;">比如需求是“用户可以取消符合条件的订单”。LLM 可能生成一条 flow：打开订单详情页，点击取消按钮，看到成功提示。</p>
-        <p style="margin:0 0 18px;">但这不够。它可能没有验证非可取消订单是否隐藏按钮，没有验证 confirm modal 是否真的出现，没有验证 confirm 后是否调用正确 orderId，没有验证 API failure 是否保留原状态，也没有验证 loading 期间是否禁止重复提交。</p>
-        <p style="margin:0 0 18px;">测试能跑，不代表它能证明需求被满足。很多自动生成测试只是 demo flow，不是 verifier。</p>
-        <p style="margin:0 0 22px;"><strong>测试的核心不是 action，而是 oracle。</strong> LLM 生成测试失败，通常不是 action 写错，而是 oracle 太弱。</p>
+        <p style="margin:0 0 18px;">这和人类开发其实很像。</p>
+        <p style="margin:0 0 18px;">人写代码也会出 bug。QA 提 bug，人分析 root cause，再调整代码修复。区别在于：如果我们希望 AI 可以持续 self-looping，那么 QA 的能力必须变成机器可执行、可复现、可评分的 Verification Layer。</p>
+        <p style="margin:0 0 26px;">没有这个层，Agentic Coding 就只能停留在“生成代码看起来不错”的阶段。有了这个层，Agentic Coding 才能进入“持续修正直到满足需求”的阶段。</p>
 
-        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第二，每次执行结果不稳定</h3>
-        <p style="margin:0 0 18px;">LLM 直接写脚本，还会带来另一类问题：selector 不稳定、timing 不稳定、test data 不稳定、app state 不稳定、执行语义不稳定。</p>
-        <p style="margin:0 0 18px;">同一条需求，今天用 text selector，明天用 index，后天用 XPath。今天 sleep 两秒能过，明天网络慢一点就失败。今天测试数据还在，明天状态被上次运行污染。</p>
-        <p style="margin:0 0 26px;">这本质上是在用一个随机系统约束另一个随机系统。结果不是稳定验证，而是把不确定性从 coding agent 转移到了 testing agent。</p>
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">当前 Pipeline 的真正瓶颈</h2>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">切到 Maestro 后，稳定性变好了</h2>
-
-        <p style="margin:0 0 18px;">后来我们切到 Maestro，把测试限制在 YAML-based DSL 里。这个方向是对的。</p>
-        <p style="margin:0 0 18px;">Maestro Flow 用声明式 YAML 描述用户旅程，比如 launch app、tap、input、assert visible。它把自由代码收敛成统一执行语义，也让测试变得可读、可 review、可版本化。</p>
+        <p style="margin:0 0 18px;">很多团队现在已经能搭出这样的 pipeline：</p>
         <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">appId: com.example.app<br>name: Cancel Order Success Flow<br>tags:<br>&nbsp;&nbsp;- smoke<br>&nbsp;&nbsp;- order<br>---<br>- launchApp<br>- tapOn: "Orders"<br>- tapOn: "Order #123"<br>- assertVisible: "Cancel Order"<br>- tapOn: "Cancel Order"<br>- assertVisible: "Are you sure?"<br>- tapOn: "Confirm"<br>- assertVisible: "Order cancelled"</p>
+          <p style="margin:0;">Intent<br>→ Spec<br>→ Plan<br>→ Code Generation<br>→ Test / Build<br>→ Repair Loop<br>→ PR</p>
         </section>
-        <p style="margin:0 0 18px;">Maestro 的价值很明确：脚本自由度降低，执行引擎统一，YAML 能被 QA、研发、AI 一起维护，也更适合按 feature、tags、common flows 组织测试套件。</p>
-        <p style="margin:0 0 26px;">但 Maestro 只解决了 reproducibility，没有自动解决 authoring cost。</p>
+        <p style="margin:0 0 18px;">更进一步的，也已经在做 multi-sampling + self-evolve + scoring：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">生成多个 PR candidates<br>→ 执行验证<br>→ 给每个 candidate 打分<br>→ 选择高分 candidate<br>→ 让 Agent 继续修复或演化<br>→ 最终提交分数达标的 PR</p>
+        </section>
+        <p style="margin:0 0 18px;">这个方向是对的。因为 LLM 的输出具有随机性，单次 generation 不稳定，多 sampling 和 self-evolve 可以提高搜索到好结果的概率。</p>
+        <p style="margin:0 0 26px;">但实际落地后，会遇到两个非常关键的问题。</p>
+
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第一，Looping 得出 best score 的时间太长</h3>
+
+        <p style="margin:0 0 18px;">如果 verification signal 很稀疏，Agent 并不知道具体哪里错了，只知道：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">test failed<br>build failed<br>score not enough</p>
+        </section>
+        <p style="margin:0 0 18px;">于是它只能反复 retry 或大范围 rewrite。每一轮都要重新生成 patch、跑测试、读日志、修复、再跑。随着 feature 复杂度上升，looping 成本会迅速膨胀。</p>
+        <p style="margin:0 0 18px;">最后你会发现，自动化生成 PR 的成本并不只是 LLM token cost，还包括代码生成、多轮修复、测试生成、测试执行、flaky debug、human review、requirement clarification 等一整串成本。</p>
+        <p style="margin:0 0 26px;">当这些都算进去，有些 feature 甚至还不如人直接开发。</p>
+
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第二，Best score 不等于满足 requirement</h3>
+
+        <p style="margin:0 0 18px;">这个问题更致命。</p>
+        <p style="margin:0 0 18px;">即使得到了 best score，也不代表这个 PR 真正满足 feature requirement。因为很多 scoring 体系偏向工程检查：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">lint pass<br>typecheck pass<br>build pass<br>regression pass<br>unit test pass<br>diff size reasonable</p>
+        </section>
+        <p style="margin:0 0 18px;">这些都很重要，但它们无法充分证明新功能真的符合需求。</p>
+        <p style="margin:0 0 18px;">比如一个“取消订单”的功能，PR 可能所有 existing regression 都过了，但仍然漏掉：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">非可取消订单不应该展示取消按钮<br>点击取消后必须出现确认弹窗<br>confirm 后必须调用正确 orderId<br>API failure 后必须显示错误 toast<br>success 后必须刷新订单状态<br>loading 时必须禁止重复提交</p>
+        </section>
+        <p style="margin:0 0 18px;">这说明我们优化的是 verification score，但这个 score 和真实 requirement satisfaction 没有完全对齐。</p>
+        <p style="margin:0 0 26px;">所以 Agentic Coding 的核心挑战不是“怎么生成更多 PR”，而是如何高效建立一个能真正 verify requirement 的 Verification Layer。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">我们踩过的坑：让 LLM 直接写测试脚本</h2>
+
+        <p style="margin:0 0 18px;">我们曾经做过一个很自然的尝试：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">自然语言 test case 描述<br>→ LLM 生成 test script<br>→ 执行 test script<br>→ 用执行结果验证 Agent 生成的 PR</p>
+        </section>
+        <p style="margin:0 0 18px;">这个方案看起来非常合理。LLM 擅长把自然语言转换成代码，测试脚本本质上也是代码，那么为什么不直接让 LLM 写测试？</p>
+        <p style="margin:0 0 26px;">但实际效果并不好，主要表现为两个问题。</p>
+
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第一，几乎无法测试出 bug</h3>
+
+        <p style="margin:0 0 18px;">LLM 生成的脚本经常可以跑，但很难抓 bug。</p>
+        <p style="margin:0 0 18px;">原因不是它不会写语法，而是它常常生成的是“看起来像测试”的脚本，而不是一个真正的 verifier。</p>
+        <p style="margin:0 0 18px;">典型问题包括：只覆盖 happy path，不覆盖 negative / edge / permission case；断言太弱，只验证页面出现了，不验证业务状态真的变化；没有把 acceptance criteria 拆成可验证条件；没有验证 API 是否被调用、参数是否正确；没有验证状态刷新、错误处理、重复提交等关键路径。</p>
+        <p style="margin:0 0 18px;">比如需求是：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">用户可以取消符合条件的订单</p>
+        </section>
+        <p style="margin:0 0 18px;">LLM 可能生成这样的脚本：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">打开订单详情页<br>点击取消按钮<br>点击确认<br>看到成功提示</p>
+        </section>
+        <p style="margin:0 0 18px;">这个脚本看起来合理，但它没有验证：非可取消订单是否隐藏按钮，确认弹窗是否真的出现，confirm 后是否调用正确 API，API 失败时是否显示错误 toast，成功后订单状态是否刷新，重复点击是否被禁用。</p>
+        <p style="margin:0 0 26px;">因此它能跑通，但不能证明需求被满足。</p>
 
         <blockquote style="margin:22px 0;padding:14px 18px;border-left:4px solid #4f8f68;background:#f2f7f3;color:#273126;font-size:16px;line-height:1.9;">
-          Maestro 让测试可复现，但不保证测试有价值。测试有没有价值，取决于上层的需求拆解、数据契约和 oracle 设计。
+          LLM 直接生成 test script 时，最容易生成的是“可运行脚本”，不是“可证明需求被满足的 verifier”。
         </blockquote>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">正确方向：Verification Layer as Compiler</h2>
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第二，每次执行结果都不稳定</h3>
 
-        <p style="margin:0 0 18px;">所以我现在更倾向于把 verification layer 设计成一个 compiler system，而不是继续让 AI 直接写更多 YAML。</p>
+        <p style="margin:0 0 18px;">同一个自然语言 test case，不同 LLM 采样可能生成不同脚本；同一个脚本，不同时间跑结果也可能不同。</p>
+        <p style="margin:0 0 18px;">不稳定通常来自这些地方：selector 不稳定，timing 不稳定，test data 不稳定，app state 不稳定，assertion 不稳定，execution semantics 不稳定。</p>
+        <p style="margin:0 0 18px;">最后结果是：每一轮测试的结果都不一样，同样的 case 有时候过，有时候失败，有时候根本没有测到真正的问题。A candidate 失败，B candidate 过，但无法判断是 code bug 还是 test bug。修复一次测试，下一次又引入新的 flaky。</p>
+        <p style="margin:0 0 18px;">本质上，这是在用一个随机系统去约束另一个随机系统。</p>
         <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">Requirement<br>→ Acceptance Criteria<br>→ Goal Tree<br>→ Verifier Plan<br>→ Test Intent IR<br>→ Selector / Data / Oracle Contracts<br>→ Maestro YAML Compiler<br>→ Static Validation<br>→ Multi-run Stability Check<br>→ Mutation / Bug-catching Check<br>→ AC Coverage Scoreboard</p>
+          <p style="margin:0;">LLM-generated code 是随机的；<br>LLM-generated test script 也是随机的。</p>
         </section>
-        <p style="margin:0 0 18px;">旧范式是：自然语言 test case 进 LLM，直接吐出可执行脚本。</p>
-        <p style="margin:0 0 18px;">新范式是：LLM 先生成结构化 verification intent，再由确定性 compiler 生成 Maestro YAML。</p>
-        <p style="margin:0 0 18px;">这更像编译器。自然语言需求是 source language，Test Intent IR 是 intermediate representation，Maestro YAML 是 target bytecode，Maestro runtime 是 execution engine，coverage scoreboard 是 verification output。</p>
-        <p style="margin:0 0 26px;">LLM 负责它擅长的部分：理解需求、拆解场景、选择验证策略、补全边界条件。确定性系统负责它擅长的部分：模板化、编译、静态检查、执行、复现和评分。</p>
+        <p style="margin:0 0 26px;">两个随机系统叠加，不会产生稳定验证，只会把不确定性从 coding agent 转移到 testing agent。</p>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">Test Intent IR：不要直接生成 YAML</h2>
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">切换到 Maestro：稳定性提升了，但成本转移了</h2>
 
-        <p style="margin:0 0 18px;">IR 的目标，是把“测试意图”从“低层点击步骤”里抽出来。</p>
+        <p style="margin:0 0 18px;">后来我们做了一个尝试：切换到 Maestro 作为测试引擎，采用 AI + 人工生成 YAML，也就是 Maestro 的 test script。AI 只辅助生成 YAML，但后续自动化测试执行全部由程序完成。</p>
+        <p style="margin:0 0 18px;">这个方案带来了明显提升。</p>
+        <p style="margin:0 0 18px;">Maestro 的 Flow 是 YAML-based test scripts，用来定义 UI automation 的 user journey。它通过声明式 commands 模拟用户行为和验证 UI 状态，比如 launchApp、tapOn、inputText、assertVisible。</p>
+        <p style="margin:0 0 18px;">这种 DSL 的价值在于：</p>
         <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">feature_id: order_cancel<br>flow_id: order_cancel_success<br>intent: eligible user cancels an order successfully<br>source_acceptance_criteria:<br>&nbsp;&nbsp;- AC1: Only cancellable orders show cancel button<br>&nbsp;&nbsp;- AC2: Clicking cancel opens confirmation modal<br>&nbsp;&nbsp;- AC3: Confirming calls cancel order API<br>&nbsp;&nbsp;- AC4: Success refreshes order status<br>scenario_type: positive<br>preconditions:<br>&nbsp;&nbsp;user: user_with_cancel_permission<br>&nbsp;&nbsp;order: order_eligible_cancel_001<br>oracles:<br>&nbsp;&nbsp;- success toast visible<br>&nbsp;&nbsp;- cancel button not visible<br>&nbsp;&nbsp;- order status becomes CANCELLED<br>engine: maestro<br>priority: pr_smoke</p>
+          <p style="margin:0;">测试脚本从自由代码变成声明式 YAML<br>执行语义由 Maestro runtime 统一控制<br>YAML 可读、可 review、可版本化<br>selector、wait、assertion 有更稳定的规范<br>QA、研发、AI 可以共同参与维护</p>
         </section>
-        <p style="margin:0 0 18px;">Human review IR 的成本，远低于 review 一长串低层 YAML。IR 更贴近需求语义，也方便 coverage system 追踪每条 AC 是否有 verifier。</p>
-        <p style="margin:0 0 18px;">Compiler 再根据 IR、selector registry、fixture registry 和 flow templates 生成 Maestro YAML。</p>
-        <p style="margin:0 0 26px;">关键是：LLM 可以参与生成 AC、Goal Tree、oracle 建议和失败解释，但低层 YAML 应尽量由模板和 registry 确定性生成。</p>
+        <p style="margin:0 0 18px;">相比让 LLM 直接生成任意 test script，Maestro 把测试表达限制在一个更小、更稳定、更可控的空间里。</p>
+        <p style="margin:0 0 18px;">这解决了 reproducibility 的一大部分问题。</p>
+        <p style="margin:0 0 18px;">但新的问题也很明显：</p>
+        <blockquote style="margin:22px 0;padding:14px 18px;border-left:4px solid #4f8f68;background:#f2f7f3;color:#273126;font-size:16px;line-height:1.9;">
+          Maestro YAML 的质量稳定了，但编写和维护 YAML 的成本太高。
+        </blockquote>
+        <p style="margin:0 0 18px;">写一个高质量 Flow 并不是把自然语言翻译成点击步骤。它还需要处理测试前如何 seed 数据，用哪个账号和环境，页面如何稳定进入，哪些 selector 最稳定，哪些 assertion 才能证明需求满足，如何覆盖 success / failure / permission / edge case，如何拆 common flow，以及 PR 阶段和 nightly 阶段分别跑哪些 flows。</p>
+        <p style="margin:0 0 26px;">所以 Maestro 解决了稳定执行的问题，但没有自动解决 verification authoring cost。下一步真正要解决的是：如何低成本生成高质量 Maestro YAML，并保证它真的 verify requirement。</p>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">四类 Contract 决定稳定性</h2>
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">下一步：从脚本生成走向验证系统</h2>
 
-        <p style="margin:0 0 18px;">LLM 直接生成脚本不稳定，背后通常是缺少四类 contract。</p>
-        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">Selector Contract</h3>
-        <p style="margin:0 0 18px;">测试需要稳定找到 UI 元素。不应该让 LLM 每次猜“Cancel”“取消订单”“第三个按钮”或 XPath。产品代码和测试系统应该共同定义稳定 selector，比如 order.cancel.button、order.cancel.confirm_modal、order.cancel.error_toast。</p>
-
-        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">Data Contract</h3>
-        <p style="margin:0 0 18px;">测试必须知道初始状态是什么。比如 order_eligible_cancel_001、order_shipped_001、order_cancel_api_fail_001。LLM 只选择 fixture，不临时编造数据。</p>
-
-        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">Environment Contract</h3>
-        <p style="margin:0 0 18px;">登录态、权限、实验开关、系统时间、locale、网络和 app state 都要被控制。否则 flow 失败时，你很难判断是功能 bug、测试 bug、数据污染还是环境问题。</p>
-
-        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">Oracle Contract</h3>
-        <p style="margin:0 0 26px;">每条测试必须明确什么算对。比如取消订单成功，不只看 toast，还要看状态变成 cancelled、按钮消失、错误路径保持原状态、重复点击不会发多次请求。</p>
-
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">让测试真的能抓 bug</h2>
-
-        <p style="margin:0 0 18px;">一个 verification suite 的价值，不是它通过了多少测试，而是它能杀掉多少典型 bug。</p>
-        <p style="margin:0 0 18px;">这就是 mutation testing 在这里的意义。我们可以为每类 feature 建一个 Bug Seed Library，然后检查测试是否能发现这些已知错误。</p>
-        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">Bug Seed 1: 所有订单都显示 Cancel button<br>Bug Seed 2: confirm 后没有调用 API<br>Bug Seed 3: API 调用 orderId 错误<br>Bug Seed 4: success 后没有刷新订单状态<br>Bug Seed 5: failure 时仍显示 success toast<br>Bug Seed 6: loading 状态下可以重复提交</p>
-        </section>
-        <p style="margin:0 0 18px;">如果 Maestro flow 在这些 bug 存在时仍然全部通过，说明它不是 verifier，只是 demo script。</p>
-        <p style="margin:0 0 26px;">Bug-catching score 可以定义成 killed mutations / total seeded mutations。它比单纯 test pass 更有价值，因为 test pass 只能说明当前代码没触发测试失败，mutation killed rate 才能说明测试有没有能力发现错误。</p>
-
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">AC Coverage Scoreboard</h2>
-
-        <p style="margin:0 0 18px;">每个 PR 最后不该只输出 tests passed，还应该输出 requirement-level 的 scoreboard。</p>
-        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">feature_id: order_cancel<br>overall_requirement_score: 0.78<br>AC1_only_cancellable_orders_show_cancel: covered_passed<br>AC2_clicking_cancel_opens_modal: covered_passed<br>AC3_confirm_calls_api: covered_failed<br>AC4_success_refreshes_status: covered_failed<br>AC5_failure_shows_error: missing_verifier<br>stability: pass_rate 0.8<br>bug_catching: 4 / 6</p>
-        </section>
-        <p style="margin:0 0 18px;">评分也需要分层：build、typecheck、lint、critical regression、YAML static validation 是 hard gate；AC coverage、subgoal pass rate、mutation score 是 requirement score；diff size、pattern reuse、maintainability、flake rate 是 quality score。</p>
-        <p style="margin:0 0 26px;">Quality score 不能覆盖 requirement score。一个 diff 很小但漏掉关键 AC 的 PR，不应该比一个完整满足 AC 但稍微复杂的 PR 得分更高。</p>
-
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">把 flakiness 当成一等公民</h2>
-
-        <p style="margin:0 0 18px;">每个新 flow 生成后，不要只跑一次。至少要做 multi-run stability check。</p>
-        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">PR smoke: failed flow rerun 2 次<br>Nightly validation: newly generated flows rerun 5 次<br>Release gate: critical flows rerun 10 次</p>
-        </section>
-        <p style="margin:0 0 18px;">如果 5 次里有 2 次失败，它就不能直接进入 PR gate。系统应该先 triage：selector instability、timing issue、test data pollution、app state leakage、environment issue、real product bug，还是 Maestro YAML bug。</p>
-        <p style="margin:0 0 26px;">不同分类对应不同修复策略。Selector 不稳，就补 testID 或 accessibility id；timing 问题，就用状态断言替代 sleep；数据污染，就在 flow 前 seed 和 reset；真实产品 bug，才反馈给 coding agent 修业务代码。</p>
-
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">降低 Maestro YAML 编写成本</h2>
-
-        <p style="margin:0 0 18px;">这里的目标不是让 AI 每次从零写 YAML，而是把验证资产沉淀成可复用系统。</p>
-        <p style="margin:0 0 18px;"><strong>Flow Component Library</strong>：把 reset_app、login、logout、open_deeplink、seed_order、grant_permissions、set_locale、wait_for_home 变成 common flows。Feature flow 只负责业务场景。</p>
-        <p style="margin:0 0 18px;"><strong>Selector Registry</strong>：让 compiler 从 registry 生成 Maestro selector。如果 registry 找不到 selector，不让 LLM 猜，而是生成一个 implementation requirement：请在 production code 中为目标元素增加稳定 test surface。</p>
-        <p style="margin:0 0 18px;"><strong>Data Fixture Registry</strong>：把 order_eligible_cancel_001、user_without_cancel_permission_001 这类数据纳入 registry。LLM 选择 fixture，seed API 创建状态，测试不再依赖偶然数据。</p>
-        <p style="margin:0 0 18px;"><strong>Flow Templates by Feature Type</strong>：给 api_mutation、permission_logic、form_change、error_handling 这类高频 feature 建模板。LLM 填 slot，compiler 渲染 YAML。</p>
-        <p style="margin:0 0 26px;">Human 不应该长期手写每条测试脚本，而应该维护 selector、fixture、template 和 oracle policy。人的工作从“写脚本”升级为“维护验证系统”。</p>
-
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">BES 和动态规划的启发</h2>
-
-        <p style="margin:0 0 18px;">BES 给我的启发是：不要只用最终结果作为稀疏 reward，而要把目标拆成可验证子目标，再用 dense feedback 指导搜索。</p>
-        <p style="margin:0 0 18px;">Agentic Coding 里也一样。不要只问“这个 PR 是否实现了取消订单”，而是拆成入口展示、确认交互、API 行为、success 状态、failure 状态、权限边界、重复提交等 leaf goals。每个 leaf goal 都对应一个 verifier。</p>
-        <p style="margin:0 0 18px;">如果 mutation testing 发现 success 后不刷新状态的 bug 没有被 kill，系统就应该把“success refreshes order status”继续拆成 API response、query refetch、UI status update、cancel button disappears，再生成更细的 oracle。</p>
-        <p style="margin:0 0 18px;">动态规划给 verification layer 的启发则更直接：不要重复解决同一个子问题。</p>
-        <p style="margin:0 0 26px;">登录、deeplink、seed 数据、等待 loading、验证 toast、验证 permission denied、验证 confirm modal，这些都可以缓存成已验证的 subflow、template 或 oracle。新 feature 的 verification 就不必从零开始。</p>
-
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">推荐落地路线</h2>
-
-        <ol style="margin:0 0 24px;padding-left:22px;color:#252a24;font-size:16px;line-height:1.9;">
-          <li style="margin:0 0 8px;">先把 Maestro YAML 的手写成本结构化：selector、data、flow、assertion、flake、review 分别贵在哪里。</li>
-          <li style="margin:0 0 8px;">建立 Test Intent IR，让 AI 先生成可 review 的测试意图，而不是直接写 YAML。</li>
-          <li style="margin:0 0 8px;">建立 Selector Registry 和 Fixture Registry，这是稳定性的基础。</li>
-          <li style="margin:0 0 8px;">先支持 3 到 5 个高频 feature template，比如 UI entry point、API mutation、form change、permission logic、error handling。</li>
-          <li style="margin:0 0 8px;">做 IR 到 Maestro YAML 的 template-based compiler，不必一开始追求复杂。</li>
-          <li style="margin:0 0 8px;">加入 Stability Gate，让新 flow 多次运行后再进入 PR gate。</li>
-          <li style="margin:0 0 8px;">加入 Mutation / Bug-catching Check，验证测试是否真能抓典型 bug。</li>
-          <li style="margin:0;">最后接入 Agentic Coding PR Loop，让失败结果映射回 AC 和 subgoal，指导 coding agent 修复。</li>
-        </ol>
-
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">应该看哪些指标</h2>
-
-        <p style="margin:0 0 18px;">判断 verification layer 是否有效，不应该只看“测试数量”。更有用的是这些指标：</p>
+        <p style="margin:0 0 18px;">如果继续往下展开，这会变成一个更完整的未来架构：Requirement Normalizer、Goal Tree Builder、Verifier Planner、Test Intent IR、Selector / Data / Oracle Contracts、Maestro YAML Compiler、Static Validator、Stability Gate、Mutation Check、AC Coverage Scoreboard 和 Failure Triage。</p>
+        <p style="margin:0 0 18px;">这一整套东西值得单独写一篇文章。这里先埋一个引子，不在这篇里全部展开。</p>
+        <p style="margin:0 0 18px;">核心转变是：不要让 LLM 直接生成最终测试脚本，而是让它生成结构化的 Verification Intent。然后由确定性的 compiler、registry 和 validator，把这个 intent 编译成稳定 Maestro YAML，并把执行结果映射回 acceptance criteria。</p>
+        <p style="margin:0 0 18px;">这个方向里有几个关键点：</p>
         <ul style="margin:0 0 24px;padding-left:22px;color:#252a24;font-size:16px;line-height:1.9;">
-          <li style="margin:0 0 8px;">AC-to-verifier coverage rate：每条 acceptance criterion 是否有 verifier。</li>
-          <li style="margin:0 0 8px;">Bug-catching score：seeded bugs 被测试抓出的比例。</li>
-          <li style="margin:0 0 8px;">Flake rate：多次运行中不稳定失败的比例。</li>
-          <li style="margin:0 0 8px;">YAML authoring cost：每条 flow 从需求到稳定运行需要多少人时。</li>
-          <li style="margin:0 0 8px;">YAML reuse rate：新 flow 中多少步骤来自 common flow 或 template。</li>
-          <li style="margin:0 0 8px;">False pass rate：PR 通过 verification，但 human review 发现需求未满足的比例。</li>
-          <li style="margin:0;">Cost per verified PR：生成、验证、修复、review 的总成本。</li>
+          <li style="margin:0 0 8px;">把需求拆成可验证子目标，而不是只给一个最终分。</li>
+          <li style="margin:0 0 8px;">把测试意图和测试脚本解耦，用 IR 承载 AC mapping、fixture、selector 和 oracle。</li>
+          <li style="margin:0 0 8px;">用 compiler 生成 Maestro YAML，减少 LLM 自由发挥带来的不稳定。</li>
+          <li style="margin:0 0 8px;">用 selector、data、oracle contracts 降低 flakiness。</li>
+          <li style="margin:0;">用 AC Coverage Scoreboard 和 Mutation Check 判断测试是不是真的能证明需求满足。</li>
         </ul>
-        <p style="margin:0 0 26px;">其中最重要的是 false pass rate、bug-catching score、YAML authoring cost 和 flake rate。它们直接决定这个系统是降低成本，还是制造一层新的复杂度。</p>
+        <p style="margin:0 0 26px;">后面我会单独写一篇，把这一层 Verification Layer 的架构、IR 设计、compiler 设计、scoreboard 和 failure triage 展开讲。</p>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">最终架构</h2>
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">结论：Verification Layer 是 Agentic Coding 的操作系统</h2>
 
+        <p style="margin:0 0 18px;">Agentic Coding 之所以让人失望，并不是因为 LLM 不会写代码。</p>
+        <p style="margin:0 0 18px;">真正的问题是：LLM 的输出空间太宽，随机性太强；需求本身不总是清晰和一致；现有验证信号太稀疏；测试脚本生成不稳定；高质量 YAML verifier 编写成本太高；最终 score 和真实 requirement satisfaction 没有完全对齐。</p>
+        <p style="margin:0 0 18px;">所以未来的方向不是单纯追求更强的 code generation，而是构建一个更强的 verification system。</p>
+        <p style="margin:0 0 18px;">这个系统要做到：</p>
         <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
-          <p style="margin:0;">Feature Requirement<br>→ Goal Tree / AC<br>→ Test Intent IR<br>→ Selector + Fixture + Oracle Contracts<br>→ Maestro YAML Compiler<br>→ Execution + Stability + Mutation<br>→ AC Coverage Scoreboard<br>→ Agentic Coding Repair Loop</p>
+          <p style="margin:0;">把需求拆成可验证子目标<br>把测试意图和测试脚本解耦<br>用 IR + Compiler 生成稳定 Maestro YAML<br>用 selector / data / oracle contracts 降低不确定性<br>用 static validation 和 stability gate 保证复现<br>用 mutation check 证明测试能抓 bug<br>用 AC Coverage Scoreboard 让分数对齐需求<br>用 failure triage 指导 Agent 精准修复</p>
         </section>
-        <p style="margin:0 0 18px;">这套系统要解决的，不是“怎么让 AI 多写几条测试”。它要解决的是：如何低成本、稳定、可复用地把需求变成可执行 verifier。</p>
-        <p style="margin:0 0 18px;">没有 verification layer，LLM 的随机性是风险。有了 verification layer，LLM 的随机性才会变成搜索能力。</p>
-        <p style="margin:0 0 26px;">这也是为什么我认为 Verification Layer 更像 Agentic Coding 的操作系统。它决定代码生成是否有反馈，反馈是否可复现，失败是否能定位，修复是否能收敛，最终 PR 是否真的满足需求。</p>
+        <p style="margin:0 0 18px;">一句话总结：</p>
+        <blockquote style="margin:22px 0;padding:14px 18px;border-left:4px solid #4f8f68;background:#f2f7f3;color:#273126;font-size:16px;line-height:1.9;">
+          Agentic Coding 的下一阶段，不是让 AI 更自由地写代码，而是让 AI 在一个完整、可依赖、可持续演进的 Verification Layer 约束下写代码。
+        </blockquote>
+        <p style="margin:0 0 18px;">代码生成是执行层。</p>
+        <p style="margin:0 0 18px;">Verification Layer 才是控制层。</p>
+        <p style="margin:0 0 26px;">当 Verification Layer 足够完整、稳定、低成本，LLM 的随机性就不再只是风险，而会变成可搜索、可筛选、可演化的生产力。</p>
 
-        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">参考</h2>
-
-        <ul style="margin:0 0 26px;padding-left:22px;color:#252a24;font-size:16px;line-height:1.9;">
-          <li style="margin:0 0 8px;"><a href="https://github.com/Embodied-Minds-Lab/BES" style="color:#2d7d4f;text-decoration:none;border-bottom:1px solid #9bc7a8;">BES: Self-Improving Language Models with Bidirectional Evolutionary Search</a></li>
-          <li style="margin:0 0 8px;"><a href="https://docs.maestro.dev/" style="color:#2d7d4f;text-decoration:none;border-bottom:1px solid #9bc7a8;">Maestro Docs</a></li>
-          <li style="margin:0 0 8px;"><a href="https://docs.maestro.dev/maestro-flows" style="color:#2d7d4f;text-decoration:none;border-bottom:1px solid #9bc7a8;">Maestro Flows overview</a></li>
-          <li style="margin:0;"><a href="https://maestro.dev/blog/maestro-best-practices-structuring-your-test-suite" style="color:#2d7d4f;text-decoration:none;border-bottom:1px solid #9bc7a8;">Maestro best practices: structuring your test suite</a></li>
-        </ul>
-
-        <p style="margin:28px 0 0;padding:18px 20px;border:1px solid #ccd8ce;background:#151915;color:#eff7ee;font-size:18px;line-height:1.8;font-weight:800;text-align:center;">Agentic Coding 的核心能力不是自动写代码，而是自动构建和使用验证系统。</p>
+        <p style="margin:28px 0 0;padding:18px 20px;border:1px solid #ccd8ce;background:#151915;color:#eff7ee;font-size:18px;line-height:1.8;font-weight:800;text-align:center;">这才是 Agentic Coding 真正走向工程化的关键。</p>
       </section>
     </section>
   </body>
