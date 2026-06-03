@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agentic Coding 不是银弹，而是工程系统的放大器 - 微信公众号模板</title>
+  </head>
+  <body style="margin:0;background:#f5f6f3;color:#20231f;font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;">
+    <section style="max-width:680px;margin:0 auto;padding:28px 18px 48px;background:#fff;">
+      <section style="margin:0 0 26px;padding:22px 20px;border:1px solid #dfe5dc;background:#fbfcf8;">
+        <p style="margin:0 0 10px;color:#657060;font-size:13px;line-height:1.7;">AI Engineering / 2026-06-03</p>
+        <h1 style="margin:0;color:#151915;font-size:26px;line-height:1.36;font-weight:800;letter-spacing:0;">Agentic Coding 不是银弹，而是工程系统的放大器</h1>
+        <p style="margin:14px 0 0;color:#555f51;font-size:15px;line-height:1.85;">AI 写代码更快，为什么不一定提升工程生产力？</p>
+      </section>
+
+      <section style="font-size:16px;line-height:1.95;color:#252a24;">
+        <p style="margin:0 0 18px;">过去几个月，我非常沉浸在 Agentic Coding pipeline 建设的一线。</p>
+        <p style="margin:0 0 18px;">这不是一种“试了几个 AI coding 工具”的体验，而是反复把它放进真实工程流程里：让它读需求、改代码、跑测试、修 bug、生成 PR，再看它在哪里有效，在哪里失控，在哪里只是把问题从一个环节转移到另一个环节。</p>
+        <p style="margin:0 0 18px;">这个过程中，我反复经历同一个循环。</p>
+        <p style="margin:0 0 18px;">先站上愚昧之巅，觉得“这东西马上就能把工程交付重写一遍”。</p>
+        <p style="margin:0 0 18px;">然后滑进绝望之谷，发现 demo 很强，但真实系统里的需求、测试、review、release、历史包袱和隐性约束，会把很多看似顺滑的 agentic flow 撕开。</p>
+        <p style="margin:0 0 18px;">再慢慢爬回开悟之坡，开始意识到 Agentic Coding 的价值不在于“AI 能不能更快写代码”，而在于它能不能被放进一个足够成熟、可验证、可反馈的工程系统里。</p>
+        <p style="margin:0 0 18px;">所以这篇不是工具评测，也不是 AI 取代工程师的讨论。</p>
+        <p style="margin:0 0 24px;">我想写的是这几个月反复踩坑后留下来的一个判断：</p>
+
+        <blockquote style="margin:22px 0;padding:14px 18px;border-left:4px solid #4f8f68;background:#f2f7f3;color:#273126;font-size:16px;line-height:1.9;">
+          Agentic Coding 能否提升 Engineering Productivity，不取决于 AI 写代码有多快，而取决于它有没有真的改善端到端的软件交付系统。
+        </blockquote>
+
+        <p style="margin:0 0 18px;">过去一年，Agentic Coding 的体验确实越来越强。</p>
+        <p style="margin:0 0 18px;">它可以读需求，读代码库，写 implementation plan，改代码，跑测试，根据错误日志继续修。很多时候，它不只是 autocomplete，而像一个可以自己推进任务的 junior engineer。</p>
+        <p style="margin:0 0 18px;">所以一个很自然的问题是：</p>
+        <p style="margin:0 0 18px;font-weight:800;color:#151915;">Agentic Coding 是否真的能提升 Engineering Productivity？</p>
+        <p style="margin:0 0 18px;">我的答案是：有机会，但不自动成立。</p>
+        <p style="margin:0 0 18px;">因为 Engineering Productivity 不是“代码写得有多快”。它是一个需求从 intent 到上线的整体交付效率和质量。</p>
+        <p style="margin:0 0 18px;">如果 AI 只是让 coding 变快，但需求更不清楚、测试更难做、review 更拥堵、bugfix 更多、release validation 更重，那整体生产力未必提升。</p>
+        <p style="margin:0 0 26px;">有时候，Agentic Coding 不是减少了工作量，而是把工作量从 coding phase 转移到了 verification phase。这就是它真正需要被严肃评估的地方。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">不要把 Engineering Productivity 简化成 Coding Productivity</h2>
+
+        <p style="margin:0 0 18px;">很多讨论 Agentic Coding 的时候，默认关注点是 coding productivity。</p>
+        <p style="margin:0 0 18px;">比如代码生成更快，boilerplate 更少，测试能自动补，简单 bug 能自动修，重构可以让 AI 先跑一版。这些都是真的，也确实有价值。</p>
+        <p style="margin:0 0 18px;">但 Engineering Productivity 的范围要大得多。</p>
+        <p style="margin:0 0 18px;">一个真实 feature 的交付，通常要经过 product requirement、design spec、engineering design、implementation、testing、bug fixing、code review、release validation、monitoring 这些环节。</p>
+
+        <section style="margin:24px 0 24px;padding:0;">
+          <img src="https://blog.michaelzuo.vip/diagrams/agentic-productivity-e2e-pipeline.svg" alt="Engineering Productivity 是端到端软件交付吞吐，而 coding 只是其中一环" style="display:block;width:100%;height:auto;margin:0;border:1px solid #d9dfd2;background:#12160f;">
+          <p style="margin:9px 0 0;color:#7a816f;font-size:13px;line-height:1.6;text-align:center;">图 1：Engineering Productivity 是 E2E delivery throughput，不是单点 coding speed。</p>
+        </section>
+
+        <p style="margin:0 0 18px;">Coding 只是这个链路里的一个阶段。</p>
+        <p style="margin:0 0 18px;">如果当前 bottleneck 本来就在 coding，那么 Agentic Coding 会非常直接地提升效率。但如果 bottleneck 在别处，局部提速就不一定能转化成整体吞吐提升。</p>
+        <p style="margin:0 0 18px;">需求本身不清楚，AI 会写得更快，但也会更快写错。测试环境不稳定，AI 会更快地产生更多需要验证的变更。Review capacity 不够，PR 生成越快，下游积压越严重。Release validation 主要依赖人工，前面的速度越快，后面的人工验证压力越大。</p>
+        <p style="margin:0 0 26px;">所以，评估 Agentic Coding 的时候，不能只问“AI 写代码快不快”，而要问：它有没有提高端到端的软件交付吞吐？</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">Effort Shift：工作量可能只是换了地方</h2>
+
+        <p style="margin:0 0 18px;">Agentic Coding 最容易被高估的地方，是只看 coding effort 的下降。</p>
+        <p style="margin:0 0 18px;">原来一个工程师需要两天写完的 feature，现在 AI 半天就能生成一个 PR。表面上看，效率提升很明显。</p>
+        <p style="margin:0 0 18px;">但问题是，后面发生了什么？</p>
+        <p style="margin:0 0 18px;">QA 是否要花更多时间确认行为？Engineer 是否要花更多时间 review AI 生成的 diff？Bugfix 是否变多？Release validation 是否变重？需求是否因为 AI 的误解而需要更多澄清？</p>
+        <p style="margin:0 0 18px;">如果这些成本上升，coding effort 的下降可能只是 effort shift。</p>
+
+        <section style="margin:24px 0 24px;padding:0;">
+          <img src="https://blog.michaelzuo.vip/diagrams/agentic-productivity-effort-shift.svg" alt="Agentic Coding 可能降低 coding effort，但把工作量转移到 QA、debug 和 release validation" style="display:block;width:100%;height:auto;margin:0;border:1px solid #d9dfd2;background:#12160f;">
+          <p style="margin:9px 0 0;color:#7a816f;font-size:13px;line-height:1.6;text-align:center;">图 2：Coding effort 下降，不代表整体 effort 一定下降。</p>
+        </section>
+
+        <p style="margin:0 0 18px;">它不是把工作消灭了，而是把工作从 implementation phase 移到了 verification、debugging、review、release phase。</p>
+        <p style="margin:0 0 18px;">这个现象在真实团队里很常见。AI 生成代码很快，但大家开始花更多时间确认它到底有没有理解需求，是否破坏了旧逻辑，测试是不是覆盖了关键路径，diff 里有没有奇怪的设计选择。</p>
+        <p style="margin:0 0 26px;">所以衡量 productivity gain，不能只看 developer coding time，而要看整个 feature lifecycle 的总成本。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">Agentic Coding 必须从 Bottleneck 分析开始</h2>
+
+        <p style="margin:0 0 18px;">我现在越来越不喜欢一上来就问：“AI 能帮我们做什么？”</p>
+        <p style="margin:0 0 18px;">这个问题太宽，也太容易把人带到 demo 思维里。</p>
+        <p style="margin:0 0 18px;">更好的问题是：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">我们当前软件交付链路里，最大的 bottleneck 在哪里？<br>Agentic Coding 有没有能力减少这个 bottleneck 上的总成本？</p>
+        </section>
+        <p style="margin:0 0 18px;">如果 bottleneck 在写代码，那让 AI 生成 implementation、补测试、做简单 refactor，是直接有效的。</p>
+        <p style="margin:0 0 18px;">如果 bottleneck 在测试和验证，那重点就不是让 AI 多写代码，而是要让 AI 帮忙生成更好的 verifier、维护更稳定的测试、定位失败原因、缩短 feedback loop。</p>
+        <p style="margin:0 0 18px;">如果 bottleneck 在需求不清楚，那 AI 写得越快，可能错得越快。真正要做的是 requirement clarification、acceptance criteria structured extraction、example-based spec、edge case enumeration。</p>
+        <p style="margin:0 0 26px;">如果 bottleneck 在系统复杂度和历史债务，那 Agentic Coding 可能会加速局部修改，但也可能更快制造新的隐性耦合。这个时候，AI 应该先被用来理解系统、生成影响面分析、补 regression，而不是直接扩大自动改代码的边界。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">它会放大原有工程系统</h2>
+
+        <p style="margin:0 0 18px;">Agentic Coding 不是在真空里运行。</p>
+        <p style="margin:0 0 18px;">它不是一个单独的工具，接进任何 repo 里都会自动产生同样效果。它更像一个 amplifier，会放大你已有工程系统的状态。</p>
+        <p style="margin:0 0 18px;">如果你的系统本来就有清晰需求、稳定 CI/CD、可靠测试环境、可复现测试数据、足够 regression coverage、明确 quality gate、可读的 failure signal，Agentic Coding 会明显受益。</p>
+        <p style="margin:0 0 18px;">因为 AI 可以在这些约束里尝试、失败、修复、再次验证。它的随机性会被系统吸收，最后留下通过验证的结果。</p>
+        <p style="margin:0 0 18px;">但如果工程系统本身很脆弱，Agentic Coding 会把脆弱性也放大。</p>
+        <p style="margin:0 0 18px;">需求靠口头同步，测试靠人工点击，环境经常不可用，线上行为依赖隐藏约定，QA 主要靠经验兜底，review 主要靠 senior engineer 的脑内上下文。这样的系统里，AI 不是在替代一个成熟流程，而是在替代人类对系统缺口的临时修补。</p>
+
+        <section style="margin:24px 0 24px;padding:0;">
+          <img src="https://blog.michaelzuo.vip/diagrams/agentic-productivity-system-amplifier.svg" alt="Agentic Coding 会放大成熟工程系统的吞吐，也会放大脆弱工程系统的混乱" style="display:block;width:100%;height:auto;margin:0;border:1px solid #d9dfd2;background:#12160f;">
+          <p style="margin:9px 0 0;color:#7a816f;font-size:13px;line-height:1.6;text-align:center;">图 3：Agentic Coding 是 amplifier。先补地基，再扩大 AI 的职责边界。</p>
+        </section>
+
+        <p style="margin:0 0 18px;">这里很容易误判。</p>
+        <p style="margin:0 0 18px;">你以为 AI 在替代 QA，但 QA 做的可能不是简单验证，而是在补需求不完整、测试环境不稳定、数据不可控、系统行为不透明这些洞。</p>
+        <p style="margin:0 0 18px;">你以为 AI 在替代 engineer，但 engineer 做的可能不是单纯写代码，而是在理解历史设计、判断风险、识别隐性契约、决定什么时候必须停下来问产品。</p>
+        <p style="margin:0 0 26px;">如果这些能力没有被工程化，AI 接手之后并不会神奇地变好。它只会把这些缺口暴露得更快。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">AI 应该接管已经工程化的工作</h2>
+
+        <p style="margin:0 0 18px;">所以，我不太赞同“先看哪些人可以被 AI 替代”这个视角。</p>
+        <p style="margin:0 0 18px;">更合理的顺序是：先看哪些工作已经被工程化。</p>
+        <p style="margin:0 0 18px;">所谓工程化，不是说没有人参与，而是这个工作已经有比较清晰的边界、输入、输出、失败信号、验证方式和风险隔离。</p>
+        <p style="margin:0 0 18px;">AI 最应该先接管的是这类工作：</p>
+        <ul style="margin:0 0 24px;padding-left:22px;color:#252a24;font-size:16px;line-height:1.9;">
+          <li style="margin:0 0 8px;">流程化、结构化、标准化的任务。</li>
+          <li style="margin:0 0 8px;">有明确 acceptance criteria 的任务。</li>
+          <li style="margin:0 0 8px;">失败可以被自动检测出来的任务。</li>
+          <li style="margin:0 0 8px;">可以在 sandbox 或 isolated branch 里反复尝试的任务。</li>
+          <li style="margin:0;">即使失败，也不会直接把风险推到用户面前的任务。</li>
+        </ul>
+        <p style="margin:0 0 18px;">比如基于明确 spec 生成代码，补已有 pattern 的测试，修复明确错误日志，做机械性 migration，根据 lint/typecheck/test failure 进行 repair loop，生成 PR summary 和影响面分析。</p>
+        <p style="margin:0 0 18px;">这些地方，AI 的价值很明确。</p>
+        <p style="margin:0 0 26px;">但如果一个工作本身还没有被流程化，主要依赖人类经验、上下文和判断，那第一步不是直接让 AI 接管，而是先把这部分工作工程化。把隐性知识变成 spec，把判断标准变成 acceptance criteria，把经验路径变成 checklist，把人工验证变成可复现 verifier。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">Hybrid 模式是必要阶段</h2>
+
+        <p style="margin:0 0 18px;">从现实角度看，Agentic Coding 很难一步到位进入 full automation。</p>
+        <p style="margin:0 0 18px;">一个更合理的阶段，是 hybrid mode。</p>
+        <p style="margin:0 0 18px;">AI 负责那些边界清晰、反馈明确、风险可控、可验证的部分。人负责那些高判断、高风险、强业务语义、需要取舍的部分。</p>
+        <p style="margin:0 0 18px;">比如一个 feature flow 可以是这样：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">Human 定义 feature requirement 和 acceptance criteria<br>AI 生成 implementation plan 和初始代码<br>CI / test / verifier 给出反馈<br>AI 根据失败信号自动修复<br>QA 或 engineer 验证高风险路径<br>如果 AI 多轮不能收敛，engineer fallback<br>最后由 human 做 review 和 release decision</p>
+        </section>
+        <p style="margin:0 0 18px;">这个模式不够酷，但很实用。</p>
+        <p style="margin:0 0 18px;">它承认 AI 很强，也承认当前工程系统还没有成熟到可以完全放手。</p>
+        <p style="margin:0 0 26px;">更重要的是，hybrid mode 给了团队一个渐进式建设路径。每当某个环节被工程化、可验证、可复现，就可以把更多职责交给 AI。不是一次性替代人，而是逐步扩大 AI 可以可靠参与的边界。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">成熟路径：从局部自动化到 E2E Productivity</h2>
+
+        <p style="margin:0 0 18px;">如果把 Agentic Coding 的成熟度拆开看，我觉得大概会经历几个阶段。</p>
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第一阶段：Coding Acceleration</h3>
+        <p style="margin:0 0 18px;">AI 帮工程师更快写代码、补 boilerplate、做简单修改、解释代码、生成测试。这一阶段最容易上手，也最容易看到局部收益。</p>
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第二阶段：Agentic Implementation</h3>
+        <p style="margin:0 0 18px;">AI 不只是补全代码，而是能基于任务自己读 repo、制定 plan、修改多个文件、跑检查、修复失败，最后生成一个相对完整的 PR。</p>
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第三阶段：AI-assisted Bug Fixing</h3>
+        <p style="margin:0 0 18px;">AI 可以根据测试失败、QA bug、线上日志、error trace 来定位问题并生成修复。这里的关键是 failure signal 是否足够清楚。</p>
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第四阶段：Verification-driven Agentic Flow</h3>
+        <p style="margin:0 0 18px;">AI 的主要驱动力不再是 prompt，而是 verifier。它在一个明确的 verification layer 里尝试、失败、修复、再验证，直到满足 acceptance criteria。</p>
+        <h3 style="margin:26px 0 12px;color:#151915;font-size:18px;line-height:1.5;font-weight:800;">第五阶段：E2E Agentic Engineering</h3>
+        <p style="margin:0 0 18px;">AI 开始参与从 requirement clarification、spec refinement、impact analysis、implementation、testing、bugfix、review preparation 到 release validation 的更多环节。</p>
+        <p style="margin:0 0 26px;">但这个阶段的前提，是整个 pipeline 已经足够结构化、可观察、可验证。否则它不是 E2E automation，而是 E2E uncertainty。</p>
+
+        <h2 style="margin:34px 0 16px;padding:0 0 8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.45;font-weight:800;">结尾：它是 amplifier，不是 silver bullet</h2>
+
+        <p style="margin:0 0 18px;">Agentic Coding 当然能带来 productivity gain。</p>
+        <p style="margin:0 0 18px;">它可以提升局部 coding speed，可以减少重复性 implementation 成本，可以加快 bugfix，可以帮助生成测试，可以辅助 migration，可以让 engineer 从一些低判断成本的任务里解放出来。</p>
+        <p style="margin:0 0 18px;">但它能否提升整体 Engineering Productivity，不取决于 AI 写代码有多快，而取决于整个软件交付系统是否能吸收它、约束它、验证它、反馈它。</p>
+        <p style="margin:0 0 18px;">如果没有 E2E lifecycle thinking，AI 可能只是把 effort 从 coding 移到 QA、review、debug、release。</p>
+        <p style="margin:0 0 18px;">如果没有 bottleneck analysis，团队可能会优化一个并不是瓶颈的环节。</p>
+        <p style="margin:0 0 18px;">如果没有成熟的工程系统，Agentic Coding 会放大混乱，而不是消除混乱。</p>
+        <p style="margin:0 0 18px;">如果没有 verification layer，AI 生成得越快，团队验证得越痛苦。</p>
+        <p style="margin:0 0 18px;">所以真正的问题不是：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">AI 能不能写代码？</p>
+        </section>
+        <p style="margin:0 0 18px;">而是：</p>
+        <section style="margin:18px 0 22px;padding:14px 16px;border:1px solid #dde4dc;background:#f8faf7;color:#263026;font-family:SFMono-Regular,Menlo,Consolas,monospace;font-size:14px;line-height:1.8;">
+          <p style="margin:0;">你的工程系统是否成熟到足以让 AI 稳定、安全、可验证地参与进来？</p>
+        </section>
+        <p style="margin:0 0 18px;">如果答案是 yes，Agentic Coding 会是非常强的杠杆。</p>
+        <p style="margin:0 0 26px;">如果答案是 no，那真正要做的不是盲目扩大 AI 的权限，而是先把工程系统的地基补上。</p>
+
+        <p style="margin:28px 0 0;padding:18px 20px;border:1px solid #ccd8ce;background:#151915;color:#eff7ee;font-size:18px;line-height:1.8;font-weight:800;text-align:center;">Agentic Coding 不是银弹。它是工程系统的放大器。</p>
+      </section>
+    </section>
+  </body>
+</html>
