@@ -168,7 +168,7 @@ Refine the following source copy without changing its thesis:
 Run:
 
 ```bash
-rg -n "<(script|style|main|article|figure|figcaption|canvas|svg|iframe|video|form|input)([[:space:]]|>)|class=|on[a-z]+=" docs/wechat/value-of-conflict.zh.html
+rg -n "<(script|style|main|article|figure|figcaption|canvas|svg|iframe|video|form|input)([[:space:]]|>)|class=|(?:^|[[:space:]])on[a-z]+[[:space:]]*=" docs/wechat/value-of-conflict.zh.html
 ```
 
 Expected: exit code `1` with no matches.
