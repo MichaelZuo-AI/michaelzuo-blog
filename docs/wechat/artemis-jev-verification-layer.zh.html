@@ -9,12 +9,30 @@
 <section style="max-width:680px;margin:0 auto;padding:28px 20px 48px;background:#fff;color:#252a24;font-size:16px;line-height:1.95;">
 <h1 style="margin:0 0 18px;color:#151915;font-size:26px;line-height:1.4;font-weight:800;">Artemis + Jev：AI 跑完测试之后，谁来验收？</h1>
 <p style="margin:0 0 18px;">最近，Google 开源了 <a href="https://github.com/google/artemis" style="color:#36704b;text-decoration:underline;word-break:break-all;">Artemis</a>，TypeSafe 的 Jev 也一下子热了起来。Vercel 甚至专门发了一篇文章，说 Jev 成了 AI Gateway 历来被采用最快的模型。<a href="https://vercel.com/blog/ai-gateway-jev-model-launch" style="color:#36704b;text-decoration:underline;word-break:break-all;">Vercel 的发布记录</a></p>
-<p style="margin:0 0 18px;">一个能让 AI 操作 Android App。另一个擅长根据给定的信息做分类、打分，把结果交给程序继续处理。</p>
-<p style="margin:0 0 18px;">看到这两个东西，我想到的还是最近一直在折腾的那个问题：Agentic Coding 的 Verification Layer。</p>
+<p style="margin:0 0 18px;">这两个项目做的事情不太一样，但放在一起看，还挺有意思。</p>
+<h2 style="margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.5;font-weight:800;">Artemis：让 AI 真正去操作手机</h2>
+<p style="margin:0 0 18px;">Artemis 是一个面向 Android 的自动化项目。你可以用自然语言描述任务，让它在真机或模拟器上执行。它会根据当前界面寻找目标，完成点击、输入、滑动这些操作，也能处理跨 App 的流程。<a href="https://github.com/google/artemis" style="color:#36704b;text-decoration:underline;word-break:break-all;">Artemis 项目说明</a></p>
+<p style="margin:0 0 18px;">比如，可以把“打开 App，登录测试账号，找到某个商品，进入详情页”这样的任务交给它。你描述想做什么，再由它根据实际页面决定怎么操作。</p>
+<p style="margin:0 0 18px;">对做 mobile automation 的人来说，这种方式很容易理解：原来需要写进脚本的部分操作过程，现在可以尝试交给 agent 去完成。</p>
+<p style="margin:0 0 18px;">它还提供截图、界面结构、执行轨迹和日志等信息，也能通过 MCP 接进 coding agent 的工作流。这样，agent 写完代码以后，就有了一条继续到设备上操作、观察结果的路径。<a href="https://github.com/google/artemis/blob/main/mcp_server/README.md" style="color:#36704b;text-decoration:underline;word-break:break-all;">取证与集成接口</a></p>
+<p style="margin:0 0 18px;">我比较在意的是，操作过程能留下记录。走到了哪个页面，点了什么，界面怎么变化，出了问题以后，有东西可以回头查。</p>
+<p style="margin:0 0 18px;">当然，它目前聚焦 Android。具体能不能把我们的业务流程跑好，还是要拿真实 App 来试。</p>
+<h2 style="margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.5;font-weight:800;">Jev：把判断变成程序可以直接使用的结果</h2>
+<p style="margin:0 0 18px;">Jev 来自 TypeSafe。官方把它归到一类叫 System One 的模型里。这个名字听起来有点抽象，我觉得可以先把它理解成一个能被程序调用的判断器。<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" style="color:#36704b;text-decoration:underline;word-break:break-all;">Jev 官方介绍</a></p>
+<p style="margin:0 0 18px;">你给它一些信息，再定义好要问的问题和可选答案，它就返回对应的结果。</p>
+<p style="margin:0 0 18px;">比如，收到一张客服工单，可以让它判断这是退款问题还是技术故障，也可以按事先定义的标准给紧急程度打分。后面的程序拿到结果，就能决定把工单交给哪个团队、要不要优先处理。</p>
+<p style="margin:0 0 18px;">这里比较有意思的是，Jev 的分类和评分结果会带上概率分布和置信度。程序除了拿到“选了什么”，还可以利用这些信息，决定是继续执行，还是把拿不准的情况交给人。<a href="https://docs.typesafe.ai/introduction" style="color:#36704b;text-decoration:underline;word-break:break-all;">使用说明</a></p>
+<p style="margin:0 0 18px;">TypeSafe 强调的也是这个方向：让模型更快地完成范围明确的判断，输出固定类型的结果，方便嵌进软件流程里。<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" style="color:#36704b;text-decoration:underline;word-break:break-all;">官方定位</a></p>
+<p style="margin:0 0 18px;">对我来说，这种形态值得关注。一个自动化流程里，经常需要做很多小判断：接下来走哪条分支，这一步有没有异常，要不要继续。这些判断如果能被程序直接接住，整个 workflow 就更容易串起来。</p>
+<h2 style="margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.5;font-weight:800;">这给 AI Automation Testing 带来了一个新思路</h2>
+<p style="margin:0 0 18px;">一个能操作 App、把过程记录下来。另一个能根据给定的信息做分类和评分。</p>
+<p style="margin:0 0 18px;">把这两种能力放到一起，就让我想到最近一直在折腾的 Verification Layer。</p>
 <p style="margin:0 0 18px;">AI 把代码写出来，已经越来越容易了。但代码写完以后，谁来确认它真的满足了需求？这个问题，我觉得还远没有解决。</p>
-<p style="margin:0 0 18px;">上一篇聊到，我们尝试用 Maestro 把测试执行稳定下来，但高质量 YAML 的编写和维护又成了新的成本。现在有了 Artemis 和 Jev，我想换个角度继续想一想。</p>
+<p style="margin:0 0 18px;">上一篇聊到，我们尝试用 Maestro 把测试执行稳定下来，但高质量 YAML 的编写和维护又成了新的成本。</p>
+<p style="margin:0 0 18px;">现在，我想尝试另一种分工：把“怎么操作 App”和“结果是否符合预期”分开处理。</p>
 <p style="margin:0 0 18px;"><strong style="font-weight:700;color:#151915;">能不能让 Artemis 去跑测试、留下 evidence，再让 Jev 对照验收标准做判断？</strong></p>
-<p style="margin:0 0 18px;">听起来像是把两个工具接起来。但往下想，里面有几件事得先分清楚。</p>
+<p style="margin:0 0 18px;">这可能给 AI Automation Testing 多提供一条路：用自然语言驱动执行，再把实际结果交给专门的判断环节。</p>
+<p style="margin:0 0 18px;">但这条路能不能走通，关键还在后半段。</p>
 <h2 style="margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.5;font-weight:800;">跑完了，不代表测明白了</h2>
 <p style="margin:0 0 18px;">拿“取消订单”来说。</p>
 <p style="margin:0 0 18px;">打开订单页，点击取消，确认，看到“取消成功”。自动化工具顺利跑完，给出一个 pass。</p>
@@ -25,11 +43,9 @@
 <p style="margin:0 0 18px;">所以我想把这两件事拆开：执行负责把实际情况带回来，验收负责对照事先确定的标准检查结果。</p>
 <p style="margin:0 0 18px;">这样，AI 说自己完成了任务以后，后面还有东西能反驳它。</p>
 <h2 style="margin:32px 0 16px;padding-bottom:8px;border-bottom:2px solid #dfe5dc;color:#151915;font-size:21px;line-height:1.5;font-weight:800;">Artemis 去跑，Jev 来看证据</h2>
-<p style="margin:0 0 18px;">Artemis 可以根据自然语言指令操作 Android 真机或模拟器，也能提供截图、界面结构、执行轨迹和日志。对这个设想来说，它可以承担跑流程和收集证据的工作。<a href="https://github.com/google/artemis" style="color:#36704b;text-decoration:underline;word-break:break-all;">Artemis 项目说明</a></p>
-<p style="margin:0 0 18px;">Jev 则适合放在后面，回答一些范围比较明确的问题。比如给它一段页面文字，再让它判断：这段提示表达的是取消成功、取消失败，还是信息不够？它可以返回分类结果，以及概率分布和置信度。<a href="https://typesafe.ai/blog/introducing-system-one-models-and-jev" style="color:#36704b;text-decoration:underline;word-break:break-all;">Jev 官方介绍</a></p>
 <p style="margin:0 0 18px;">回到刚才的订单例子，假设验收标准是：取消以后，页面和后台都要显示订单已取消。</p>
 <p style="margin:0 0 18px;">Artemis 去完成操作，把页面上的内容记录下来。测试系统再通过额外接入的接口，拿到后台订单状态。</p>
-<p style="margin:0 0 18px;">页面上的提示是不是明确表达了取消成功，可以尝试交给 Jev。后台状态是不是 <em>cancelled</em>，直接用程序检查就行。</p>
+<p style="margin:0 0 18px;">页面上的提示可以交给 Jev，判断它表达的是取消成功、取消失败，还是信息不够。后台状态是不是 <em>cancelled</em>，直接用程序检查就行。</p>
 <p style="margin:0 0 18px;">如果页面说成功，后台却没变，这条 case 就不能过。模型对页面判断得再有把握，也改变不了后台状态这个事实。</p>
 <p style="margin:0 0 18px;">这里还有个很现实的限制：<strong style="font-weight:700;color:#151915;">Jev 目前不能直接看截图。</strong> 它接受的是文本形式的输入，也可以用结构化数据组织。因此，中间还需要把界面文字、操作记录和日志整理出来；只有截图的地方，则需要额外做识别。原始记录也得留着，判断错了才有地方回查。<a href="https://docs.typesafe.ai/concepts/state" style="color:#36704b;text-decoration:underline;word-break:break-all;">输入说明</a></p>
 <p style="margin:0 0 18px;">所以我脑子里的链路大概是这样：</p>
