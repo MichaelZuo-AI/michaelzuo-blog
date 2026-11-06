@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1040" viewBox="0 0 1080 1040"><defs><marker id="green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#237964" stroke-width="1.5"/></marker><marker id="orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#BD6635" stroke-width="1.5"/></marker></defs><rect width="1080" height="1040" fill="#FCFCF8"/><g font-family="PingFang SC, Noto Sans CJK SC, sans-serif">
+<text x="56" y="68" font-size="23" fill="#237964" text-anchor="start" font-weight="600">AGENTIC CODING  /  02</text>
+<text x="56" y="128" font-size="42" fill="#193C36" text-anchor="start" font-weight="600">测试用例“正确”，需要分层验证</text>
+<text x="56" y="178" font-size="27" fill="#60756F" text-anchor="start" font-weight="400">业务审核可以先做；执行能力和检错能力仍需实际证据。</text>
+<rect x="56" y="225" width="968" height="140" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="84" y="274" font-size="28" fill="#237964" text-anchor="start" font-weight="600">01</text>
+<text x="148" y="274" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">业务含义正确</text>
+<text x="148" y="321" font-size="29" fill="#60756F" text-anchor="start" font-weight="400">是否忠实表达已确认的产品需求？</text>
+<rect x="56" y="391" width="968" height="140" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="84" y="440" font-size="28" fill="#237964" text-anchor="start" font-weight="600">02</text>
+<text x="148" y="440" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">覆盖合理</text>
+<text x="148" y="487" font-size="29" fill="#60756F" text-anchor="start" font-weight="400">是否考虑关键路径、边界与异常？</text>
+<text x="995" y="522" font-size="22" fill="#237964" text-anchor="end" font-weight="400">产品确认 / 审查 / 局部评测</text>
+<rect x="56" y="557" width="968" height="140" rx="18" fill="#FFF2E8" stroke="#E6B28F" stroke-width="2"/>
+<text x="84" y="606" font-size="28" fill="#BD6635" text-anchor="start" font-weight="600">03</text>
+<text x="148" y="606" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">能够执行</text>
+<text x="148" y="653" font-size="29" fill="#60756F" text-anchor="start" font-weight="400">能否建立前置状态并完成操作？</text>
+<rect x="56" y="723" width="968" height="140" rx="18" fill="#FFF2E8" stroke="#E6B28F" stroke-width="2"/>
+<text x="84" y="772" font-size="28" fill="#BD6635" text-anchor="start" font-weight="600">04</text>
+<text x="148" y="772" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">能够发现错误</text>
+<text x="148" y="819" font-size="29" fill="#60756F" text-anchor="start" font-weight="400">实现有错时，断言能否失败？</text>
+<text x="995" y="854" font-size="22" fill="#BD6635" text-anchor="end" font-weight="400">具体环境执行 / 已知缺陷检验</text>
+<text x="56" y="948" font-size="31" fill="#193C36" text-anchor="start" font-weight="600">业务审核通过 ≠ 已证明可执行、能检错</text>
+<text x="56" y="994" font-size="26" fill="#60756F" text-anchor="start" font-weight="400">覆盖与正确性均应注明适用场景，避免过度推断。</text>
+</g></svg>

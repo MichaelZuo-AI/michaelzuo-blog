@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1000" viewBox="0 0 1080 1000"><defs><marker id="green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#237964" stroke-width="1.5"/></marker><marker id="orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#BD6635" stroke-width="1.5"/></marker></defs><rect width="1080" height="1000" fill="#FCFCF8"/><g font-family="PingFang SC, Noto Sans CJK SC, sans-serif">
+<text x="56" y="68" font-size="23" fill="#237964" text-anchor="start" font-weight="600">AGENTIC CODING  /  01</text>
+<text x="56" y="128" font-size="42" fill="#193C36" text-anchor="start" font-weight="600">实际交付已在进行，自动化仍有断点</text>
+<text x="56" y="178" font-size="27" fill="#60756F" text-anchor="start" font-weight="400">现状示意：上游标准化正在推进，自动化测试尚未跑通。</text>
+<rect x="56" y="218" width="968" height="112" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="88" y="262" font-size="26" fill="#237964" text-anchor="start" font-weight="600">当前重点</text>
+<text x="88" y="306" font-size="33" fill="#193C36" text-anchor="start" font-weight="600">SPEC 标准化  →  提升测试用例生成质量</text>
+<rect x="150" y="374" width="780" height="76" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="540" y="423" font-size="32" fill="#193C36" text-anchor="middle" font-weight="600">产品需求</text>
+<path d="M540 452 L540 475" fill="none" stroke="#237964" stroke-width="3" marker-end="url(#green)"/>
+<rect x="150" y="480" width="780" height="76" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="540" y="529" font-size="32" fill="#193C36" text-anchor="middle" font-weight="600">Requirement Agent / SPEC</text>
+<path d="M540 558 L540 581" fill="none" stroke="#237964" stroke-width="3" marker-end="url(#green)"/>
+<rect x="150" y="586" width="780" height="76" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="540" y="635" font-size="32" fill="#193C36" text-anchor="middle" font-weight="600">测试用例生成</text>
+<path d="M540 664 L540 687" fill="none" stroke="#237964" stroke-width="3" marker-end="url(#green)"/>
+<rect x="150" y="692" width="780" height="76" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="540" y="741" font-size="32" fill="#193C36" text-anchor="middle" font-weight="600">AI Coding</text>
+<path d="M540 773 L540 847" fill="none" stroke="#BD6635" stroke-width="3" marker-end="url(#orange)" stroke-dasharray="10 8"/>
+<rect x="150" y="855" width="780" height="80" rx="18" fill="#FFF2E8" stroke="#E6B28F" stroke-width="2"/>
+<text x="540" y="906" font-size="32" fill="#BD6635" text-anchor="middle" font-weight="600">Automation Testing：尚未跑通</text>
+<text x="576" y="819" font-size="27" fill="#BD6635" text-anchor="start" font-weight="400">当前断点</text>
+<text x="56" y="975" font-size="28" fill="#60756F" text-anchor="start" font-weight="400">业务能够交付 ≠ 自动化测试闭环已经成立</text>
+</g></svg>

@@ -8,6 +8,8 @@
 <p style="margin:0 0 18px;">Agentic Coding Flow 已经服务于真实交付，意味着我们可以从实际结果中获得反馈。这些反馈有价值，也能帮助发现需求理解和实现中的问题。</p>
 <p style="margin:0 0 18px;">但实际交付能够完成，不等于 coding 到 testing 的自动化链路已经成立。生成的测试用例能否被下游准确消费，测试是否真的执行，结果是否足以支持通过结论，仍然需要单独验证。</p>
 <p style="margin:0 0 18px;">因此，这里的 E2E，指的是把需求、SPEC、测试用例、代码和自动化测试结果连起来，让这段链路能够产生可检查的反馈。讨论的重点，是怎样补上已经存在的断点。</p>
+<p style="margin:24px 0 8px;"><img src="../../public/diagrams/agentic-e2e-current-gap.png" alt="图 1｜当前链路：实际交付已在进行，自动化测试仍有断点。" style="width:100%;height:auto;display:block;" /></p>
+<p style="margin:0 0 26px;font-size:13px;line-height:1.7;color:#60756f;">图 1｜当前链路：实际交付已在进行，自动化测试仍有断点。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">先把上游标准化，有充分的理由</h2>
 <p style="margin:0 0 18px;">SPEC 结构不一致、关键规则缺失、验收标准模糊，都会增加下游的理解成本。</p>
 <p style="margin:0 0 18px;">如果每次生成的测试用例都使用不同的表达方式，前置条件、输入数据和预期结果混在一起，自动化测试系统就需要不断猜测。这样的下游，很难稳定。</p>
@@ -22,6 +24,8 @@
 <p style="margin:0 0 18px;">第四层，是能够发现错误。执行后检查了什么？当实现有问题时，这些检查能不能失败？</p>
 <p style="margin:0 0 18px;">前两层可以通过产品确认、专家审查和局部评测获得一部分证据。后两层则需要把用例放进具体执行环境中检验。</p>
 <p style="margin:0 0 18px;">因此，上游可以先改善，也可以先完成一轮审查。但在下游尚未接通时，把用例标记为“业务审核通过”，比直接称为“已验证正确”更准确。</p>
+<p style="margin:24px 0 8px;"><img src="../../public/diagrams/agentic-e2e-quality-layers.png" alt="图 2｜业务审核、执行验证与缺陷检出，需要不同证据。" style="width:100%;height:auto;display:block;" /></p>
+<p style="margin:0 0 26px;font-size:13px;line-height:1.7;color:#60756f;">图 2｜业务审核、执行验证与缺陷检出，需要不同证据。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">一个业务正确的用例，也可能执行不起来</h2>
 <p style="margin:0 0 18px;">用一个假设的订阅场景说明。</p>
 <p style="margin:0 0 18px;">产品要求：用户取消续订后，保留当前付费周期内的权限，到期后不再扣款。</p>
@@ -49,6 +53,8 @@
 <p style="margin:0 0 18px;">对于反复出现的问题，可以建立局部评测集，让 SPEC 和用例生成快速迭代。随后，再把改动放回原来的链路，检查是否真的减少了失败。</p>
 <p style="margin:0 0 18px;">还可以准备已知正确和故意出错的实现：正确实现应该通过，典型错误应该被抓住。这样才能区分“自动化任务执行结束了”和“自动化测试具备了辨别能力”。</p>
 <p style="margin:0 0 18px;">这些证据只能支持已验证的场景。随着需求类型扩大，还需要继续检查标准和执行机制是否适用。</p>
+<p style="margin:24px 0 8px;"><img src="../../public/diagrams/agentic-e2e-feedback-loop.png" alt="图 3｜建议路径：小范围验证暴露问题，局部改进后再次验证。" style="width:100%;height:auto;display:block;" /></p>
+<p style="margin:0 0 26px;font-size:13px;line-height:1.7;color:#60756f;">图 3｜建议路径：小范围验证暴露问题，局部改进后再次验证。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">真正需要决定的，是反馈能否持续回来</h2>
 <p style="margin:0 0 18px;">所以，在当前阶段，我不会简单否定“先做好上游”。上游标准化很可能正是必要的工作。</p>
 <p style="margin:0 0 18px;">但我也不愿把下游的尝试完全推迟到“上游质量足够好”之后，因为其中一部分质量，恰恰需要下游的实际反馈才能判断。</p>

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1140" viewBox="0 0 1080 1140"><defs><marker id="green" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#237964" stroke-width="1.5"/></marker><marker id="orange" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#BD6635" stroke-width="1.5"/></marker></defs><rect width="1080" height="1140" fill="#FCFCF8"/><g font-family="PingFang SC, Noto Sans CJK SC, sans-serif">
+<text x="56" y="68" font-size="23" fill="#237964" text-anchor="start" font-weight="600">AGENTIC CODING  /  03</text>
+<text x="56" y="128" font-size="42" fill="#193C36" text-anchor="start" font-weight="600">端到端反馈，驱动局部改进</text>
+<text x="56" y="178" font-size="27" fill="#60756F" text-anchor="start" font-weight="400">建议方式：集中改进上游，同时保留一条小范围验证链路。</text>
+<rect x="150" y="225" width="780" height="140" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="186" y="276" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">选一个真实需求</text>
+<text x="186" y="324" font-size="28" fill="#60756F" text-anchor="start" font-weight="400">范围有限，验收结果明确</text>
+<path d="M540 368 L540 403" fill="none" stroke="#237964" stroke-width="3" marker-end="url(#green)"/>
+<rect x="150" y="410" width="780" height="140" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="186" y="461" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">贯通小范围验证链路</text>
+<text x="186" y="509" font-size="28" fill="#60756F" text-anchor="start" font-weight="400">SPEC → 用例 → 代码 → 自动化测试</text>
+<path d="M540 553 L540 588" fill="none" stroke="#237964" stroke-width="3" marker-end="url(#green)"/>
+<rect x="150" y="595" width="780" height="140" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="186" y="646" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">根据证据定位问题</text>
+<text x="186" y="694" font-size="28" fill="#60756F" text-anchor="start" font-weight="400">需求 / 用例 / 实现 / 环境 / 判定</text>
+<path d="M540 738 L540 773" fill="none" stroke="#237964" stroke-width="3" marker-end="url(#green)"/>
+<rect x="150" y="780" width="780" height="140" rx="18" fill="#EEF5F1" stroke="#C7DCD1" stroke-width="2"/>
+<text x="186" y="831" font-size="34" fill="#193C36" text-anchor="start" font-weight="600">针对瓶颈做局部迭代</text>
+<text x="186" y="879" font-size="28" fill="#60756F" text-anchor="start" font-weight="400">更新标准、评测集或执行能力</text>
+<path d="M930 850 L989 850 L989 480 L936 480" fill="none" stroke="#237964" stroke-width="3" marker-end="url(#green)"/>
+<text x="960" y="679" font-size="24" fill="#237964" text-anchor="start" font-weight="400">再</text>
+<text x="960" y="716" font-size="24" fill="#237964" text-anchor="start" font-weight="400">验</text>
+<text x="960" y="753" font-size="24" fill="#237964" text-anchor="start" font-weight="400">证</text>
+<rect x="56" y="997" width="968" height="94" rx="18" fill="#FFF2E8" stroke="#E6B28F" stroke-width="2"/>
+<text x="84" y="1036" font-size="29" fill="#BD6635" text-anchor="start" font-weight="600">验证标准：正确实现能通过，典型错误能被发现。</text>
+<text x="84" y="1074" font-size="25" fill="#60756F" text-anchor="start" font-weight="400">人工介入单独记录；通过结论仅适用于已验证场景。</text>
+</g></svg>
