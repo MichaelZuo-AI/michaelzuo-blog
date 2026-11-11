@@ -18,6 +18,8 @@
 <p style="margin:0 0 18px;">这句话很好懂，但执行时点哪里？图片、标题、价格，还是卡片空白处？</p>
 <p style="margin:0 0 18px;">为了精确，我们继续补文字：哪些区域响应跳转，哪些区域独立处理点击，哪些区域不响应。再遇到多行标题、不同屏幕尺寸或卡片状态，描述还要继续展开。</p>
 <p style="margin:0 0 18px;">而在设计图上标出交互区域，再用简短文字说明各区域的行为，空间边界往往能更直接地被理解。</p>
+<p style="margin:24px 0 8px;"><img src="../../public/diagrams/information-representation-click-regions.png" alt="图 1｜假设的商品卡片：标注区域边界与行为，避免“点击卡片”的歧义。" style="width:100%;height:auto;display:block;" /></p>
+<p style="margin:0 0 26px;font-size:13px;line-height:1.7;color:#60756f;">图 1｜假设的商品卡片：标注区域边界与行为，避免“点击卡片”的歧义。</p>
 <p style="margin:0 0 18px;">这里当然需要行为定义。一张普通截图，本身不能证明哪里可以点击。但布局、区域边界与行为标注可以共同表达这件事，没有必要把它们全部改写成一段脱离图像的文字。</p>
 <p style="margin:0 0 18px;">文字在理论上可以描述得足够详细，甚至可以把坐标、层级和状态全部列出来。问题是，转写、理解、核对和维护这些文字，需要多少成本？有没有一种表达，能更直接地保留原来的关系？</p>
 <p style="margin:0 0 18px;">自然语言能够描述某种信息，与它是这种信息最合适的载体，是两回事。</p>
@@ -49,6 +51,8 @@
 <p style="margin:0 0 18px;">可以随用例共享相关资料的版本与定位、实际使用的标注图、已确认的决策，以及尚未验证的假设和待决事项。它们可以保留在共享资料集合或上下文包里，不必全部塞进 case 正文。</p>
 <p style="margin:0 0 18px;">共享的内容应可检查、可追溯，也不需要复制整个聊天记录或模型内部推理。特别要区分原始事实、已确认决策与 Agent 推测，不能让一个猜测因为被传给下游，就自动成为验收标准。</p>
 <p style="margin:0 0 18px;">执行中新获得的事实和确认，也应更新回来。上下文需要延续，而不是每换一个 Agent，就从一份摘要重新开始。</p>
+<p style="margin:24px 0 8px;"><img src="../../public/diagrams/information-representation-context-handoff.png" alt="图 2｜交接方式对比：用例连接验证目标，原始资料与共享上下文继续支持执行。" style="width:100%;height:auto;display:block;" /></p>
+<p style="margin:0 0 26px;font-size:13px;line-height:1.7;color:#60756f;">图 2｜交接方式对比：用例连接验证目标，原始资料与共享上下文继续支持执行。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">执行器也要具备读取不同表达的能力</h2>
 <p style="margin:0 0 18px;">信息保留在原处，并不会自动解决执行问题。下游必须真正具备访问和使用它的能力。</p>
 <p style="margin:0 0 18px;">Test execution engine 需要在用例指导下，按需查阅产品规则、设计节点和交互标注，再结合运行界面与系统状态，完成定位、操作和结果检查。</p>

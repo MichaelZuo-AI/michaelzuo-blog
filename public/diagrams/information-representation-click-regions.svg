@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1120" viewBox="0 0 1080 1120"><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 1 L8 5 L0 9" fill="none" stroke="#237964" stroke-width="1.5"/></marker></defs><rect width="1080" height="1120" fill="#FCFCF8"/><g font-family="PingFang SC, Noto Sans CJK SC, sans-serif">
+<text x="56" y="62" font-size="22" fill="#237964" font-weight="600" text-anchor="start">INFORMATION &amp; CONTEXT / 01</text>
+<text x="56" y="123" font-size="40" fill="#193C36" font-weight="600" text-anchor="start">“点击商品卡片”，到底点哪里？</text>
+<text x="56" y="171" font-size="26" fill="#60756F" font-weight="400" text-anchor="start">假设设计示例 · 区域边界与行为标注需要一起表达</text>
+<rect x="56" y="215" width="968" height="76" rx="18" fill="#FFF2E8" stroke="#E5B492" stroke-width="2"/>
+<text x="82" y="263" font-size="31" fill="#BC6335" font-weight="600" text-anchor="start">自然语言用例：点击商品卡片，进入详情。</text>
+<rect x="80" y="330" width="520" height="632" rx="24" fill="#FFFFFF" stroke="#CFD6D1" stroke-width="2"/>
+<rect x="106" y="356" width="468" height="280" rx="18" fill="#E9F1EC" stroke="#237964" stroke-width="2"/>
+<text x="125" y="393" font-size="29" fill="#237964" font-weight="600" text-anchor="start">A</text>
+<ellipse cx="340" cy="582" rx="105" ry="17" fill="#CAD8CE"/>
+<path d="M274 442 H395 V544 Q395 574 367 574 H302 Q274 574 274 544 Z" fill="#C8B391" stroke="#8A765E" stroke-width="3"/>
+<path d="M395 459 H416 Q448 459 448 492 Q448 525 416 525 H395" fill="none" stroke="#8A765E" stroke-width="12"/>
+<ellipse cx="334" cy="442" rx="60" ry="11" fill="#EEE0C8" stroke="#8A765E" stroke-width="3"/>
+<rect x="486" y="372" width="70" height="64" rx="12" fill="#FFF2E8" stroke="#BC6335" stroke-width="2"/>
+<text x="521" y="416" font-size="40" fill="#BC6335" font-weight="400" text-anchor="middle">♡</text>
+<rect x="106" y="660" width="468" height="62" rx="10" fill="#E9F1EC" stroke="#237964" stroke-width="2"/>
+<text x="125" y="702" font-size="31" fill="#237964" font-weight="600" text-anchor="start">A  日用陶瓷杯</text>
+<text x="122" y="772" font-size="39" fill="#193C36" font-weight="600" text-anchor="start">¥ 128</text>
+<rect x="106" y="801" width="468" height="47" rx="8" fill="#F1F2EF" stroke="#B4BDB6" stroke-width="2"/>
+<text x="125" y="833" font-size="25" fill="#60756F" font-weight="400" text-anchor="start">D  卡片空白区域</text>
+<rect x="106" y="869" width="468" height="65" rx="12" fill="#EAF1F8" stroke="#386D99" stroke-width="2"/>
+<text x="340" y="912" font-size="30" fill="#386D99" font-weight="600" text-anchor="middle">C  加入购物车</text>
+<path d="M557 405 L636 405" stroke="#BC6335" stroke-width="3" fill="none"/>
+<text x="658" y="393" font-size="31" fill="#BC6335" font-weight="600" text-anchor="start">B  收藏区域</text>
+<text x="658" y="436" font-size="27" fill="#60756F" font-weight="400" text-anchor="start">切换收藏状态</text>
+<path d="M575 545 L636 545" stroke="#237964" stroke-width="3" fill="none"/>
+<text x="658" y="532" font-size="31" fill="#237964" font-weight="600" text-anchor="start">A  图片与标题</text>
+<text x="658" y="575" font-size="27" fill="#60756F" font-weight="400" text-anchor="start">进入商品详情</text>
+<path d="M574 825 L636 825" stroke="#60756F" stroke-width="3" fill="none"/>
+<text x="658" y="812" font-size="31" fill="#60756F" font-weight="600" text-anchor="start">D  价格及空白</text>
+<text x="658" y="855" font-size="27" fill="#60756F" font-weight="400" text-anchor="start">不触发跳转</text>
+<path d="M574 904 L636 904" stroke="#386D99" stroke-width="3" fill="none"/>
+<text x="658" y="901" font-size="31" fill="#386D99" font-weight="600" text-anchor="start">C  加购按钮</text>
+<text x="658" y="944" font-size="27" fill="#60756F" font-weight="400" text-anchor="start">加入购物车</text>
+<text x="56" y="1022" font-size="29" fill="#193C36" font-weight="600" text-anchor="start">B 是独立交互区，不继承 A 的跳转行为。</text>
+<text x="56" y="1071" font-size="25" fill="#60756F" font-weight="400" text-anchor="start">这是一张带行为定义的示意图；普通截图本身不能证明交互。</text>
+</g></svg>
