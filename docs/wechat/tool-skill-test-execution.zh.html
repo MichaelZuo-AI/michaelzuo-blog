@@ -1,14 +1,14 @@
 <section style="max-width:680px;margin:0 auto;background:#fff;color:#242424;font-size:16px;line-height:1.95;padding:20px;">
 <h1 style="font-size:26px;line-height:1.45;margin:0 0 12px;font-weight:700;">从 45% 到 80%：一次让我重新思考 Agent 测试执行的尝试</h1>
-<p style="margin:0 0 28px;font-size:15px;line-height:1.8;color:#60756f;">从编排模型的步骤，到提供工具与执行知识。只有 3 个 feature，结论还早，但方向值得继续验证。</p>
+<p style="margin:0 0 28px;font-size:15px;line-height:1.8;color:#60756f;">团队使用 frontier 模型，从编排步骤到提供工具与执行知识。只有 3 个 feature，结论还早，但方向值得继续验证。</p>
 <p style="margin:0 0 18px;">上一篇《不是所有信息，都该变成自然语言》里，我讨论了一个担忧：把产品文档、Figma 和交互信息压缩成自然语言 test case，再让执行 Agent 重建上下文，可能在交接中丢失重要信息。</p>
-<p style="margin:0 0 18px;">这周，我继续用自然语言用例跑了测试执行，也尝试了两种不同的实现方式。结果让我开始修正之前对瓶颈的判断。</p>
+<p style="margin:0 0 18px;">这周，我们团队使用 frontier 模型，继续用自然语言用例跑测试执行，并尝试了两种不同的实现方式。结果让我开始修正之前对瓶颈的判断。</p>
 <p style="margin:0 0 18px;">至少在这次尝试里，自然语言用例没有阻止模型完成更多测试。改变执行方式之后，结果出现了明显差异。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">同样是测试执行，两种不同的组织方式</h2>
-<p style="margin:0 0 18px;">第一个版本，是我自己搭建 harness pipeline，让模型在不同环节做不同的事情。</p>
-<p style="margin:0 0 18px;">这条路线的思路很直接：把测试执行拆成若干步骤，明确每一步的输入和职责，再把它们连接起来。具体流程由我提前设计，模型在安排好的环节里完成任务。</p>
-<p style="margin:0 0 18px;">第二个版本，我换了一个重点：给模型提供 Tool，通过 Skill 讲清楚工具如何使用、测试环境如何 setup，以及执行所需的相关方法。</p>
-<p style="margin:0 0 18px;">相较于继续规定每一步怎么走，我把更多精力放在让模型具备完成任务所需的能力与知识上，让它在执行时组织行动。</p>
+<p style="margin:0 0 18px;">第一个版本，由团队搭建 harness pipeline，让 frontier 模型在不同环节做不同的事情。</p>
+<p style="margin:0 0 18px;">这条路线的思路很直接：把测试执行拆成若干步骤，明确每一步的输入和职责，再把它们连接起来。具体流程由团队提前设计，模型在安排好的环节里完成任务。</p>
+<p style="margin:0 0 18px;">第二个版本，团队换了一个重点：给 frontier 模型提供 Tool，通过 Skill 讲清楚工具如何使用、测试环境如何 setup，以及执行所需的相关方法。</p>
+<p style="margin:0 0 18px;">相较于继续规定每一步怎么走，团队把更多精力放在让模型具备完成任务所需的能力与知识上，让它在执行时组织行动。</p>
 <p style="margin:0 0 18px;">这里说的 Tool，是模型可以实际调用的操作能力；Skill 则承载使用这些能力的方法、环境知识和执行约定。后文讨论的是这种组织方式，并不依赖某一种特定产品。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">初步结果：约 45% 与约 80%</h2>
 <p style="margin:0 0 18px;">这次只跑了 3 个 feature，按当前统计口径，第一个版本的 execution coverage 大约是 45%，第二个版本可以做到约 80%。</p>
@@ -25,6 +25,7 @@
 <p style="margin:0 0 18px;">这些是需要通过执行记录检查的可能原因，并非这轮实验已经逐项证实的结论。</p>
 <p style="margin:0 0 18px;">Tool + Skill 版本给出的启发是：与其要求上游提前描述全部执行细节，也许可以让模型在明确目标和约束后，借助工具查明状态、准备环境，再根据结果选择下一步。</p>
 <p style="margin:0 0 18px;">自然语言 case 在这里提供验证目标。完成这个目标所需的全部执行信息，并不一定要在开始前都写进 case。</p>
+<p style="margin:0 0 18px;">这也是为什么需要强调 frontier 模型这个前提：我们正在验证，执行系统是否给这类模型留下了利用工具、根据反馈调整行动的空间。这轮结果不能直接推广到所有模型，也不能证明 frontier 模型一定能可靠完成测试。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">只有 3 个 Feature，还不能回答“为什么”</h2>
 <p style="margin:0 0 18px;">样本量是这次尝试最明确的限制。</p>
 <p style="margin:0 0 18px;">3 个 feature 可能集中在某类交互或相近环境中。结果也可能受到模型配置、工具能力、上下文、执行预算以及环境状态等因素影响。</p>
@@ -57,9 +58,9 @@
 <p style="margin:0 0 18px;">这些都是接下来可以尝试和验证的方向，不是这轮 3 个 feature 已经证明有效的能力。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">工程工作的重点，可能需要重新分配</h2>
 <p style="margin:0 0 18px;">Tool + Skill 仍然需要 harness。模型调用、工具执行、状态记录、资源控制和结果保存，都需要基础设施。</p>
-<p style="margin:0 0 18px;">这次尝试让我重新考虑的，是其中哪些决策需要提前写死，哪些可以交给模型依据现场信息完成。</p>
-<p style="margin:0 0 18px;">之前，我更关注怎样设计完整步骤，让模型在每个阶段完成规定动作。现在，我想多验证另一种方式：把目标讲清楚，把工具和环境知识准备好，再让模型在约束内完成任务。</p>
+<p style="margin:0 0 18px;">这次尝试让我重新考虑的，是面对 frontier 模型时，哪些决策需要提前写死，哪些可以交给模型依据现场信息完成。</p>
+<p style="margin:0 0 18px;">之前，团队更多投入在设计完整步骤，让模型在每个阶段完成规定动作。现在，我们想多验证另一种方式：把目标讲清楚，把工具和环境知识准备好，再让 frontier 模型在约束内完成任务。</p>
 <p style="margin:0 0 18px;">“不是所有信息，都该变成自然语言”仍然是我认可的原则。但不能从某个执行系统的失败，直接推断自然语言用例不适合作为任务入口。</p>
 <p style="margin:0 0 18px;">更合适的表达方式、更充分的上下文，都需要与实际执行能力一起检验。</p>
-<p style="margin:0 0 18px;">只有 3 个 feature，还不足以宣布哪条路线胜出。但这次从约 45% 到约 80% 的观察，已经让我愿意继续扩大测试：下一轮，少替模型预设一些步骤，多验证它在工具与知识支持下究竟能完成什么。</p>
+<p style="margin:0 0 18px;">只有 3 个 feature，还不足以宣布哪条路线胜出。但这次从约 45% 到约 80% 的观察，已经让我们愿意继续扩大测试：下一轮，少替模型预设一些步骤，多验证 frontier 模型在工具与知识支持下究竟能完成什么。</p>
 </section>
