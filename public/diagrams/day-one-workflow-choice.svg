@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="506" viewBox="0 0 600 506" role="img" aria-labelledby="title desc">
+  <title id="title">下一步，谁来定？</title>
+  <desc id="desc">以前，工程师事先排好准备、执行和核对的顺序。现在，团队给出目标、工具和用法，前沿模型选择动作，执行后观察结果，再决定下一步。证据足够时核对目标。</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8.5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M2 1 L8.5 5 L2 9" fill="none" stroke="#536c5e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+  <rect width="600" height="506" fill="#f4f0e6"/>
+  <g font-family="PingFang SC, Hiragino Sans GB, sans-serif" fill="#233f37">
+    <text x="33" y="50" font-size="34" font-weight="600">下一步，谁来定？</text>
+    <path d="M40 78 L565 75 L569 213 L39 219 Z" fill="#ded9ca"/>
+    <path d="M35 72 L561 70 L564 208 L35 213 Z" fill="#fffcf3" stroke="#cbbfa9" stroke-width="1.4"/>
+    <text x="57" y="115" font-size="28" font-weight="600">工程师事先安排</text>
+    <path d="M57 130 Q225 132 522 128" fill="none" stroke="#d9d0bc" stroke-width="1.4"/>
+    <g font-size="28" text-anchor="middle" fill="#4c4f45">
+      <text x="111" y="179">准备</text>
+      <text x="299" y="179">执行</text>
+      <text x="486" y="179">核对</text>
+    </g>
+    <g fill="none" stroke="#536c5e" stroke-width="2.2" stroke-linecap="round" marker-end="url(#arrow)">
+      <path d="M162 169 L246 168"/>
+      <path d="M353 169 L433 168"/>
+    </g>
+
+    <path d="M39 233 L568 228 L568 478 L37 487 Z" fill="#d5d9c9"/>
+    <path d="M34 228 L563 224 L563 473 L33 482 Z" fill="#e5eddf" stroke="#b6c8b3" stroke-width="1.4"/>
+    <text x="57" y="270" font-size="28" font-weight="600">前沿模型在执行中选择</text>
+    <text x="57" y="306" font-size="23" fill="#496151">团队给出目标、工具和用法</text>
+    <g font-size="27" font-weight="600" text-anchor="middle">
+      <text x="161" y="359">选择动作</text>
+      <text x="426" y="359">执行并观察</text>
+    </g>
+    <g fill="none" stroke="#536c5e" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)">
+      <path d="M239 348 Q285 346 332 348"/>
+      <path d="M425 371 L425 388 Q425 394 418 394 L168 395 Q161 395 161 388 L161 370"/>
+    </g>
+    <rect x="213" y="379" width="163" height="29" rx="7" fill="#e5eddf"/>
+    <text x="295" y="402" text-anchor="middle" font-size="22" fill="#496151">根据结果再选</text>
+    <path d="M57 425 Q248 428 535 423" stroke="#b8c7ae" stroke-width="1.4" fill="none"/>
+    <text x="57" y="456" font-size="23" fill="#344d41">证据足够时，核对验收目标。</text>
+  </g>
+</svg>
