@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="486" viewBox="0 0 600 486" role="img" aria-labelledby="title desc">
+  <title id="title">试完，给自己留几行</title>
+  <desc id="desc">摊开的笔记本上留了三处空白，分别用来写下原来的想法、亲眼看到的情况和仍然想弄清的问题。</desc>
+  <rect width="600" height="486" fill="#f4f0e6"/>
+  <!-- Page block, bookmark and the inner edge of a half-open notebook. -->
+  <path d="M42 39 Q88 29 142 37 L552 35 Q561 35 561 43 L560 450 Q559 458 553 459 L112 462 Q78 456 40 462 Z" fill="#4b6b58"/>
+  <path d="M457 431 H482 V480 L470 472 L457 480 Z" fill="#b26d4a"/>
+  <path d="M45 37 Q80 28 111 36 L548 32 Q555 32 555 39 L554 449 L110 455 Q79 447 45 455 Z" fill="#dfddcd" stroke="#a3a890" stroke-width="1.2"/>
+  <path d="M40 31 Q80 22 112 31 L546 27 Q552 27 552 34 L550 443 L111 449 Q78 442 40 449 Z" fill="#fffcf3" stroke="#c9c7b5" stroke-width="1.5"/>
+  <path d="M40 31 Q60 31 71 33 Q62 123 66 221 Q68 340 66 447 Q55 446 40 449 Z" fill="#eae6d8"/>
+  <path d="M67 34 Q60 122 64 221 Q67 349 64 446" fill="none" stroke="#c2bfac" stroke-width="1.6"/>
+  <g font-family="PingFang SC, Hiragino Sans GB, sans-serif">
+    <text x="101" y="88" font-size="33" font-weight="600" fill="#233f37">试完，给自己留几行</text>
+    <path d="M100 104 Q191 108 257 103" fill="none" stroke="#bb9a60" stroke-width="2.6" stroke-linecap="round"/>
+    <g font-size="29" font-weight="500" fill="#355146">
+      <text x="101" y="159">我本来以为……</text>
+      <text x="101" y="253">我亲眼看到……</text>
+      <text x="101" y="348">我接下来想弄清……</text>
+    </g>
+    <g fill="none" stroke="#b2baa8" stroke-width="1.4" stroke-linecap="round">
+      <path d="M101 190 Q266 192 474 189"/>
+      <path d="M101 285 Q272 287 474 283"/>
+      <path d="M101 381 Q259 382 474 380"/>
+    </g>
+    <!-- Resting pencil points toward the space left for the reader's own words. -->
+    <g transform="translate(464 397) rotate(-57)">
+      <path d="M0 0 L19 -6 H92 Q95 -6 95 -3 V3 Q95 6 92 6 H19 Z" fill="#c69b64" stroke="#796951" stroke-width="1.6" stroke-linejoin="round"/>
+      <path d="M0 0 L19 -6 L16 -2 L20 1 L17 4 L19 6 Z" fill="#ead8b7"/>
+      <path d="M0 0 L6 -2 L6 2 Z" fill="#514e42"/>
+      <path d="M21 2 H82" fill="none" stroke="#8c7352" stroke-width="1.5"/>
+      <path d="M80 -6 V6 H90 V-6 Z" fill="#d6d2be" stroke="#8c896e" stroke-width="1"/>
+    </g>
+  </g>
+</svg>
