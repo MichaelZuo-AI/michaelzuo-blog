@@ -1,1 +1,38 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="387" viewBox="0 0 600 387"><title>谁来决定下一步？</title><defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0 0 L5 3 L0 6" fill="none" stroke="#236e5d"/></marker></defs><rect width="600" height="387" fill="#faf9f4"/><g font-family="PingFang SC, sans-serif"><text x="26" y="46" fill="#183c35" font-size="29" font-weight="600" text-anchor="start">谁来决定下一步？</text><text x="26" y="95" fill="#a7522b" font-size="22" font-weight="600" text-anchor="start">预先编排</text><rect x="26" y="114" width="158" height="58" rx="10" fill="#f5e9df" stroke="none" stroke-width="1.5"/><text x="105.0" y="150.0" fill="#183c35" font-size="22" font-weight="600" text-anchor="middle">准备环境</text><path d="M187 143 H216" stroke="#236e5d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/><rect x="222" y="114" width="158" height="58" rx="10" fill="#f5e9df" stroke="none" stroke-width="1.5"/><text x="301.0" y="150.0" fill="#183c35" font-size="22" font-weight="600" text-anchor="middle">执行操作</text><path d="M383 143 H412" stroke="#236e5d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/><rect x="418" y="114" width="158" height="58" rx="10" fill="#f5e9df" stroke="none" stroke-width="1.5"/><text x="497.0" y="150.0" fill="#183c35" font-size="22" font-weight="600" text-anchor="middle">检查结果</text><text x="26" y="223" fill="#236e5d" font-size="22" font-weight="600" text-anchor="start">模型依现场结果选择</text><rect x="26" y="246" width="158" height="58" rx="10" fill="#e4f1e9" stroke="none" stroke-width="1.5"/><text x="105.0" y="282.0" fill="#183c35" font-size="22" font-weight="600" text-anchor="middle">读取状态</text><path d="M187 275 H216" stroke="#236e5d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/><rect x="222" y="246" width="158" height="58" rx="10" fill="#e4f1e9" stroke="none" stroke-width="1.5"/><text x="301.0" y="282.0" fill="#183c35" font-size="22" font-weight="600" text-anchor="middle">选择工具</text><path d="M383 275 H412" stroke="#236e5d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/><rect x="418" y="246" width="158" height="58" rx="10" fill="#e4f1e9" stroke="none" stroke-width="1.5"/><text x="497.0" y="282.0" fill="#183c35" font-size="22" font-weight="600" text-anchor="middle">观察结果</text><path d="M497 307 V351 H105 V309" stroke="#236e5d" stroke-width="2.5" fill="none" marker-end="url(#arrow)"/><rect x="209" y="329" width="188" height="41" rx="10" fill="#faf9f4" stroke="none" stroke-width="1.5"/><text x="303" y="357" fill="#236e5d" font-size="21" font-weight="400" text-anchor="middle">还缺哪项证据？</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" width="600" height="503" viewBox="0 0 600 503">
+  <title id="title">保存以后，为什么还是旧值？</title>
+  <desc id="desc">同一显示现象，保存请求报错时查错误详情，回读已是新值时刷新后核对界面。</desc>
+  <defs>
+    <marker id="a21654F" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#21654F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+    <marker id="a98542D" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#98542D" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+    <marker id="a51655C" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#51655C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="600" height="503" rx="0" fill="#F8F6EE" stroke="none" stroke-width="1.5"/>
+  <g font-family="PingFang SC, Hiragino Sans GB, sans-serif">
+    <text x="28" y="53" font-size="35" fill="#203C35" font-weight="650" text-anchor="start">保存以后，为什么还是旧值？</text>
+    <text x="28" y="94" font-size="24" fill="#51655C" font-weight="500" text-anchor="start">假设你刚把消息提醒从「开」改成了「关」。</text>
+    <rect x="29" y="120" width="542" height="95" rx="13" fill="#FFFDF7" stroke="#CCD2C3" stroke-width="1.5"/>
+    <text x="52" y="156" font-size="20" fill="#51655C" font-weight="500" text-anchor="start">重新打开设置页</text>
+    <text x="52" y="191" font-size="29" fill="#203C35" font-weight="650" text-anchor="start">消息提醒</text>
+    <text x="453" y="179" font-size="24" fill="#51655C" font-weight="500" text-anchor="start">开</text>
+    <rect x="496" y="154" width="50" height="27" rx="14" fill="#257564" stroke="none" stroke-width="1.5"/>
+    <circle cx="532" cy="167.5" r="10.5" fill="#FFFDF7"/>
+    <path d="M300 216 V241" fill="none" stroke="#21654F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <text x="300" y="278" font-size="26" fill="#203C35" font-weight="650" text-anchor="middle">查请求，再核对实际保存的值</text>
+    <path d="M300 291 V306 H156 V331" fill="none" stroke="#98542D" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a98542D)"/>
+    <path d="M300 291 V306 H442 V331" fill="none" stroke="#21654F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <rect x="29" y="345" width="257" height="130" rx="10" fill="#F3E4CF" stroke="none" stroke-width="1.5"/>
+    <text x="48" y="385" font-size="28" fill="#98542D" font-weight="650" text-anchor="start">保存请求报错</text>
+    <path d="M48 403 H267" fill="none" stroke="#C4A78C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="445" font-size="25" fill="#203C35" font-weight="550" text-anchor="start">查错误详情</text>
+    <rect x="313" y="345" width="258" height="130" rx="10" fill="#DEEBDE" stroke="none" stroke-width="1.5"/>
+    <text x="332" y="385" font-size="28" fill="#21654F" font-weight="650" text-anchor="start">回读已是新值</text>
+    <path d="M332 403 H552" fill="none" stroke="#A1BBA5" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="332" y="445" font-size="25" fill="#203C35" font-weight="550" text-anchor="start">刷新后核对界面</text>
+  </g>
+</svg>

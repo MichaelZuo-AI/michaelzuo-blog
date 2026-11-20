@@ -1,1 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="397" viewBox="0 0 600 397"><title>上次的解法，这次还适用吗？</title><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#236e5d"/></marker></defs><rect width="600" height="397" fill="#faf9f4"/><g font-family="PingFang SC, sans-serif"><text x="24" y="47" font-size="28" text-anchor="start" font-weight="600" fill="#183c35">上次的解法，这次还适用吗？</text><rect x="27" y="76" width="546" height="60" rx="10" fill="#e4f1e9"/><text x="300" y="114" font-size="23" text-anchor="middle" font-weight="600" fill="#183c35">上次执行留下脚本、依据和适用条件</text><path d="M300 140 V163" fill="none" stroke="#236e5d" stroke-width="2" marker-end="url(#a)"/><rect x="80" y="170" width="440" height="62" rx="10" fill="#e4f1e9"/><text x="300" y="210" font-size="23" text-anchor="middle" font-weight="600" fill="#183c35">复核后，供下一项任务查阅</text><path d="M300 237 V262 H109 V285" fill="none" stroke="#236e5d" stroke-width="2" marker-end="url(#a)"/><path d="M300 237 V285" fill="none" stroke="#236e5d" stroke-width="2" marker-end="url(#a)"/><path d="M300 262 H491 V285" fill="none" stroke="#236e5d" stroke-width="2" marker-end="url(#a)"/><rect x="24" y="292" width="170" height="56" rx="10" fill="#f4e9dd"/><text x="109" y="328" font-size="21" text-anchor="middle" font-weight="600" fill="#183c35">直接复用</text><rect x="215" y="292" width="170" height="56" rx="10" fill="#f4e9dd"/><text x="300" y="328" font-size="21" text-anchor="middle" font-weight="600" fill="#183c35">调整后试用</text><rect x="406" y="292" width="170" height="56" rx="10" fill="#f4e9dd"/><text x="491" y="328" font-size="21" text-anchor="middle" font-weight="600" fill="#183c35">另找方法</text><text x="300" y="379" font-size="20" text-anchor="middle" font-weight="400" fill="#536a62">依据新任务的现场证据，重新判断。</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" width="600" height="548" viewBox="0 0 600 548">
+  <title id="title">下一个任务，能借用什么？</title>
+  <desc id="desc">上次任务留下工具、脚本和排查笔记。下次先判断是否适用，再决定直接使用、修改验证或跳过，验证过的改动继续留给下次。</desc>
+  <defs>
+    <marker id="a21654F" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#21654F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+    <marker id="a98542D" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#98542D" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+    <marker id="a51655C" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#51655C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="600" height="548" rx="0" fill="#F8F6EE" stroke="none" stroke-width="1.5"/>
+  <g font-family="PingFang SC, Hiragino Sans GB, sans-serif">
+    <text x="28" y="53" font-size="35" fill="#203C35" font-weight="650" text-anchor="start">下一个任务，能借用什么？</text>
+    <path d="M31 130 V100 Q31 95 37 95 H72 L84 106 H119 V130" fill="#DEEBDE" stroke="#21654F" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="31" y="116" width="90" height="54" rx="6" fill="#DEEBDE" stroke="#21654F" stroke-width="2.1"/>
+    <text x="144" y="122" font-size="25" fill="#203C35" font-weight="650" text-anchor="start">上次任务留下的东西</text>
+    <text x="144" y="158" font-size="24" fill="#51655C" font-weight="500" text-anchor="start">工具、脚本、排查笔记</text>
+    <path d="M74 172 V211" fill="none" stroke="#21654F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <circle cx="74" cy="248" r="24" fill="#21654F"/>
+    <path d="M64 247 l7 7 13 -14" fill="none" stroke="#FFFDF7" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="116" y="257" font-size="28" fill="#21654F" font-weight="650" text-anchor="start">新任务先核对适用条件</text>
+    <path d="M74 274 V413" fill="none" stroke="#A8B3A4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M74 302 H112" fill="none" stroke="#21654F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <text x="132" y="310" font-size="23" fill="#51655C" font-weight="500" text-anchor="start">条件相同</text>
+    <text x="315" y="310" font-size="26" fill="#203C35" font-weight="650" text-anchor="start">直接复用</text>
+    <path d="M74 358 H112" fill="none" stroke="#21654F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <text x="132" y="366" font-size="23" fill="#51655C" font-weight="500" text-anchor="start">环境有差异</text>
+    <text x="315" y="366" font-size="26" fill="#203C35" font-weight="650" text-anchor="start">改后验证</text>
+    <path d="M74 414 H112" fill="none" stroke="#21654F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <text x="132" y="422" font-size="23" fill="#51655C" font-weight="500" text-anchor="start">条件不满足</text>
+    <text x="315" y="422" font-size="26" fill="#203C35" font-weight="650" text-anchor="start">这次跳过</text>
+    <path d="M132 329 H541" fill="none" stroke="#CCD2C3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M132 385 H541" fill="none" stroke="#CCD2C3" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="30" y="459" width="541" height="64" rx="9" fill="#DEEBDE" stroke="none" stroke-width="1.5"/>
+    <text x="50" y="500" font-size="25" fill="#21654F" font-weight="600" text-anchor="start">把这次验证过的改动留给下次。</text>
+    <path d="M530 458 H561 Q580 458 580 440 V147 Q580 134 567 134 H431" fill="none" stroke="#21654F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)" stroke-dasharray="5 7"/>
+  </g>
+</svg>

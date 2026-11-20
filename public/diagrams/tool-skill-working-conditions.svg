@@ -1,1 +1,41 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="386" viewBox="0 0 600 386"><title>排查启动失败时，谁决定什么？</title><defs><marker id="a" markerWidth="7" markerHeight="7" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="none" stroke="#236e5d"/></marker></defs><rect width="600" height="386" fill="#faf9f4"/><g font-family="PingFang SC, sans-serif"><text x="24" y="47" font-size="28" text-anchor="start" font-weight="600" fill="#183c35">排查启动失败时，谁决定什么？</text><rect x="22" y="76" width="556" height="75" rx="10" fill="#f4e9dd"/><text x="40" y="108" font-size="23" text-anchor="start" font-weight="600" fill="#183c35">团队先约定</text><text x="40" y="136" font-size="20" text-anchor="start" font-weight="400" fill="#183c35">目标：找到失败原因　　边界：只读排查</text><rect x="22" y="172" width="268" height="80" rx="10" fill="#e4f1e9"/><text x="38" y="203" font-size="22" text-anchor="start" font-weight="600" fill="#183c35">可用的上下文</text><text x="38" y="235" font-size="20" text-anchor="start" font-weight="400" fill="#183c35">启动日志、版本记录</text><rect x="310" y="172" width="268" height="80" rx="10" fill="#e4f1e9"/><text x="326" y="203" font-size="22" text-anchor="start" font-weight="600" fill="#183c35">可调用的工具</text><text x="326" y="235" font-size="20" text-anchor="start" font-weight="400" fill="#183c35">查询可用磁盘空间</text><path d="M156 255 V275 H298 V297" fill="none" stroke="#236e5d" stroke-width="2" marker-end="url(#a)"/><path d="M444 255 V275 H302 V297" fill="none" stroke="#236e5d" stroke-width="2" marker-end="url(#a)"/><rect x="22" y="304" width="556" height="60" rx="10" fill="#e4f1e9"/><text x="300" y="342" font-size="22" text-anchor="middle" font-weight="600" fill="#183c35">模型读到“磁盘已满”，选择查剩余空间</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" width="600" height="599" viewBox="0 0 600 599">
+  <title id="title">如果今天从头试一次</title>
+  <desc id="desc">排查升级后打不开的应用。目标和只读边界相同，比较先查版本改动与根据磁盘已满的日志先查剩余空间两条路线，最后用启动错误记录验证。</desc>
+  <defs>
+    <marker id="a21654F" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#21654F" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+    <marker id="a98542D" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#98542D" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+    <marker id="a51655C" markerWidth="7" markerHeight="7" refX="6.2" refY="3.5" orient="auto">
+      <path d="M1,1 L6.2,3.5 L1,6" fill="none" stroke="#51655C" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="600" height="599" rx="0" fill="#F8F6EE" stroke="none" stroke-width="1.5"/>
+  <g font-family="PingFang SC, Hiragino Sans GB, sans-serif">
+    <text x="28" y="53" font-size="35" fill="#203C35" font-weight="650" text-anchor="start">如果今天从头试一次</text>
+    <text x="29" y="94" font-size="24" fill="#51655C" font-weight="500" text-anchor="start">一个小实验：排查升级后打不开的应用</text>
+    <rect x="29" y="118" width="542" height="100" rx="10" fill="#DEEBDE" stroke="none" stroke-width="1.5"/>
+    <text x="48" y="157" font-size="23" fill="#21654F" font-weight="650" text-anchor="start">目标</text>
+    <text x="125" y="157" font-size="25" fill="#203C35" font-weight="550" text-anchor="start">找出阻止启动的原因</text>
+    <text x="48" y="196" font-size="23" fill="#21654F" font-weight="650" text-anchor="start">边界</text>
+    <text x="125" y="196" font-size="25" fill="#203C35" font-weight="550" text-anchor="start">只读排查，保留现场</text>
+    <path d="M300 218 V237 H151 V258" fill="none" stroke="#98542D" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a98542D)"/>
+    <path d="M300 237 H447 V258" fill="none" stroke="#21654F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <text x="31" y="300" font-size="27" fill="#98542D" font-weight="650" text-anchor="start">沿用原路线</text>
+    <text x="320" y="300" font-size="27" fill="#21654F" font-weight="650" text-anchor="start">按现场选择</text>
+    <path d="M32 316 H276" fill="none" stroke="#C4A78C" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M320 316 H570" fill="none" stroke="#A1BBA5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="32" y="354" font-size="24" fill="#203C35" font-weight="500" text-anchor="start">假设升级引入了问题</text>
+    <text x="320" y="354" font-size="24" fill="#203C35" font-weight="500" text-anchor="start">日志提示磁盘已满</text>
+    <path d="M41 368 V394" fill="none" stroke="#98542D" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a98542D)"/>
+    <path d="M329 368 V394" fill="none" stroke="#21654F" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <text x="32" y="435" font-size="26" fill="#98542D" font-weight="650" text-anchor="start">先查版本改动</text>
+    <text x="320" y="435" font-size="26" fill="#21654F" font-weight="650" text-anchor="start">先查剩余空间</text>
+    <path d="M151 451 V470 H300" fill="none" stroke="#98542D" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M447 451 V470 H300 V492" fill="none" stroke="#21654F" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#a21654F)"/>
+    <text x="300" y="531" font-size="27" fill="#203C35" font-weight="650" text-anchor="middle">哪条线索能解释这次启动失败？</text>
+    <text x="300" y="572" font-size="24" fill="#51655C" font-weight="500" text-anchor="middle">把检查结果与启动日志的时间、报错对上。</text>
+  </g>
+</svg>
