@@ -1,5 +1,5 @@
 <section style="max-width:680px;margin:0 auto;background:#fff;color:#242424;font-size:16px;line-height:1.95;padding:20px;">
-<h1 style="font-size:26px;line-height:1.45;margin:0 0 12px;font-weight:700;">从 45% 到 80%：一次让我重新思考 Agent 测试执行的尝试</h1>
+<h1 style="font-size:26px;line-height:1.45;margin:0 0 12px;font-weight:700;">用例执行覆盖率从约 45% 到约 75%，我们调整了什么？</h1>
 <p style="margin:0 0 28px;font-size:15px;line-height:1.8;color:#60756f;">团队使用 frontier 模型，从编排步骤到提供工具与执行知识。只有 3 个 feature，结论还早，但方向值得继续验证。</p>
 <p style="margin:0 0 18px;">上一篇《不是所有信息，都该变成自然语言》里，我讨论了一个担忧：把产品文档、Figma 和交互信息压缩成自然语言 test case，再让执行 Agent 重建上下文，可能在交接中丢失重要信息。</p>
 <p style="margin:0 0 18px;">这周，我们团队使用 frontier 模型，继续用自然语言用例跑测试执行，并尝试了两种不同的实现方式。结果让我开始修正之前对瓶颈的判断。</p>
@@ -10,10 +10,10 @@
 <p style="margin:0 0 18px;">第二个版本，团队换了一个重点：给 frontier 模型提供 Tool，通过 Skill 讲清楚工具如何使用、测试环境如何 setup，以及执行所需的相关方法。</p>
 <p style="margin:0 0 18px;">相较于继续规定每一步怎么走，团队把更多精力放在让模型具备完成任务所需的能力与知识上，让它在执行时组织行动。</p>
 <p style="margin:0 0 18px;">这里说的 Tool，是模型可以实际调用的操作能力；Skill 则承载使用这些能力的方法、环境知识和执行约定。后文讨论的是这种组织方式，并不依赖某一种特定产品。</p>
-<h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">初步结果：约 45% 与约 80%</h2>
-<p style="margin:0 0 18px;">这次只跑了 3 个 feature，按当前统计口径，第一个版本的 execution coverage 大约是 45%，第二个版本可以做到约 80%。</p>
+<h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">初步结果：约 45% 与约 75%</h2>
+<p style="margin:0 0 18px;">这轮测试覆盖了 3 个 feature。按团队当前的统计口径，预先编排步骤的 pipeline 执行了约 45% 的测试用例，Tool + Skill 版本执行了约 75%，两者相差约 30 个百分点。</p>
 <p style="margin:0 0 18px;">这里说的是测试用例的执行覆盖情况，不是代码覆盖率，也不是测试通过率。不能把执行了多少，直接理解成产品有多少行为已经正确。</p>
-<p style="margin:0 0 18px;">从这轮结果的观察看，第二个版本的 judgement accuracy 也明显更好。但目前还没有在这里给出统一复核后的准确率数值，因此不把这项观察写成一个量化结论。</p>
+<p style="margin:0 0 18px;">从这轮结果看，我们觉得 Tool + Skill 版本对测试通过或失败的判断也更准确。下一轮会把两种方案都完成的用例单独拿出来，逐条复核判断是否正确，再检查多跑出来的那些用例。这样可以看清覆盖范围变化对准确率比较的影响。</p>
 <p style="margin:0 0 18px;">另一个让我印象深刻的现象是：对于没有执行的 case，第二个版本给出的解释都相当合理。</p>
 <p style="margin:0 0 18px;">这很重要，因为我们需要知道系统为什么停下来。但解释合理，仍然需要与实际阻塞相互核对。只有确认它没有把本来可以完成的测试提前放弃，这类解释才构成可靠的边界判断。</p>
 <p style="margin:0 0 18px;">这些是这轮尝试看到的信号，还不是对两类架构的最终评价。</p>
@@ -29,7 +29,7 @@
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">只有 3 个 Feature，还不能回答“为什么”</h2>
 <p style="margin:0 0 18px;">样本量是这次尝试最明确的限制。</p>
 <p style="margin:0 0 18px;">3 个 feature 可能集中在某类交互或相近环境中。结果也可能受到模型配置、工具能力、上下文、执行预算以及环境状态等因素影响。</p>
-<p style="margin:0 0 18px;">这次两个版本的对比，还不足以把这些因素逐一分离。约 45% 到约 80% 的差异值得重视，但不能直接外推成其他项目上的预期收益，也不能据此断言固定 pipeline 总是不如 Tool + Skill。</p>
+<p style="margin:0 0 18px;">这次比较的是两套完整方案。要判断差距来自哪里，可以先让两个版本使用同样的工具和环境说明，只改变下一步由谁决定，再观察差距是否仍然存在。</p>
 <p style="margin:0 0 18px;">尤其要避免另一种简单归因：把所有收益都归给“让模型自由发挥”。工具是否更完整、环境说明是否更清楚、上下文是否更连续，都可能影响结果。</p>
 <p style="margin:0 0 18px;">目前我更愿意得出一个有限判断：这条路线已经表现出足够值得继续投入验证的潜力。</p>
 <h2 style="font-size:21px;line-height:1.5;margin:32px 0 18px;padding-left:12px;border-left:4px solid #257564;">下一步，先把对比做扎实</h2>
@@ -62,5 +62,5 @@
 <p style="margin:0 0 18px;">之前，团队更多投入在设计完整步骤，让模型在每个阶段完成规定动作。现在，我们想多验证另一种方式：把目标讲清楚，把工具和环境知识准备好，再让 frontier 模型在约束内完成任务。</p>
 <p style="margin:0 0 18px;">“不是所有信息，都该变成自然语言”仍然是我认可的原则。但不能从某个执行系统的失败，直接推断自然语言用例不适合作为任务入口。</p>
 <p style="margin:0 0 18px;">更合适的表达方式、更充分的上下文，都需要与实际执行能力一起检验。</p>
-<p style="margin:0 0 18px;">只有 3 个 feature，还不足以宣布哪条路线胜出。但这次从约 45% 到约 80% 的观察，已经让我们愿意继续扩大测试：下一轮，少替模型预设一些步骤，多验证 frontier 模型在工具与知识支持下究竟能完成什么。</p>
+<p style="margin:0 0 18px;">这 3 个 feature 的结果已经值得我们扩大测试。下一轮，我最想知道的是，换一批功能后，哪些用例仍然受益于让 frontier 模型自己选择下一步，以及它给出的验收判断能否经得起复核。</p>
 </section>
